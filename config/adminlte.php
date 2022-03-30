@@ -240,32 +240,81 @@ return [
         
         [
             'text' => 'blog',
-            'url'  => 'admin/blog',
+            'url'  => '#',
             'can'  => 'manage-blog',
         ],
         ['header' => 'account_settings'],
         [
             'text' => 'Inicio',
-            'url'  => 'admin/index',
-            'icon' => 'fa fa-search',
+            'url'  => '#',
+            'icon' => 'fa fa-home',
             
         ],
         [
             'text' => 'Prestamos',
             'url'  => 'admin/settings',
-            'icon' => 'fa fa-calendar',
+            'icon' => 'fa fa-handshake',
             'submenu' => [
                 [
                     'text' => 'Todos los prestamos',
+                    'url'  => '#',
+                ],
+                [
+                    'text' => 'Adeudos',
                     'url'  => '#',
                 ]
             
             ,]
         ],
         [
-            'text' => 'Reportes',
+            'text' => 'Tramite',
             'url'  => 'admin/settings',
-            'icon' => 'fa fa-calendar',
+            'icon' => 'fa fa-id-card',
+            'submenu' => [
+                [
+                    'text' => 'Iniciar tramite',
+                    'url'  => '#',
+                    //En una misma pagina agregar tramites (baja T, baja D,egresados)
+                    //Dar opcion para cancelar el tramite
+                ],
+                [
+                    'text' => 'Consultar adeudo',
+                    'url'  => '#',
+                ],
+                
+            
+            ]
+        ],
+        [
+            'text' => 'Liberacion',
+            'url'  => 'admin/settings',
+            'icon' => 'fa fa-commenting',
+            'submenu' => [
+                [
+                    'text' => 'Iniciar liberacion',
+                    'url'  => '#',
+                    //
+                ],
+                [
+                    'text' => 'Comprobar liberacion',
+                    'url'  => '#',
+                    //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
+                ],
+                
+            
+            ]
+        ],
+        [
+            'text' => 'Reporte',
+            'url'  => 'admin/settings',
+            'icon' => 'fa fa-flag',
+            'submenu' => [
+                [
+                    'text' => 'Generar reporte',
+                    'url'  => '#',
+                    //
+                ],
+            ]
         ],
         [
             'text' => 'Inventario',
@@ -275,12 +324,12 @@ return [
         [
             'text' => 'Opciones',
             'url'  => 'admin/settings',
-            'icon' => 'fa fa-calendar',
+            'icon' => 'fa fa-cog',
         ],
         [
             'text' => 'Salir',
             'url'  => 'admin/settings',
-            'icon' => 'fa fa-calendar',
+            'icon' => 'fa fa-sign-out',
         ],
         /*[
             'text'    => 'multilevel',
