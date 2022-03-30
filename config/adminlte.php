@@ -292,7 +292,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Iniciar liberacion',
-                    'url'  => '#',
+                    'url'  => '/inicarliberacion',
                     //
                 ],
                 [

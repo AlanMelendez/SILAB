@@ -11,6 +11,10 @@
 |
 */
 
+use App\Http\Controllers\alumnosController;
+
 Route::get('/', function () {
     return view('panel-control');
 });
+
+Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
