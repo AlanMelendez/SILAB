@@ -18,3 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
+
+Route::get('/consultarAdeudo', [alumnosController::class, 'consultaA']);

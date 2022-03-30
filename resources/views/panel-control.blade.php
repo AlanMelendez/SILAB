@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-  <h2 class="saludo">SILAB!</h2>
+  <h2 class="saludo">PAGINA DE BIENVENIDA!!!!!</h2>
 @stop
 
 @section('css')

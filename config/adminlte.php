@@ -273,13 +273,13 @@ return [
             'submenu' => [
                 [
                     'text' => 'Iniciar tramite',
-                    'url'  => '#',
+                    'url'  => 'iniciarliberacion',
                     //En una misma pagina agregar tramites (baja T, baja D,egresados)
                     //Dar opcion para cancelar el tramite
                 ],
                 [
                     'text' => 'Consultar adeudo',
-                    'url'  => '#',
+                    'url'  => 'consultarAdeudo',
                 ],
                 
             

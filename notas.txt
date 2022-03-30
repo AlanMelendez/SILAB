@@ -1,3 +1,10 @@
 Link de iconos:
 https://fontawesome.com/v4/icons/
 https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Installation
+
+
+Comandos:
+    Crear controlador:
+        php artisan make:controller recursosHumanosController
+
+        
