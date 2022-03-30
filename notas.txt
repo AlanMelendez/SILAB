@@ -7,4 +7,9 @@ Comandos:
     Crear controlador:
         php artisan make:controller recursosHumanosController
 
+    Verificar version Laravel:
+        php artisan --version 
+
+    
+
         

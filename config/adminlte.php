@@ -226,7 +226,7 @@ return [
 
     'menu' => [
         // Navbar items:
-        /*[
+       /* [
             'type'         => 'navbar-search',
             'text'         => 'search',
             'topnav_right' => true,
@@ -288,7 +288,7 @@ return [
         [
             'text' => 'Liberacion',
             'url'  => 'admin/settings',
-            'icon' => 'fa fa-commenting',
+            'icon' => 'fa fa-file',
             'submenu' => [
                 [
                     'text' => 'Iniciar liberacion',
@@ -319,7 +319,7 @@ return [
         [
             'text' => 'Inventario',
             'url'  => 'admin/settings',
-            'icon' => 'fa fa-calendar',
+            'icon' => 'fa fa-warehouse',
         ],
         [
             'text' => 'Opciones',
@@ -329,7 +329,7 @@ return [
         [
             'text' => 'Salir',
             'url'  => 'admin/settings',
-            'icon' => 'fa fa-sign-out',
+            'icon' => 'fa fa-sign-out-alt',
         ],
         /*[
             'text'    => 'multilevel',
