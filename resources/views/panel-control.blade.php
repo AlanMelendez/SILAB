@@ -7,7 +7,11 @@
 @stop
 
 @section('content')
-    <h1>Contenido de nuestro sitio! </h1>
+    <h2>Tabla para mostrar todos los prestamos</h2>
+    <div class="table">
+        <table></table>
+    
+    </div>
     
 @stop
 

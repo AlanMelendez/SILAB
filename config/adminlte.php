@@ -248,9 +248,37 @@ return [
             'text' => 'Inicio',
             'url'  => 'admin/index',
             'icon' => 'fa fa-search',
+            
         ],
         [
-            'text' => 'Prestamos Recientes',
+            'text' => 'Prestamos',
+            'url'  => 'admin/settings',
+            'icon' => 'fa fa-calendar',
+            'submenu' => [
+                [
+                    'text' => 'Todos los prestamos',
+                    'url'  => '#',
+                ]
+            
+            ,]
+        ],
+        [
+            'text' => 'Reportes',
+            'url'  => 'admin/settings',
+            'icon' => 'fa fa-calendar',
+        ],
+        [
+            'text' => 'Inventario',
+            'url'  => 'admin/settings',
+            'icon' => 'fa fa-calendar',
+        ],
+        [
+            'text' => 'Opciones',
+            'url'  => 'admin/settings',
+            'icon' => 'fa fa-calendar',
+        ],
+        [
+            'text' => 'Salir',
             'url'  => 'admin/settings',
             'icon' => 'fa fa-calendar',
         ],
