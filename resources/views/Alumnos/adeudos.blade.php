@@ -1,6 +1,7 @@
 @extends('adminlte::page')
 @section('title', 'SILAB')
 <head>
+  <link href="{{ asset('resources/css/tramite.css') }}" rel="stylesheet">
   <link rel="stylesheet" href="css/tramites.css">
 </head>
 @section('content')

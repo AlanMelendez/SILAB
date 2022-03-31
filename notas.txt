@@ -10,6 +10,9 @@ Comandos:
     Verificar version Laravel:
         php artisan --version 
 
+Para usar CSS:
+<link href="{{ asset('css/tramite-layout.css') }}" rel="stylesheet"> la carpeta css hace referencia a la que esta en public
+
     
 
         
