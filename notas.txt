@@ -9,7 +9,18 @@ Comandos:
 
     Verificar version Laravel:
         php artisan --version 
-
+    Instalar apliacion:
+        0- Verificar el archivo php.ini y borrar las comillas del 'fileinfo'
+        1-composer install
+        2-copy .env.example .env
+        3-php artisan key:generate
+        4-npm install
+ Modulos
+        Monica: reportes
+        Daniela: Inventarios
+        Lupita: Opciones
+        Freddy: Liberacion
+        Sebas: Prestamos
 Para usar CSS:
 <link href="{{ asset('css/tramite-layout.css') }}" rel="stylesheet"> la carpeta css hace referencia a la que esta en public
 
