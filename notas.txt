@@ -4,6 +4,11 @@ https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Installation
 
 
 Comandos:
+    Instalar apliacion:
+        1-composer install
+        2-copy .env.example .env
+        3-php artisan key:generate
+        4-npm install
     Crear controlador:
         php artisan make:controller recursosHumanosController
 
@@ -23,6 +28,8 @@ Comandos:
         Sebas: Prestamos
 Para usar CSS:
 <link href="{{ asset('css/tramite-layout.css') }}" rel="stylesheet"> la carpeta css hace referencia a la que esta en public
+
+    
 
     
 
