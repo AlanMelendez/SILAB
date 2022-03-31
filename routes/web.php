@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\alumnosController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('panel-control');
@@ -20,3 +21,4 @@ Route::get('/', function () {
 Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
 
 Route::get('/consultarAdeudo', [alumnosController::class, 'consultaA']);
+
