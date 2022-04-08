@@ -3,24 +3,17 @@
 @section('title', 'SILAB')
 
 @section('content_header')
-    <h1>SILAB</h1>
+    <h1>PRESTAMOS SECCION PARA MAESTROS</h1>
 @stop
 
 @section('content')
     <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">DataTable with default features</h3>
-        </div>
 
         <div class="card-body">
             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <div class="dt-buttons btn-group flex-wrap"> <button
-                                class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1"
-                                type="button"><span>Copy</span></button> <button
-                                class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1"
-                                type="button"><span>CSV</span></button> <button
                                 class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1"
                                 type="button"><span>Excel</span></button> <button
                                 class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1"
@@ -46,18 +39,23 @@
                                 <tr>
                                     <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
                                         colspan="1" aria-sort="ascending"
-                                        aria-label="Rendering engine: activate to sort column descending">Rendering engine
+                                        aria-label="Rendering engine: activate to sort column descending">ID
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        aria-label="Browser: activate to sort column ascending" style="">Browser</th>
+                                        aria-label="Browser: activate to sort column ascending" style="">Nombre</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        aria-label="Platform(s): activate to sort column ascending" style="">Platform(s)
+                                        aria-label="Platform(s): activate to sort column ascending" style="">Apellidos
                                     </th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        aria-label="Engine version: activate to sort column ascending" style="">Engine
-                                        version</th>
+                                        aria-label="Engine version: activate to sort column ascending" style="">No. Control</th>
                                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        aria-label="CSS grade: activate to sort column ascending" style="">CSS grade</th>
+                                        aria-label="CSS grade: activate to sort column ascending" style="">Material</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="CSS grade: activate to sort column ascending" style="">Cantidad</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                        aria-label="CSS grade: activate to sort column ascending" style="">Fecha</th>
+                                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="CSS grade: activate to sort column ascending" style="">Accion</th>    
                                 </tr>
                             </thead>
                             <tbody>
@@ -132,15 +130,7 @@
                                     <td style="">A</td>
                                 </tr>
                             </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th rowspan="1" colspan="1">Rendering engine</th>
-                                    <th rowspan="1" colspan="1" style="">Browser</th>
-                                    <th rowspan="1" colspan="1" style="">Platform(s)</th>
-                                    <th rowspan="1" colspan="1" style="">Engine version</th>
-                                    <th rowspan="1" colspan="1" style="">CSS grade</th>
-                                </tr>
-                            </tfoot>
+                           
                         </table>
                     </div>
                 </div>

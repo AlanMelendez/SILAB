@@ -24,4 +24,5 @@ Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
 Route::get('/consultarAdeudo', [alumnosController::class, 'consultaA']);
 
 
+Route::get('/cosnultarAdeudoAlumno', [prestamosContoller::class,'consultaAdeudoAlumno']);
 Route::get('/todosPrestamos', [prestamosContoller::class,'todosPrestamos']);

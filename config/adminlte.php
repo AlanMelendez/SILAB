@@ -260,11 +260,11 @@ return [
                     'url'  => 'todosPrestamos',
                 ],
                 [
-                    'text' => 'Adeudos',
-                    'url'  => '#',
-                ]
+                    'text' => 'AdeudosA',
+                    'url'  => 'a',
+                ],
             
-            ,]
+            ]
         ],
         [
             'text' => 'Tramite',
