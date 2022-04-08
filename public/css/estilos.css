@@ -1,0 +1,49 @@
+[class*=sidebar-dark-] {
+    background-color: #042c9d;
+}
+
+.navbar-white {
+    background-color: rgb(255 255 255 / 80%);
+    color: #1f2d3d;
+}
+
+.content-wrapper {
+    background-color: #eff0f1;
+}
+
+.sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active {
+    background-color: #232427;
+    color: rgb(251 251 251 / 80%);
+}
+
+.navbar-light {
+    background-color: #f8f9fa00;
+}
+
+.btn-outline-primary {
+    color: #ffffff;
+    border-color: #2e2d2d;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #2e2d2d;
+    border: 1px solid transparent;
+    padding: 0.3rem 0.85rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.4rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+.bg-light {
+    background-color: #f8f9fa00!important;
+}

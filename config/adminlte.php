@@ -290,11 +290,11 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fa fa-file',
             'submenu' => [
-                [
+                /*[
                     'text' => 'Iniciar liberacion',
                     'url'  => '/inicarliberacion',
                     //
-                ],
+                ],*/
                 [
                     'text' => 'Comprobar liberacion',
                     'url'  => 'comprobanteLiberacion',
@@ -318,8 +318,19 @@ return [
         ],
         [
             'text' => 'Inventario',
-            'url'  => 'admin/settings',
+            'url'  => 'inventario',
             'icon' => 'fa fa-warehouse',
+            'submenu' => [
+                [
+                    'text' => 'Laboratorios',
+                    'url'  => 'informacionLaboratorios',
+                    //
+                ],
+                [
+                    'text' => 'Articulos',
+                    'url'  => 'consultarArticulos',
+                ],
+            ]
         ],
         [
             'text' => 'Opciones',
