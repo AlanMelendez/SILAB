@@ -29,6 +29,9 @@ Comandos:
 Para usar CSS:
 <link href="{{ asset('css/tramite-layout.css') }}" rel="stylesheet"> la carpeta css hace referencia a la que esta en public
 
+Para error de base de datos:
+    php artisan config:cache
+
     
 
     

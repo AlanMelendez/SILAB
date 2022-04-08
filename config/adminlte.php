@@ -257,7 +257,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Todos los prestamos',
-                    'url'  => '#',
+                    'url'  => 'todosPrestamos',
                 ],
                 [
                     'text' => 'Adeudos',
