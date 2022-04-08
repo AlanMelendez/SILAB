@@ -2,6 +2,7 @@
 @section('title', 'SILAB')
 <head>
   <link href="{{ asset('resources/css/tramite.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
   <link rel="stylesheet" href="css/tramites.css">
 </head>
 @section('content')
@@ -60,5 +61,9 @@
         </tbody>
       </table>
   </div>
+@stop
+@section('css')
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
 @stop
 

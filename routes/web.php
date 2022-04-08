@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\alumnosController;
+use App\Http\Controllers\laboratoristasController;
 use App\Http\Controllers\ayudaController;
 use App\Http\Controllers\LiberacionesController;
 use App\Http\Controllers\prestamosContoller;
@@ -38,6 +39,9 @@ Route::get('/comprobanteLiberacion', [LiberacionesController::class,'Mostrar_Lib
 //Ayuda
 Route::get('/mostrarAyuda', [ayudaController::class,'mostrarAyuda']);
 
+Route::get('/informacionLaboratorios', 'laboratoristasController@show');
+
+Route::get('/consultarArticulos', [laboratoristasController::class, 'mostrarArticulos']);
 
 >>>>>>> 9010595808165fe48a2177fbf825482024529889
 
