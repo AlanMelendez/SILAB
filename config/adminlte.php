@@ -297,7 +297,7 @@ return [
                 ],
                 [
                     'text' => 'Comprobar liberacion',
-                    'url'  => '#',
+                    'url'  => 'comprobanteLiberacion',
                     //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
                 ],
                 

@@ -8,7 +8,7 @@ class LiberacionesController extends Controller
 {
     //
     public function Mostrar_liberados(){
-        return view ('liberacion/Liberaciones');
+        return view ('liberacion/Comprobante');
 
     }
 
