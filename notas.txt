@@ -31,6 +31,8 @@ Para usar CSS:
 
 Para error de base de datos:
     php artisan config:cache
+Si tenemos error al no actualizar datos de AdminLTE
+    php artisan config:clear
 
     
 

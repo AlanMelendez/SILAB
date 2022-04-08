@@ -260,8 +260,8 @@ return [
                     'url'  => 'todosPrestamos',
                 ],
                 [
-                    'text' => 'AdeudosA',
-                    'url'  => 'a',
+                    'text' => 'Adeudos',
+                    'url'  => 'cosnultarAdeudoAlumno',
                 ],
             
             ]
