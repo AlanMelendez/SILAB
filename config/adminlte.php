@@ -257,14 +257,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'Todos los prestamos',
-                    'url'  => '#',
+                    'url'  => 'todosPrestamos',
                 ],
                 [
                     'text' => 'Adeudos',
-                    'url'  => '#',
-                ]
+                    'url'  => 'cosnultarAdeudoAlumno',
+                ],
             
-            ,]
+            ]
         ],
         [
             'text' => 'Tramite',

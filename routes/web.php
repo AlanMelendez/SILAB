@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\alumnosController;
+use App\Http\Controllers\prestamosContoller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,3 +23,6 @@ Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
 
 Route::get('/consultarAdeudo', [alumnosController::class, 'consultaA']);
 
+
+Route::get('/cosnultarAdeudoAlumno', [prestamosContoller::class,'consultaAdeudoAlumno']);
+Route::get('/todosPrestamos', [prestamosContoller::class,'todosPrestamos']);
