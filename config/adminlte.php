@@ -323,8 +323,15 @@ return [
         ],
         [
             'text' => 'Opciones',
-            'url'  => 'admin/settings',
+            'url'  => '#',
             'icon' => 'fa fa-cog',
+            'submenu' => [
+                [
+                    'text' => 'Ayuda',
+                    'url'  => 'mostrarAyuda',
+                    //
+                ],
+            ]    
         ],
         [
             'text' => 'Salir',

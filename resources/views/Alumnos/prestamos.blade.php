@@ -18,15 +18,15 @@
                                 type="button"><span>Excel</span></button> <button
                                 class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1"
                                 type="button"><span>PDF</span></button> <button class="btn btn-secondary buttons-print"
-                                tabindex="0" aria-controls="example1" type="button"><span>Print</span></button>
+                                tabindex="0" aria-controls="example1" type="button"><span>Imprimir</span></button>
                             <div class="btn-group"><button
                                     class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0"
-                                    aria-controls="example1" type="button" aria-haspopup="true"><span>Column
-                                        visibility</span><span class="dt-down-arrow"></span></button></div>
+                                    aria-controls="example1" type="button" aria-haspopup="true"><span>Filtros</span><span class="dt-down-arrow"></span></button>
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-12 col-md-6">
-                        <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search"
+                        <div id="example1_filter" class="dataTables_filter"><label>Buscar:<input type="search"
                                     class="form-control form-control-sm" placeholder="" aria-controls="example1"></label>
                         </div>
                     </div>
