@@ -7,7 +7,7 @@
 @section('content')
 <div class="navbar">
   <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand" style="margin-right: 525px;">ADEUDOS</a>
+    <a class="navbar-brand" style="margin-right: 525px;">ADEUDOS PARA ALUMNOS</a>
     <form class="form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
       <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Buscar</button>

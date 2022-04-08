@@ -257,14 +257,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'Todos los prestamos',
-                    'url'  => '#',
+                    'url'  => 'todosPrestamos',
                 ],
                 [
                     'text' => 'Adeudos',
-                    'url'  => '#',
-                ]
+                    'url'  => 'cosnultarAdeudoAlumno',
+                ],
             
-            ,]
+            ]
         ],
         [
             'text' => 'Tramite',
@@ -297,7 +297,7 @@ return [
                 ],
                 [
                     'text' => 'Comprobar liberacion',
-                    'url'  => '#',
+                    'url'  => 'comprobanteLiberacion',
                     //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
                 ],
                 
@@ -323,8 +323,15 @@ return [
         ],
         [
             'text' => 'Opciones',
-            'url'  => 'admin/settings',
+            'url'  => '#',
             'icon' => 'fa fa-cog',
+            'submenu' => [
+                [
+                    'text' => 'Ayuda',
+                    'url'  => 'mostrarAyuda',
+                    //
+                ],
+            ]    
         ],
         [
             'text' => 'Salir',
