@@ -305,13 +305,13 @@ return [
             ]
         ],
         [
-            'text' => 'Reporte',
+            'text' => 'Estadisticas',
             'url'  => 'admin/settings',
-            'icon' => 'fa fa-flag',
+            'icon' => 'fa fa-file',
             'submenu' => [
                 [
                     'text' => 'Generar reporte',
-                    'url'  => '#',
+                    'url'  => 'generarReporte',
                     //
                 ],
             ]
