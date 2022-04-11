@@ -26,6 +26,9 @@ Route::get('/', function () {
 Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
 Route::get('/consultarAdeudo', [alumnosController::class, 'consultaA']);
 
+<<<<<<< HEAD
+Route::get('/generarReporte', 'FinancierosController@show');
+=======
 //Prestamos
 Route::get('/cosnultarAdeudoAlumno', [prestamosController::class,'consultaAdeudoAlumno']);
 Route::get('/todosPrestamos', [prestamosController::class,'todosPrestamos']);
@@ -40,6 +43,10 @@ Route::get('/informacionLaboratorios', 'laboratoristasController@show');
 
 Route::get('/consultarArticulos', [laboratoristasController::class, 'mostrarArticulos']);
 
+<<<<<<< HEAD
 //Todos registros
 Route::get('/todosRegistros',  [prestamosController::class,'showRegistros']);
+=======
+>>>>>>> 9010595808165fe48a2177fbf825482024529889
+>>>>>>> db7d157359b5d7e1792a2fe1640b64dd754180ad
 
