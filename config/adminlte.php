@@ -263,14 +263,11 @@ return [
                     'text' => 'Adeudos',
                     'url'  => 'cosnultarAdeudoAlumno',
                 ],
-<<<<<<< HEAD
-
-=======
                 [
                     'text' => 'Registros',
                     'url'  => 'todosRegistros',
                 ],
->>>>>>> 4f65dac63d46e23669a54f7c1a2cefeddaf973d8
+
             ]
         ],
         [
