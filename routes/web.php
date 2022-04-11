@@ -15,7 +15,7 @@ use App\Http\Controllers\alumnosController;
 use App\Http\Controllers\laboratoristasController;
 use App\Http\Controllers\ayudaController;
 use App\Http\Controllers\LiberacionesController;
-use App\Http\Controllers\prestamosContoller;
+use App\Http\Controllers\prestamosController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -27,8 +27,8 @@ Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
 Route::get('/consultarAdeudo', [alumnosController::class, 'consultaA']);
 
 //Prestamos
-Route::get('/cosnultarAdeudoAlumno', [prestamosContoller::class,'consultaAdeudoAlumno']);
-Route::get('/todosPrestamos', [prestamosContoller::class,'todosPrestamos']);
+Route::get('/cosnultarAdeudoAlumno', [prestamosController::class,'consultaAdeudoAlumno']);
+Route::get('/todosPrestamos', [prestamosController::class,'todosPrestamos']);
 
 //Liberacion Docentes
 Route::get('/comprobanteLiberacion', [LiberacionesController::class,'Mostrar_Liberados']);
@@ -40,4 +40,6 @@ Route::get('/informacionLaboratorios', 'laboratoristasController@show');
 
 Route::get('/consultarArticulos', [laboratoristasController::class, 'mostrarArticulos']);
 
+//Todos registros
+Route::get('/todosRegistros',  [prestamosController::class,'showRegistros']);
 

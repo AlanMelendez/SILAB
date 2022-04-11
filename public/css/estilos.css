@@ -20,6 +20,8 @@
     background-color: #f8f9fa00;
 }
 
+
+
 .btn-outline-primary {
     color: #ffffff;
     border-color: #2e2d2d;
@@ -46,4 +48,8 @@
 
 .bg-light {
     background-color: #f8f9fa00!important;
+}
+.btn-agregar{
+    background-color: #11db3d;
+
 }
