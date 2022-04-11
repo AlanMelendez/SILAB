@@ -1,55 +1,20 @@
-@extends('adminlte::page')
-
-@section('title', 'SILAB')
-
-@section('content_header')
-    <h1>PRESTAMOS SECCION PARA MAESTROS</h1>
-@stop
-
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/admin_custom.css">
+    <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+    <title>Document</title>
+</head>
+<body>
     <div class="card">
 
         <div class="card-body">
-            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+            <div id="example1_wrapper" class="tabla-datos dataTables_wrapper dt-bootstrap4">
                 <div class="row">
-                        <div class="col-xl-9">
-                            <div class="dt-buttons btn-group flex-wrap  col-sm-6"> 
-                                <button
-                                    class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1"
-                                    type="button"><span>Excel</span>
-                                </button> 
-                                <button
-                                    class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1"
-                                    type="button"><span>PDF</span>
-                                </button>
-                                <button class="btn btn-secondary buttons-print"
-                                    tabindex="0" aria-controls="example1" type="button"><span>Imprimir</span>
-                                </button>
-                                
-                                <div class="btn-group">
-                                    <button
-                                        class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0"
-                                        aria-controls="example1" type="button" aria-haspopup="true"><span>Filtros</span><span class="dt-down-arrow"></span>
-                                    </button>
-                                </div>
-                                <button
-                                    class="btn btn-succes btn-agregar" tabindex="0" aria-controls="example1"
-                                    type="button"><span>Agregar</span>
-                                </button>
-                                
-                            </div>
-                           
-                           
-                        </div>
-                        <div class=" col-xl-3">
-                            <input type="search" id="barraSearch"class="form-control form-control-sm barraSearch" placeholder="Buscar registro" aria-controls="example1">
-                       </div>
-                       
-                    </div>
-                    
-                </div>
-                <div class="row">
-                    <div class="tabla-datos col-sm-12">
+                    <div class=" col-sm-12">
                         <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"
                             aria-describedby="example1_info">
                             <thead>
@@ -151,6 +116,7 @@
                             </tbody>
                            
                         </table>
+                       
                     </div>
                 </div>
                 <div class="row">
@@ -184,11 +150,10 @@
                     </div>
                 </div>
             </div>
+           
         </div>
-
+        
     </div>
-@stop
-@section('css')
-<link rel="stylesheet" href="/css/admin_custom.css">
-<link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
-@stop
+    <p> </p>
+</body>
+</html>

@@ -263,7 +263,14 @@ return [
                     'text' => 'Adeudos',
                     'url'  => 'cosnultarAdeudoAlumno',
                 ],
+<<<<<<< HEAD
 
+=======
+                [
+                    'text' => 'Registros',
+                    'url'  => 'todosRegistros',
+                ],
+>>>>>>> 4f65dac63d46e23669a54f7c1a2cefeddaf973d8
             ]
         ],
         [
@@ -290,11 +297,11 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fa fa-file',
             'submenu' => [
-                [
+                /*[
                     'text' => 'Iniciar liberacion',
                     'url'  => '/Liberacion2',
                     //
-                ],
+                ],*/
                 [
                     'text' => 'Tabla liberados',
                     'url'  => 'comprobanteLiberacion',
@@ -305,26 +312,44 @@ return [
             ]
         ],
         [
-            'text' => 'Reporte',
+            'text' => 'Estadisticas',
             'url'  => 'admin/settings',
-            'icon' => 'fa fa-flag',
+            'icon' => 'fa fa-file',
             'submenu' => [
                 [
                     'text' => 'Generar reporte',
-                    'url'  => '#',
+                    'url'  => 'generarReporte',
                     //
                 ],
             ]
         ],
         [
             'text' => 'Inventario',
-            'url'  => 'admin/settings',
+            'url'  => 'inventario',
             'icon' => 'fa fa-warehouse',
+            'submenu' => [
+                [
+                    'text' => 'Laboratorios',
+                    'url'  => 'informacionLaboratorios',
+                    //
+                ],
+                [
+                    'text' => 'Articulos',
+                    'url'  => 'consultarArticulos',
+                ],
+            ]
         ],
         [
             'text' => 'Opciones',
-            'url'  => 'admin/settings',
+            'url'  => '#',
             'icon' => 'fa fa-cog',
+            'submenu' => [
+                [
+                    'text' => 'Ayuda',
+                    'url'  => 'mostrarAyuda',
+                    //
+                ],
+            ]    
         ],
         [
             'text' => 'Salir',
