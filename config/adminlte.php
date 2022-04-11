@@ -237,7 +237,7 @@ return [
         ],*/
 
         // Sidebar items:
-        
+
         [
             'text' => 'blog',
             'url'  => '#',
@@ -248,7 +248,7 @@ return [
             'text' => 'Inicio',
             'url'  => '#',
             'icon' => 'fa fa-home',
-            
+
         ],
         [
             'text' => 'Prestamos',
@@ -263,7 +263,7 @@ return [
                     'text' => 'Adeudos',
                     'url'  => 'cosnultarAdeudoAlumno',
                 ],
-            
+
             ]
         ],
         [
@@ -281,8 +281,8 @@ return [
                     'text' => 'Consultar adeudo',
                     'url'  => 'consultarAdeudo',
                 ],
-                
-            
+
+
             ]
         ],
         [
@@ -292,16 +292,16 @@ return [
             'submenu' => [
                 [
                     'text' => 'Iniciar liberacion',
-                    'url'  => '/inicarliberacion',
+                    'url'  => '/Liberacion2',
                     //
                 ],
                 [
-                    'text' => 'Comprobar liberacion',
+                    'text' => 'Tabla liberados',
                     'url'  => 'comprobanteLiberacion',
                     //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
                 ],
-                
-            
+
+
             ]
         ],
         [

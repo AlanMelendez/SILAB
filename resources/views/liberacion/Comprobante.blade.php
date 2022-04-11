@@ -4,68 +4,84 @@
 
 @section('content_header')
     <div class="titulo-container">
-        <h2 class="titulo-head">COMPROBANTE DE LIBERACION</h2>
+        <h2 class="titulo-head">ALUMNOS LIBERADOS</h2>
     </div>
 @stop
 
 @section('content')
 
-        <h5> Instructivo basico para crear tu comprobante de liberacion: </h5>
-        <ul> 1. Rellenar cada punto que se te pide.
-        <dl> 2. Presionar en el boton Generar.
-        <dl> 3. Descargar tu comprobante.</dl>
-        </ul>
-
-        &nbsp;
-
-        <div class="form-nombre">
-            <label for="exampleFormControlInput1">Nombre Alumno</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Jose Alfredo">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Apellidos</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Galvan Medrano">
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlInput1">Numero Control</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="192317538">
-          </div>
-
-
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Semestre</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="exampleFormControlSelect1">Ingenierias</label>
-            <select class="form-control" id="exampleFormControlSelect1">
-              <option>ING. INFORMATICA</option>
-              <option>ING. SISTEMAS</option>
-              <option>ING. SISTEMAS AUTOMOTRICES</option>
-              <option>ING. AMBIENTAL</option>
-              <option>ING. INDUSTRIAL</option>
-              <option>ING. GESTION EMPRESARIAL</option>
-              <option>ING. ELECTRONICA</option>
-            </select>
-          </div>
-
-          <button type="button" class="btn btn-dark">Generar Comprobante</button>
+<div class="row">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Search">
+        <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Buscar Alumno</button>
+      </form>
+    <div class="col-sm-12">
+        <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"
+            aria-describedby="example1_info">
+            <thead>
+                <tr>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        aria-label="Browser: activate to sort column ascending" style="">Nombre</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        aria-label="Platform(s): activate to sort column ascending" style="">Apellidos
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        aria-label="Engine version: activate to sort column ascending" style="">No. Control</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        aria-label="CSS grade: activate to sort column ascending" style="">Fecha</th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                    aria-label="CSS grade: activate to sort column ascending" style="">Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="odd">
+                    <td class="dtr-control sorting_1" tabindex="0">Jose Alfredo</td>
+                    <td style="">Galvan Medrano</td>
+                    <td style="">192310670</td>
+                    <td style="">8/04/2022</td>
+                    <td style=""><button type="button" class="btn btn-success">O</button>
+                        <button type="button" class="btn btn-danger">X</button></td>
+                </tr>
+                <tr class="odd">
+                    <td class="dtr-control sorting_1" tabindex="0">Monica</td>
+                    <td style="">Guadalupe</td>
+                    <td style="">192331232</td>
+                    <td style="">8/04/2022</td>
+                    <td style=""><button type="button" class="btn btn-success">O</button>
+                        <button type="button" class="btn btn-danger">X</button></td>
+                </tr>
+                <tr class="odd">
+                    <td class="dtr-control sorting_1" tabindex="0">Maria</td>
+                    <td style="">Guadalupe</td>
+                    <td style="">192332131</td>
+                    <td style="">8/04/2022</td>
+                    <td style=""><button type="button" class="btn btn-success">O</button>
+                        <button type="button" class="btn btn-danger">X</button></td>
+                </tr>
+                <tr class="odd">
+                    <td class="dtr-control sorting_1" tabindex="0">Daniela</td>
+                    <td style="">pena</td>
+                    <td style="">192321370</td>
+                    <td style="">8/04/2022</td>
+                    <td style=""><button type="button" class="btn btn-success">O</button>
+                        <button type="button" class="btn btn-danger">X</button></td>
+                </tr>
+                <tr class="odd">
+                    <td class="dtr-control sorting_1" tabindex="0">Sebas</td>
+                    <td style="">Alcantar</td>
+                    <td style="">192312310</td>
+                    <td style="">8/04/2022</td>
+                    <td style=""><button type="button" class="btn btn-success">O</button>
+                        <button type="button" class="btn btn-danger">X</button></td>
+                </tr>
+                <tr class="odd">
+                    <td class="dtr-control sorting_1" tabindex="0">Damaris</td>
+                    <td style="">Guadalupe</td>
+                    <td style="">192312312</td>
+                    <td style="">8/04/2022</td>
+                    <td style=""><button type="button" class="btn btn-success">O</button>
+                        <button type="button" class="btn btn-danger">X</button></td>
+                </tr>
 
 @stop
 

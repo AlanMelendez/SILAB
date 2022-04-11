@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\alumnosController;
+use App\Http\Controllers\Liberacion2Controller;
 use App\Http\Controllers\LiberacionesController;
 use App\Http\Controllers\prestamosContoller;
 use Illuminate\Support\Facades\Route;
@@ -28,4 +29,6 @@ Route::get('/cosnultarAdeudoAlumno', [prestamosContoller::class,'consultaAdeudoA
 Route::get('/todosPrestamos', [prestamosContoller::class,'todosPrestamos']);
 
 Route::get('/comprobanteLiberacion', [LiberacionesController::class,'Mostrar_Liberados']);
+Route::get('/Liberacion2', [Liberacion2Controller::class,'Liberados2xd']);
+
 
