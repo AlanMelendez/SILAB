@@ -1,6 +1,6 @@
-<div class="row">
-    <div class="col-xl-9">
-        <div class="dt-buttons btn-group flex-wrap  col-sm-6"> 
+<div class="container-nav">
+    <div class="">
+        <div class="dt-buttons btn-group   col-sm-6"> 
             <button
                 class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1"
                 type="button"><span>Excel</span>
@@ -25,12 +25,17 @@
             </button>
             
         </div>
-       
-       
+        
     </div>
-    <div class=" col-xl-3 nav-{{$classNav}}">
+    {{-- <div class=" ">
         <input type="search" id="barraSearch"class="form-control form-control-sm barraSearch" placeholder="Buscar registro" aria-controls="example1">
-   </div>
+   </div> --}}
+   <div class="container navegacion-barra">
+        <form class="form-inline">
+            <input class="form-control mr-sm-2" type="search" placeholder="Buscar registro" aria-label="Search">
+            <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Buscar Alumno</button>
+        </form>
+    </div> 
    
 </div>
 
