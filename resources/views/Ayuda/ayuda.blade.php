@@ -23,9 +23,7 @@
                 <input class="input-barrabuscar" type="search" placeholder="Busca aqui mas soluciones de ayuda" aria-label="Search">
             </form>
         </div>
-        <p class="textoAyuda">
-            Aqui encontraras informacion que pouede ayudarte a utilizar la plataforma, Iniciar algun tramite y/o servicio.
-        </p>
+       
     </div>
     <div class="container">
         <div class="row">
@@ -53,12 +51,12 @@
                                             <div class="card card-body">
                                                 <p>Esta pagina fue creada principalmente para ahorrar tiempos ala hora solicitar tu carta de no adeudo.</p>
                                                 <p>Dentro de la pagina podras:</p>
-                                                    <ul>
+                                                <ul>
                                                         <li class="lista-adeudos">Iniciar un tramite de carta de no adeudo</li>
                                                         <li class="lista-adeudos">Verificar el estatus de tu tramite</li>
                                                         <li class="lista-adeudos">Visualizar adeudos activos.</li>
                                                         <li class="lista-adeudos">Visualizar registros de todos tus adeudos.</li>
-                                                    </ul>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -71,9 +69,14 @@
                                         </p>
                                         <div class="collapse" id="collapsePreguntas2">
                                             <div class="card card-body">
-                                                <p></p>
-                                                <p></p>
-                                                <p></p>
+                                                <p>Si se cuenta con algún adeudo deberas seguir cada uno de los pasos mostrados a continuacion: </p>
+                                                <ul>
+                                                    <li>El primer paso es dirigirte al apartado <a href="" style="color: blue;">Tramite > Consultar Adeudo</a> y verificar que no cuentes con ningun adeudo. </li>
+                                                    <li>Si se cuenta con algun adeudo, Tendras que hacer entrega del material adeudado en el laboratorio correspondiente.</li>
+                                                    <li>Deberas solicitar al laboratorio que se elimine tu adeudo al entregar el material.</li>
+                                                    <li><b style="color: red;">RECUERDA</b> que si cuentas adeudo en algun laboratorio, no podras solicitar mas material y de la misma forma no podras iniciar tramite de no adeudo.</li>
+                                                    
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -87,7 +90,11 @@
                                         </p>
                                         <div class="collapse" id="collapsePreguntas3">
                                             <div class="card card-body">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eaque, eos harum beatae nostrum aspernatur tempora sequi voluptatem ducimus ratione culpa vitae similique ad cum provident asperiores quos voluptate hic modi. Esse vero nostrum, facilis quo optio, voluptas sed possimus dicta officia ex obcaecati qui eaque corporis! Provident delectus sit eaque enim, suscipit qui consequatur, expedita deserunt voluptatum quisquam tempore natus dolor totam! Facere labore tempora quia distinctio quos nulla excepturi soluta sed dolore possimus commodi recusandae praesentium quasi, veritatis velit odit non exercitationem omnis minus esse et fuga. Debitis laboriosam, architecto asperiores in nulla quae error cum voluptates? Quia omnis, dicta, quasi rerum ea amet saepe sed quam maxime vitae earum officiis quo, autem soluta eius vero aliquam harum ipsa obcaecati molestiae tempore pariatur minus ipsam? Impedit sit amet culpa officia tenetur ipsam aliquam, libero asperiores animi enim. Recusandae, tenetur. Aliquam facere totam hic, deleniti quia minus voluptates, corporis distinctio natus accusamus voluptatum neque atque fugit consequuntur molestias eos fuga nisi. Saepe repudiandae ratione, praesentium nobis laborum eveniet non, nemo obcaecati quasi, voluptatibus vitae harum! Sunt, nulla! Nobis delectus molestiae animi autem eius ut ab dicta eaque ipsa dolor quibusdam commodi a, nostrum et cumque vitae molestias, cupiditate voluptates qui! Qui eveniet nihil omnis facilis consequuntur delectus sequi. In, natus corporis deleniti debitis a aspernatur itaque unde exercitationem adipisci animi hic rerum iure quidem consequatur ipsum labore quis, omnis fuga quibusdam saepe voluptate obcaecati ipsa praesentium! Id, possimus blanditiis.
+                                                <p>Es OBLIGATORIO no tener algún adeudo  ya que al tenerlo no podrás continuar con tu inscripción semestral el sistema los bloqueará  automáticamente por adeudo</p>
+                                                <ul>
+                                                    <li>Es importante a hacer entrega del material prestado para no tener dificultades al querer realizar tu inscripción </li>
+                                                    <li>Verificar tu status antes de realizar tu inscripción</li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -100,7 +107,12 @@
                                         </p>
                                         <div class="collapse" id="collapsePreguntas4">
                                             <div class="card card-body">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eaque, eos harum beatae nostrum aspernatur tempora sequi voluptatem ducimus ratione culpa vitae similique ad cum provident asperiores quos voluptate hic modi. Esse vero nostrum, facilis quo optio, voluptas sed possimus dicta officia ex obcaecati qui eaque corporis! Provident delectus sit eaque enim, suscipit qui consequatur, expedita deserunt voluptatum quisquam tempore natus dolor totam! Facere labore tempora quia distinctio quos nulla excepturi soluta sed dolore possimus commodi recusandae praesentium quasi, veritatis velit odit non exercitationem omnis minus esse et fuga. Debitis laboriosam, architecto asperiores in nulla quae error cum voluptates? Quia omnis, dicta, quasi rerum ea amet saepe sed quam maxime vitae earum officiis quo, autem soluta eius vero aliquam harum ipsa obcaecati molestiae tempore pariatur minus ipsam? Impedit sit amet culpa officia tenetur ipsam aliquam, libero asperiores animi enim. Recusandae, tenetur. Aliquam facere totam hic, deleniti quia minus voluptates, corporis distinctio natus accusamus voluptatum neque atque fugit consequuntur molestias eos fuga nisi. Saepe repudiandae ratione, praesentium nobis laborum eveniet non, nemo obcaecati quasi, voluptatibus vitae harum! Sunt, nulla! Nobis delectus molestiae animi autem eius ut ab dicta eaque ipsa dolor quibusdam commodi a, nostrum et cumque vitae molestias, cupiditate voluptates qui! Qui eveniet nihil omnis facilis consequuntur delectus sequi. In, natus corporis deleniti debitis a aspernatur itaque unde exercitationem adipisci animi hic rerum iure quidem consequatur ipsum labore quis, omnis fuga quibusdam saepe voluptate obcaecati ipsa praesentium! Id, possimus blanditiis.
+                                                <p>Si se desea iniciar un  trámite es obligatorio no tener ningún tipo de adeudo en dado caso  si tienes algún  adeudo  no podrás realizar el trámite </p>
+                                                <ul>
+                                                    <li>Podrás visitar el apartado PRESTAMOS en la vista Adeudos para verificar en que laboratorio tienes tu adeudo </li>
+                                                    <li>Es necesario liquidar tu adeudo.</li>
+                                                    <li>Luego de verificar que no tienes adeudo, Podras dirigirte al apartado <a href="" style="color: blue;">Tramite > Iniciar Tramite</a> donde verificaras tus datos personales/escolares y asi iniciar el tramite correspondiente.</li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -108,102 +120,17 @@
                                         <p>
                                         
                                             <button class="btn btn-info col-12" type="button" data-toggle="collapse" data-target="#collapsePreguntas5" aria-expanded="false" aria-controls="collapsePreguntas">
-                                                Si necesito mi reporte de liberacion, ¿A dónde acudo para solicitarlo?
+                                                Si necesito mi carte de liberacion, ¿Cuales son los pasos?
                                             </button>
                                         </p>
                                         <div class="collapse" id="collapsePreguntas5">
                                             <div class="card card-body">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eaque, eos harum beatae nostrum aspernatur tempora sequi voluptatem ducimus ratione culpa vitae similique ad cum provident asperiores quos voluptate hic modi. Esse vero nostrum, facilis quo optio, voluptas sed possimus dicta officia ex obcaecati qui eaque corporis! Provident delectus sit eaque enim, suscipit qui consequatur, expedita deserunt voluptatum quisquam tempore natus dolor totam! Facere labore tempora quia distinctio quos nulla excepturi soluta sed dolore possimus commodi recusandae praesentium quasi, veritatis velit odit non exercitationem omnis minus esse et fuga. Debitis laboriosam, architecto asperiores in nulla quae error cum voluptates? Quia omnis, dicta, quasi rerum ea amet saepe sed quam maxime vitae earum officiis quo, autem soluta eius vero aliquam harum ipsa obcaecati molestiae tempore pariatur minus ipsam? Impedit sit amet culpa officia tenetur ipsam aliquam, libero asperiores animi enim. Recusandae, tenetur. Aliquam facere totam hic, deleniti quia minus voluptates, corporis distinctio natus accusamus voluptatum neque atque fugit consequuntur molestias eos fuga nisi. Saepe repudiandae ratione, praesentium nobis laborum eveniet non, nemo obcaecati quasi, voluptatibus vitae harum! Sunt, nulla! Nobis delectus molestiae animi autem eius ut ab dicta eaque ipsa dolor quibusdam commodi a, nostrum et cumque vitae molestias, cupiditate voluptates qui! Qui eveniet nihil omnis facilis consequuntur delectus sequi. In, natus corporis deleniti debitis a aspernatur itaque unde exercitationem adipisci animi hic rerum iure quidem consequatur ipsum labore quis, omnis fuga quibusdam saepe voluptate obcaecati ipsa praesentium! Id, possimus blanditiis.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-        
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="preguntasfrecuentes col-12">
-                <div class="parrafoColapso col-12">
-                    <p>
-                    
-                        <button class="btn btn-primary col-12" type="button" data-toggle="collapse" data-target="#collapsePoliticas0" aria-expanded="false" aria-controls="collapseTerminos">
-                            Politicas y seguridad
-                        </button>
-                    </p>
-                    <div class="collapse" id="collapsePoliticas0">
-                        <div class="card card-body">
-                            <div class="container-faq col-12 ">
-                                <div class="title-faq col-12">
-                                    
-                                    <div class="parrafoColapso col-12">
-                                        <p>
-                                        
-                                            <button class="btn btn-info  col-12" type="button" data-toggle="collapse" data-target="#collapsePoliticas1" aria-expanded="false" aria-controls="collapsePoliticas">
-                                                Politicas ITSL
-                                            </button>
-                                        </p>
-                                        <div class="collapse" id="collapsePoliticas1">
-                                            <div class="card card-body">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eaque, eos harum beatae nostrum aspernatur tempora sequi voluptatem ducimus ratione culpa vitae similique ad cum provident asperiores quos voluptate hic modi. Esse vero nostrum, facilis quo optio, voluptas sed possimus dicta officia ex obcaecati qui eaque corporis! Provident delectus sit eaque enim, suscipit qui consequatur, expedita deserunt voluptatum quisquam tempore natus dolor totam! Facere labore tempora quia distinctio quos nulla excepturi soluta sed dolore possimus commodi recusandae praesentium quasi, veritatis velit odit non exercitationem omnis minus esse et fuga. Debitis laboriosam, architecto asperiores in nulla quae error cum voluptates? Quia omnis, dicta, quasi rerum ea amet saepe sed quam maxime vitae earum officiis quo, autem soluta eius vero aliquam harum ipsa obcaecati molestiae tempore pariatur minus ipsam? Impedit sit amet culpa officia tenetur ipsam aliquam, libero asperiores animi enim. Recusandae, tenetur. Aliquam facere totam hic, deleniti quia minus voluptates, corporis distinctio natus accusamus voluptatum neque atque fugit consequuntur molestias eos fuga nisi. Saepe repudiandae ratione, praesentium nobis laborum eveniet non, nemo obcaecati quasi, voluptatibus vitae harum! Sunt, nulla! Nobis delectus molestiae animi autem eius ut ab dicta eaque ipsa dolor quibusdam commodi a, nostrum et cumque vitae molestias, cupiditate voluptates qui! Qui eveniet nihil omnis facilis consequuntur delectus sequi. In, natus corporis deleniti debitis a aspernatur itaque unde exercitationem adipisci animi hic rerum iure quidem consequatur ipsum labore quis, omnis fuga quibusdam saepe voluptate obcaecati ipsa praesentium! Id, possimus blanditiis.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="parrafoColapso col-12">
-                                        <p>
-                                        
-                                            <button class="btn btn-info col-12" type="button" data-toggle="collapse" data-target="#collapsePoliticas2" aria-expanded="false" aria-controls="collapsePoliticas">
-                                                Seguridad de la cuenta
-                                            </button>
-                                        </p>
-                                        <div class="collapse" id="collapsePoliticas2">
-                                            <div class="card card-body">
-                                                Donde puedo cambiar mi contrase;a?
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="parrafoColapso col-12">
-                                        <p>
-                                        
-                                            <button class="btn btn-info col-12" type="button" data-toggle="collapse" data-target="#collapsePoliticas3" aria-expanded="false" aria-controls="collapsePoliticas">
-                                                ¿Es necesario no tener adeudos para poderme inscribir al siguente
-                                            semestre?
-                                            </button>
-                                        </p>
-                                        <div class="collapse" id="collapsePoliticas3">
-                                            <div class="card card-body">
-                                                Si no podrás continuar con tu inscripción semestral si cuentas con un adeudo en algún laboratorio o área correspondiente
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="parrafoColapso col-12">
-                                        <p>
-                                        
-                                            <button class="btn btn-info col-12" type="button" data-toggle="collapse" data-target="#collapsePoliticas4" aria-expanded="false" aria-controls="collapsePoliticas">
-                                                ¿Qué debo hacer si deseo iniciar un tramite?
-                                            </button>
-                                        </p>
-                                        <div class="collapse" id="collapsePoliticas4">
-                                            <div class="card card-body">
-                                                Tu información tu nombre ,semestre, carrera, número control y  NO tener adeudos pendientes                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="parrafoColapso col-12">
-                                        <p>
-                                        
-                                            <button class="btn btn-info col-12" type="button" data-toggle="collapse" data-target="#collapsePoliticas5" aria-expanded="false" aria-controls="collapsePoliticas">
-                                                Si necesito mi reporte de liberacion, ¿A dónde acudo para solicitarlo?
-                                            </button>
-                                        </p>
-                                        <div class="collapse" id="collapsePoliticas5">
-                                            <div class="card card-body">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus eaque, eos harum beatae nostrum aspernatur tempora sequi voluptatem ducimus ratione culpa vitae similique ad cum provident asperiores quos voluptate hic modi. Esse vero nostrum, facilis quo optio, voluptas sed possimus dicta officia ex obcaecati qui eaque corporis! Provident delectus sit eaque enim, suscipit qui consequatur, expedita deserunt voluptatum quisquam tempore natus dolor totam! Facere labore tempora quia distinctio quos nulla excepturi soluta sed dolore possimus commodi recusandae praesentium quasi, veritatis velit odit non exercitationem omnis minus esse et fuga. Debitis laboriosam, architecto asperiores in nulla quae error cum voluptates? Quia omnis, dicta, quasi rerum ea amet saepe sed quam maxime vitae earum officiis quo, autem soluta eius vero aliquam harum ipsa obcaecati molestiae tempore pariatur minus ipsam? Impedit sit amet culpa officia tenetur ipsam aliquam, libero asperiores animi enim. Recusandae, tenetur. Aliquam facere totam hic, deleniti quia minus voluptates, corporis distinctio natus accusamus voluptatum neque atque fugit consequuntur molestias eos fuga nisi. Saepe repudiandae ratione, praesentium nobis laborum eveniet non, nemo obcaecati quasi, voluptatibus vitae harum! Sunt, nulla! Nobis delectus molestiae animi autem eius ut ab dicta eaque ipsa dolor quibusdam commodi a, nostrum et cumque vitae molestias, cupiditate voluptates qui! Qui eveniet nihil omnis facilis consequuntur delectus sequi. In, natus corporis deleniti debitis a aspernatur itaque unde exercitationem adipisci animi hic rerum iure quidem consequatur ipsum labore quis, omnis fuga quibusdam saepe voluptate obcaecati ipsa praesentium! Id, possimus blanditiis.
+                                                <p>Para obtener tu carta de liberacion es necesario que ya hayas iniciado tu tramite.</p>
+                                                <ul>
+                                                    <li>Una ves iniciado tu tramite , tendras que dirigirte a servicios financieros.</li>
+                                                    <li>En servicios financieros , pediras se busque tu solicitud de tramite.</li>
+                                                    <li>Una ves encontrado, Se te entregara tu hoja de liberacion.</li>
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
