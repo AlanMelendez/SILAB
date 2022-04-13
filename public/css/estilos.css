@@ -71,3 +71,47 @@
     flex-direction: row;
     justify-content: space-between;
 }
+.header-ayuda{
+    display: flex;
+    flex-direction: column;
+    
+}
+.logo-ayuda{
+    width: 100px;
+    height: 100px;
+}
+.logo-header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.container-titulo-header{
+    display: flex;
+    justify-content: center;
+}
+
+/* Barra de navegacion VISTA AYUDA */
+.barra-ayuda-header{
+    display: flex;
+    width: 100%;
+    padding: 3px;
+    justify-content: center;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: #ffffff;
+}
+
+.input-barrabuscar{
+    width: 90%;
+    padding: 9px;
+    border: none;
+    outline: none;
+    
+
+}
+.btn-buscarBarra{
+    width: 10%;
+    border: none;
+    background-color: #ffffff;
+}
