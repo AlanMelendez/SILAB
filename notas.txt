@@ -6,7 +6,7 @@ https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Installation
 Comandos:
     Instalar apliacion:
         1-composer install
-        2-copy .env.example .env
+        2-copy .env.example .env (Si no viene el .env.example hay que crear el archivo manualmente)
         3-php artisan key:generate
         4-npm install
     Crear controlador:

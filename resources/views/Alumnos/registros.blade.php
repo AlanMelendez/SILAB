@@ -44,7 +44,7 @@
   </div>
 
   </div>
-  @component('Components.tablaContenido')
+  @component('Components.tabla-contenido')
    
   
   @endcomponent
