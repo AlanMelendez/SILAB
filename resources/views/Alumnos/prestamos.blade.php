@@ -6,13 +6,18 @@
 @stop
 
 @section('content')
-    @component('Components.barra-navegacion')
-            
+    @component('Components.barra-navegacion')    
     @endcomponent
-    @component('Components.nuevo-prestamo')
+
+    @component('Components.nuevo-prestamo-individual')
     @endcomponent
+    
+    @component('Components.nuevo-prestamo-grupal')
+    @endcomponent
+
    @component('Components.tabla-contenido')
    @endcomponent
+   
 @stop
 @section('css')
 <link rel="stylesheet" href="/css/admin_custom.css">
