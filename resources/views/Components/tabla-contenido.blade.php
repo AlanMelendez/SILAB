@@ -50,109 +50,76 @@
                                     <td style="">1.7</td>
                                     <td style="">A</td>
                                     <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>Cautin</option>
+                                            <option>Multimetro</option>
+                                            <option>Pinzas</option>
+                                            <option>Cables caiman</option>
+                                            <option>Resistencias</option>
+                                          </select>
+                                    </td>
                                     <td>Lorem, ipsum dolor.</td>
                                     <td>Lorem, ipsum dolor.</td>
                                 </tr>
-                                <tr class="even">
+                                <tr class="odd">
                                     <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                                    <td style="">Firefox 1.5</td>
+                                    <td style="">Firefox 1.0</td>
                                     <td style="">Win 98+ / OSX.2+</td>
-                                    <td style="">1.8</td>
-                                    <td style="">A</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                </tr>
-                                <tr class="odd">
-                                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                                    <td style="">Firefox 2.0</td>
-                                    <td style="">Win 98+ / OSX.2+</td>
-                                    <td style="">1.8</td>
-                                    <td style="">A</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                </tr>
-                                <tr class="even">
-                                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                                    <td style="">Firefox 3.0</td>
-                                    <td style="">Win 2k+ / OSX.3+</td>
-                                    <td style="">1.9</td>
-                                    <td style="">A</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                </tr>
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control">Gecko</td>
-                                    <td style="">Camino 1.0</td>
-                                    <td style="">OSX.2+</td>
-                                    <td style="">1.8</td>
-                                    <td style="">A</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                </tr>
-                                <tr class="even">
-                                    <td class="sorting_1 dtr-control">Gecko</td>
-                                    <td style="">Camino 1.5</td>
-                                    <td style="">OSX.3+</td>
-                                    <td style="">1.8</td>
-                                    <td style="">A</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                </tr>
-                                <tr class="odd">
-                                    <td class="sorting_1 dtr-control">Gecko</td>
-                                    <td style="">Netscape 7.2</td>
-                                    <td style="">Win 95+ / Mac OS 8.6-9.2</td>
                                     <td style="">1.7</td>
                                     <td style="">A</td>
                                     <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                </tr>
-                                <tr class="even">
-                                    <td class="sorting_1 dtr-control">Gecko</td>
-                                    <td style="">Netscape Browser 8</td>
-                                    <td style="">Win 98SE+</td>
-                                    <td style="">1.7</td>
-                                    <td style="">A</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>Cautin</option>
+                                            <option>Multimetro</option>
+                                            <option>Pinzas</option>
+                                            <option>Cables caiman</option>
+                                            <option>Resistencias</option>
+                                          </select>
+                                    </td>
                                     <td>Lorem, ipsum dolor.</td>
                                     <td>Lorem, ipsum dolor.</td>
                                 </tr>
                                 <tr class="odd">
-                                    <td class="sorting_1 dtr-control">Gecko</td>
-                                    <td style="">Netscape Navigator 9</td>
+                                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
+                                    <td style="">Firefox 1.0</td>
                                     <td style="">Win 98+ / OSX.2+</td>
-                                    <td style="">1.8</td>
+                                    <td style="">1.7</td>
                                     <td style="">A</td>
                                     <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>Cautin</option>
+                                            <option>Multimetro</option>
+                                            <option>Pinzas</option>
+                                            <option>Cables caiman</option>
+                                            <option>Resistencias</option>
+                                          </select>
+                                    </td>
                                     <td>Lorem, ipsum dolor.</td>
                                     <td>Lorem, ipsum dolor.</td>
                                 </tr>
-                                <tr class="even">
-                                    <td class="sorting_1 dtr-control">Gecko</td>
-                                    <td style="">Mozilla 1.0</td>
-                                    <td style="">Win 95+ / OSX.1+</td>
-                                    <td style="">1</td>
+                                <tr class="odd">
+                                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
+                                    <td style="">Firefox 1.0</td>
+                                    <td style="">Win 98+ / OSX.2+</td>
+                                    <td style="">1.7</td>
                                     <td style="">A</td>
                                     <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>Cautin</option>
+                                            <option>Multimetro</option>
+                                            <option>Pinzas</option>
+                                            <option>Cables caiman</option>
+                                            <option>Resistencias</option>
+                                          </select>
+                                    </td>
                                     <td>Lorem, ipsum dolor.</td>
                                     <td>Lorem, ipsum dolor.</td>
                                 </tr>
+                                
                             </tbody>
                            
                         </table>

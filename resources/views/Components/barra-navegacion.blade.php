@@ -42,10 +42,8 @@
                       <a class="dropdown-item" onclick="ventanaModal();" tabindex="0" aria-controls="example1"
                       data-toggle="modal" data-target="#staticBackdrop"
                       type="button">Prestamo individual</a>
-                      <a class="dropdown-item" onclick="ventanaModal();" tabindex="0" aria-controls="example1"
-                      data-toggle="modal" data-target="#staticBackdrop"
-                      type="button">Prestamo grupal</a>
-                      <button type="button" class="btn btn-primary" onclick="ventanaModal2();" data-toggle="modal" data-target=".bd-example-modal-xl">Extra large modal</button>
+                      <a class="dropdown-item" type="button" onclick="ventanaModal2();" data-toggle="modal" data-target=".bd-example-modal-xl">Prestamo grupal</a>
+                      
 
                     </div>
                 </div>

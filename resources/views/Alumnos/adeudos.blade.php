@@ -25,8 +25,16 @@
               <td>Cuevas</td>
               <td>192xxxx</td>
               <td>Computo</td>
-              <td>13</td>
-              <td>Caguama, Cepillo</td>
+              <td>5</td>
+              <td>
+                <select class="form-control">
+                  <option>Cautin</option>
+                  <option>Multimetro</option>
+                  <option>Pinzas</option>
+                  <option>Cables caiman</option>
+                  <option>Resistencias</option>
+                </select>
+              </td>
               <td>25 marzo</td>
               <td><a class="fa fa-trash" aria-hidden="true" style="color: red; margin-right:25px;" ></a><a class="fa fa-cog" aria-hidden="true"></a></td>          </tr>
             

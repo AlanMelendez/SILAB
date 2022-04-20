@@ -10,7 +10,7 @@ class alumnosController extends Controller
         return view('Alumnos/tramite');
     }
     
-    public function consultaA(){
-        return view('Alumnos/adeudos');
+    public function consultaAdeudo(){
+        return view('Alumnos/adeudos-vista-alumnos');
     }
 }
