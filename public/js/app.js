@@ -6,7 +6,7 @@ function iniciarTramite(){
         icon: 'success',
         title: '¡Tramite registrado con exito!',
         text: 'Haz click sobre el siguiente boton para visualizar el estado de tu tramite.',
-        footer:' <a href="consultarAdeudo">Estatus tramite.</a>',
+        footer:' <a href="consultarAdeudo">Consulta(s).</a>',
         showConfirmButton: false,
         timer: 15000,
         showCloseButton: true,
@@ -25,4 +25,7 @@ function ventanaModal(){
 }
 function ventanaModal2(){
     $(".bd-example-modal-xl").modal("show");
+}
+function ventanaModal3(){
+    
 }

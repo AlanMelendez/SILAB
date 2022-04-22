@@ -2,6 +2,7 @@
 @section('title', 'SILAB')
 
 @section('content')
+
 @include('Components.barraBusqueda')
   <div class="table">
       <table class="table table-striped table-bordered">

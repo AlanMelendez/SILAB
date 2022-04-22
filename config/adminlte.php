@@ -282,7 +282,7 @@ return [
                     //Dar opcion para cancelar el tramite
                 ],
                 [
-                    'text' => 'Consultar adeudo',
+                    'text' => 'Consulta(s)',
                     'url'  => 'consultarAdeudo',
                 ],
 
@@ -300,8 +300,13 @@ return [
                     //
                 ],*/
                 [
-                    'text' => 'Tabla liberados',
+                    'text' => 'Pendientes',
                     'url'  => 'comprobanteLiberacion',
+                    //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
+                ],
+                [
+                    'text' => 'Liberados',
+                    'url'  => 'mostrarLiberados',
                     //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
                 ],
 

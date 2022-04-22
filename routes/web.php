@@ -34,8 +34,8 @@ Route::get('/cosnultarAdeudoAlumno', [prestamosController::class,'consultaAdeudo
 Route::get('/todosPrestamos', [prestamosController::class,'todosPrestamos']);
 
 //Liberacion Docentes
-Route::get('/comprobanteLiberacion', [LiberacionesController::class,'Mostrar_Liberados']);
-Route::get('/Liberacion2', [Liberacion2Controller::class,'Liberados2xd']);
+Route::get('/comprobanteLiberacion', [LiberacionesController::class,'mostrar_pendientes']);
+Route::get('/mostrarLiberados', [LiberacionesController::class,'mostrar_liberados']);
 
 
 //Ayuda

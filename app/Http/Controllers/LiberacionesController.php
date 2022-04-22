@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 class LiberacionesController extends Controller
 {
     //
-    public function Mostrar_liberados(){
-        return view ('liberacion/Comprobante');
+    public function mostrar_pendientes(){
+        return view ('Liberacion/comprobante');
+
+    }
+    public function mostrar_liberados(){
+        return view ('Liberacion/liberados');
 
     }
 

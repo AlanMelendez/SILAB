@@ -60,28 +60,48 @@
     background-color: #f8f9fa00!important;
 }
 .btn-agregar{
-    background-color: #11db3d;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #000000;
 }
 .btn-agregar:hover{
-    background-color: #ffffff;
-    color: #11db3d;
-    border-color: #11db3d;
+    color: black;
+    background-color: #b3b3b3c9;
+    border-color: rgb(255, 255, 255);
 }
-.btn-cancelar{
-    background-color: red;
-}
-.btn-cancelar:hover{
+.btn-recargar{
     background-color: #ffffff;
-    color: red;
-    border-color: red;
+    color: #ffffff;
+    width: 50px;
+}
+.btn-recargar:hover{
+    background-color: #b3b3b3c9;
+    border-color: rgb(255, 255, 255);
+}
+.btn-eliminar{
+    width: 50px;
+    background-color: rgb(255, 255, 255);
+}
+.btn-eliminar:hover{
+    background-color: #b3b3b3c9;
+    border-color: rgb(255, 255, 255);
 }
 
 /* Barras de navegacion */
+.container-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 5px;
+}
+
 .navegacion-barra{
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    align-items: stretch;
     margin-bottom: 10px;
 
 }
@@ -91,12 +111,6 @@
     flex-direction: row;
     justify-content: flex-end;
     margin-bottom: 10px;
-}
-.container-nav{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: stretch;
 }
 .header-ayuda{
     display: flex;
@@ -118,6 +132,7 @@
     display: flex;
     justify-content: center;
 }
+
 
 /* Barra de navegacion VISTA AYUDA */
 .barra-ayuda-header{
@@ -148,7 +163,7 @@
 .tabla-component{
     overflow: scroll;
     height:300px;
-    width:550px;
+    width: 100%;
 }
 .tabla-component table{
     width:100%;
@@ -156,46 +171,84 @@
 }
 /* MODAL BODY */ /* ESTILOS MODAL */
 .modal-body{
+
+}
+.modal-body2{
     height: 380px;
     overflow: scroll;
+}
+.modal-body-grupal{
+    max-width: 100%;
 }
 .modal-estatica{
     height: 100%;
 }
-.tabla-articulos{
-    margin-top: 5px;
+
+.btn-agregar-modal{
+    background-color: #0dbd33;
+    color: #ffffff;
 }
-.articulos-label{
-    margin-bottom: 10px;
+.btn-agregar-modal:hover{
+    background-color: #ffffff;
+    color: #0dbd33;
+    border: 1px solid #0dbd33;
 }
-.container-prestamos{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    max-height: 400px;
+.btn-cancelar{
+    background-color: red;
+    color: #ffffff;
 }
-.container-grupo1{
-    max-width: 350px;
-    max-height: 500px;
-    margin-left: 10px;
-    margin-right: 10px;
+.btn-cancelar:hover{
+    background-color: rgb(255, 255, 255);
+    color: red;
+    border: 1px solid red;
 }
-.table-prestamos{
-    overflow: scroll;
-    max-height: 100%;
+
+
+
+/* Modal prestamo grupal */
+.form-alumno{
+    width: 100%;
 }
+
 .label-footer{
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
 }
+.form-controller-grupal{
+    width: 50%;
+    margin: 10px;
+}
+.container-grupo1{
+    width: 50%;
+    margin: 10px;
+}
+.articulos-label{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.container-prestamos{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+.tabla-articulos{
+    width: 100%;
+    margin: 10px 10px 10px 0px
+}
+.table-prestamos{
+    max-height: 100%;
+}
 
 /* VISTA TRAMITE */
 .form-tramite{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
 }
@@ -218,4 +271,98 @@
 }
 .container-tramite{
     margin-top: 20px;
+}
+.container-scroll{
+    overflow: scroll;
+    max-height: 500px;
+}
+.btn-acciones{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+.btn-accion1{
+    margin: 3px;
+    background-color: #0dbd33;
+    color: #ffffff;
+}
+.btn-accion1:hover{
+    background-color: #ffffff;
+    border: 1px solid #0dbd33;
+    color: #0dbd33;
+}
+.btn-accion2{
+    margin: 3px;
+    background-color: red;
+    color: #ffffff;
+}
+.btn-accion2:hover{
+    background-color: #ffffff;
+    border: 1px solid #bd0d0d;
+    color: #bd0d0d;
+}
+
+.btn-grouper{
+    border: 1px solid #0000003b;
+    padding: 5px;
+    border-radius: 10px;
+}
+.btn-grouper1{
+    border: 1px solid #0000003b;
+    border-radius: 10px;
+}
+.form-controlq{
+    border: none !important;
+    outline: none;
+    width: 150px;
+    margin-left: 5px;
+    border-radius: 40%;
+}
+.barra-buscar{
+    /* top,right,bottom left */
+    margin: 5px 10px 5px 10px;
+}
+.barra-comprobante{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+/* QUERYS */
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+
+
+}
+
+/* Tablets */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .label-footer{
+        flex-wrap: wrap;
+    }
+    .container-prestamos{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .container-grupo1{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin:0;
+    }
+    .articulos-label{
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* telefonos */
+@media screen and (max-width: 767px) {
+
+
+    .container-prestamos{
+        width: 100%;
+        flex-wrap: wrap;
+    }
 }

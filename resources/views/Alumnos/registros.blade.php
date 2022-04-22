@@ -7,43 +7,49 @@
 @stop
 
 @section('content')
-  <div class="container-nav">
-    <div class="">
-        <div class="dt-buttons btn-group   col-sm-6"> 
-            <button
-                class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1"
-                type="button"><span>Excel</span>
-            </button> 
-            <button
-                class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1"
-                type="button"><span>PDF</span>
-            </button>
-            <button class="btn btn-secondary buttons-print"
-                tabindex="0" aria-controls="example1" type="button"><span>Imprimir</span>
-            </button>
-            
-            <div class="btn-group">
-                <button
-                    class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0"
-                    aria-controls="example1" type="button" aria-haspopup="true"><span>Filtros</span><span class="dt-down-arrow"></span>
-                </button>
-            </div>
-        </div>
-        
-    </div>
-    {{-- <div class=" ">
-        <input type="search" id="barraSearch"class="form-control form-control-sm barraSearch" placeholder="Buscar registro" aria-controls="example1">
-  </div> --}}
-  <div class="container navegacion-barra">
-        <form class="form-inline">
-            <input class="form-control mr-sm-2" type="search" placeholder="Buscar registro" aria-label="Search">
-            <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Buscar Alumno</button>
-        </form>
-    </div> 
-  
-  </div>
+    <div class="container-nav">
+        <div class="">
+            <form class="form-inline form-buscar">
+                <div class="btn-grouper">
 
-  </div>
+                    <input class="form-controlq mr-sm-2" type="search" placeholder="Buscar registro" aria-label="Search">
+                    <button class="btn-buscarBarra">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                          </svg>
+                    </button>
+                </div>
+            </form>
+        </div> 
+        <div class="btn-grouper1">
+            <div class="dt-buttons btn-group   col-sm-6"> 
+                
+                <div class="btn-group">
+                    <button type="button" class="btn btn-agregar" data-toggle="modal" data-target="#modal-filtro">
+                        Filtros
+                    </button>
+                      
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-agregar dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Descargar
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">Excel</a>
+                        <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">PDF</a>
+                        <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">Imprimir</a>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+   
+    
+
+</div>
+            
+    </div>
   @component('Components.tabla-contenido')
    
   

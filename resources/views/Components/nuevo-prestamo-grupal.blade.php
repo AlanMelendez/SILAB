@@ -1,5 +1,5 @@
 <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title" id="staticBackdropLabel">Nuevo prestamo</h5>
@@ -7,18 +7,18 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal-body-grupal">
               <div class="imagen-alumno">
                 <img src="img/perfil-ejemplo.png" class="perfil-imagen"alt="">
               </div>
               <div class="container">
                 <form class="form-alumno">
                     <div class="label-footer" id="demo">
-                        <div class="form-controller">
+                        <div class="form-controller-grupal">
                             <label for="carrera" class="form-label">Encargado</label>
                             <input type="text" class="form-control" id="encargado-laboratorio" value="Jose Eduardo Flores" placeholder="Nombre encargado" readonly>
                         </div>
-                        <div class="form-controller">
+                        <div class="form-controller-grupal">
                             <label for="carrera" class="form-label">Laboratorio</label>
                             <input type="text" class="form-control" id="laboratorio" value="Computo" readonly>
                         </div>
@@ -321,7 +321,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-cancelar" data-dismiss="modal">Cancelar</button>
-              <button type="button" class="btn btn-agregar">Agregar</button>
+              <button type="button" class="btn btn-agregar-modal">Agregar</button>
             </div>
           </div>
     </div>

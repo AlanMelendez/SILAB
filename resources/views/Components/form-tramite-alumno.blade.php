@@ -12,7 +12,7 @@
 
 <body>
     <div class="titulo-container container-tramite">
-        <h2 class="titulo-head">INICIAR TRAMITEq</h2>
+        <h2 class="titulo-head">INICIAR TRAMITE</h2>
     </div>
     <div class="container ">
         <form class="form-tramite">

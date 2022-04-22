@@ -6,8 +6,11 @@
 @stop
 
 @section('content')
+    
     @component('Components.barra-navegacion')    
     @endcomponent
+    
+    {{-- MODALES PARA ACTIVAR SEGUN EL BOTON --}}
 
     @component('Components.nuevo-prestamo-individual')
     @endcomponent
