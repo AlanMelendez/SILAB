@@ -13,17 +13,64 @@
         <div class="modal-dialog modal-center" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="modal-filtro">Modal title</h5>
+              <h5 class="modal-title" id="modal-filtro">FILTRADO</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              ...
+              <div class="container-filtro">
+                  <div class="container-filtrado-1">
+                      <div class="elemento-filtro">
+                            <label class="form-label" for="fechaInicio">Fecha Inicio</label>
+                            <input type="date" name="fechaInicio" id="fechaInicio">
+                      </div>
+                      <div class="elemento-filtro"> 
+                        <label class="form-label" for="fechaFin">Fecha Fin</label>
+                        <input type="date" name="fechaFin" id="fechaFin"> 
+                    </div>
+                  </div>
+              </div>
+              <div class="container-filtro">
+                <div class="container-filtrado-1">
+                    <div class="elemento-filtro">
+                          <label class="form-label" for="semestre">Semestre</label>
+                          <select id="semestre" class="form-control">
+                            <option>No</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                          </select>
+                    </div>
+                    <div class="elemento-filtro"> 
+                        <label class="form-label" for="carrera">Carrera</label>
+                        <select id="carrera" class="form-control">
+                          <option>No</option>
+                          <option>Ing. Informatica</option>
+                          <option>Ing. Sistemas Automotrices</option>
+                          <option>Ing. Gestion Empresarial</option>
+                          <option>Ing. Sistemas Computacionales</option>
+                          <option>Ing. Industrial</option>
+                          <option>Ing. Electromecanica</option>
+                          <option>Ing. Electronica</option>
+                        </select>
+                  </div>
+                </div>
+            </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Understood</button>
+              <button type="button" class="btn btn-accion2" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-accion1">Filtrar</button>
             </div>
           </div>
         </div>
@@ -34,7 +81,7 @@
             <div id="example1_wrapper" class="tabla-datos dataTables_wrapper dt-bootstrap4">
                 <div class="row">
                     <div class="tabla-component col-lg-12">
-                        <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"
+                        <table id="example1" class="table table-hover table-striped dataTable dtr-inline"
                             aria-describedby="example1_info">
                             <thead>
                                 <tr>

@@ -38,11 +38,11 @@
             <div class="flex-item" role="group">
                 <div class="container-select">
                     <label for="tramite" class="form-label">Tipo de tramite</label>
-                    <select id="disabledSelect" class="form-select">
-                        <option>Carta no adeudo (Regular)</option>
-                        <option>Carta no adeudo (Egresados)</option>
-                        <option>Carta no adeudo (Baja temporal)</option>
-                        <option>Carta no adeudo (Baja definitiva)</option>
+                    <select  id="disabledSelect" class="form-select form-select-sm select-cartas">
+                        <option size="5px" class="form-select" selected>Carta no adeudo (Regular)</option>
+                        <option size="5px" class="form-select">Carta no adeudo (Egresados)</option>
+                        <option size="5px"class="form-select">Carta no adeudo (Baja temporal)</option>
+                        <option size="5px"class="form-select">Carta no adeudo (Baja definitiva)</option>
                     </select>
                     <button type="button" onclick="iniciarTramite();" class="btn btn-primary btn-tramite toastrDefaultSuccess">Iniciar</button>
                 </div>

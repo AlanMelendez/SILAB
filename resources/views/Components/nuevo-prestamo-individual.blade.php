@@ -43,7 +43,7 @@
                 <label for="carrera" class="form-label">Articulos</label>
                 <input type="number" class="articulos-label form-control" id="carrera" >
                 <table class="table">
-                  <thead class="thead-dark">
+                  <thead class="thead-light">
                     <tr>
                       <th scope="col">Id</th>
                       <th scope="col">Nombre Articulo</th>
@@ -155,7 +155,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-cancelar" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-agregar">Agregar</button>
+          <button type="button" class="btn btn-agregar-modal">Agregar</button>
         </div>
       </div>
     </div>

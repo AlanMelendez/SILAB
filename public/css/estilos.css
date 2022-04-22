@@ -94,6 +94,7 @@
     align-items: stretch;
     margin-bottom: 10px;
     margin-top: 10px;
+    margin-right: 10px;
     padding: 5px;
 }
 
@@ -310,6 +311,10 @@
 .btn-grouper1{
     border: 1px solid #0000003b;
     border-radius: 10px;
+    padding: 3px;
+}
+.btn-group{
+    border-radius: 30px;
 }
 .form-controlq{
     border: none !important;
@@ -327,7 +332,30 @@
     justify-content: flex-end;
     width: 100%;
 }
-/* QUERYS */
+/* ---------------MODAL FILTRADO ----------- */
+.container-filtro{
+    margin: 0;
+    border: none;
+    width: 100%;
+}
+.container-filtrado-1{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.elemento-filtro{
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    width: 100%;
+}
+/* ---------ESTADISTICAS--------- */
+.filtros-estadistica{
+    display: flex;
+    flex-direction: row;
+    
+}
+/*---------QUERYS---------- */
 
 /* Desktop */
 @media screen and (min-width: 1024px) {
@@ -364,5 +392,16 @@
     .container-prestamos{
         width: 100%;
         flex-wrap: wrap;
+    }
+    .form-select{
+      
+    }
+    .select-cartas{
+        height: 50%;
+    }
+    .select-cartas-option{
+        display: flex;
+        flex-direction: row;
+        max-width: 20px !important;
     }
 }
