@@ -107,6 +107,18 @@
                           <option>Ing. Electronica</option>
                         </select>
                   </div>
+                  <div class="elemento-filtro"> 
+                    <label class="form-label" for="oficio">Oficio</label>
+                    <select id="oficio" class="form-control">
+                      <option>No</option>
+                      <option>Todos</option>
+                      <option>Carta no adeudo (Regular)</option>
+                      <option>Carta no adeudo (B. Temporal)</option>
+                      <option>Carta no adeudo (B. Definitiva)</option>
+                      <option>Carta no adeudo (Egresados)</option>
+                      
+                    </select>
+              </div>
                 </div>
             </div>
             </div>

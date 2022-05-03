@@ -2,6 +2,15 @@
     background-color: #042c9d;
 }
 
+.content{
+    max-width: 100% !important; 
+
+    max-height: 100% !important;
+}
+.container-fluid{
+    height: 100% !important;
+}
+
 .navbar-white {
     background-color: rgb(255 255 255 / 80%);
     color: #1f2d3d;
@@ -351,9 +360,73 @@
 }
 /* ---------ESTADISTICAS--------- */
 .filtros-estadistica{
+    width: 100%;
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+
+
+}
+.elementos-estadistica{
+    width: 50%;
+    max-width: 100%;
+    margin: 10px;
+
+}
+.estadisticasChart{
+    max-width: 100%;
+    max-height: 500px;
+}
+.btn-generar-stat{
+    padding: 0;
+    margin: 0 !important;
+}
+/* -------------------VISTA DE AGREGAR PRESTAMO----------------------------------------- */
+.container-prestamo{
+    width: 100%;
+}
+.tabla-articulos{
+    display: none;
+}
+.tablas-articulos-prestamos{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+}
+.tabla-articulos-style{
+    margin: 10px;
+}
+.control-numero{
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
+}
+
+.articulos-style{
+    overflow-x: scroll;
+}
+.input-agregar-cancelar{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.tabla-articulos-agregados{
+    width: 100%;
+}
+.form-articulos-prestamo{
+    display: flex;
+    justify-content: flex-end;
+}
+.form-buscar-prestamo{
+   
 }
 /*---------QUERYS---------- */
 

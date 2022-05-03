@@ -66,7 +66,9 @@
                             <button class="btn btn-succes btn-accion2">Anular</button>
                     </td>
                 </tr>
-                
+            </tbody>
+        </table>
+    </div>
 @stop
 
 @section('css')

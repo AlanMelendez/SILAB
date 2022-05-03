@@ -87,10 +87,10 @@
           <tbody>
               <tr class="odd">
                   <td class="dtr-control sorting_1" tabindex="0">1</td>
-                  <td style="">Cautin</td>
-                  <td style="">Truper</td>
+                  <td style="">Cables</td>
+                  <td style="">Global</td>
                   <td style="">1234556789876533121</td>
-                  <td style="">Punta fina</td>
+                  <td style="">Cables punta caiman</td>
                   <td>1</td>
                   <td>Activo</td>
                   <td class="btn-acciones">

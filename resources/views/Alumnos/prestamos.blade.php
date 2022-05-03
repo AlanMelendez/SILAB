@@ -12,11 +12,11 @@
     
     {{-- MODALES PARA ACTIVAR SEGUN EL BOTON --}}
 
-    @component('Components.nuevo-prestamo-individual')
-    @endcomponent
-    
+    {{-- @component('Components.nuevo-prestamo-individual')
+    @endcomponent --}}
+{{--     
     @component('Components.nuevo-prestamo-grupal')
-    @endcomponent
+    @endcomponent --}}
 
    @component('Components.tabla-contenido')
    @endcomponent

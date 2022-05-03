@@ -36,7 +36,7 @@
                   <option>Resistencias</option>
                 </select>
               </td>
-              <td>25 marzo</td>
+              <td>25/04/2022</td>
               <td><a class="fa fa-trash" aria-hidden="true" style="color: red; margin-right:25px;" ></a><a class="fa fa-cog" aria-hidden="true"></a></td>          </tr>
             
           </tbody>

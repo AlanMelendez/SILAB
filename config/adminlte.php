@@ -243,25 +243,25 @@ return [
             'url'  => '#',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'account_settings'],
-        [
-            'text' => 'Inicio',
-            'url'  => '#',
-            'icon' => 'fa fa-home',
+        // ['header' => 'account_settings'],
+        // [
+        //     'text' => 'Inicio',
+        //     'url'  => '#',
+        //     'icon' => 'fa fa-home',
 
-        ],
+        // ],
         [
             'text' => 'Prestamos',
             'url'  => 'admin/settings',
             'icon' => 'fa fa-handshake',
             'submenu' => [
                 [
-                    'text' => 'Todos los prestamos',
-                    'url'  => 'todosPrestamos',
+                    'text' => 'Agregar Prestamo',
+                    'url'  => 'agregarPrestamo',
                 ],
                 [
-                    'text' => 'Adeudos',
-                    'url'  => 'cosnultarAdeudoAlumno',
+                    'text' => 'Todos los prestamos',
+                    'url'  => 'todosPrestamos',
                 ],
                 [
                     'text' => 'Registros',
@@ -285,6 +285,14 @@ return [
                     'text' => 'Consulta(s)',
                     'url'  => 'consultarAdeudo',
                 ],
+                [
+                    'text' => 'Prestamos terminados',
+                    'url'  => 'prestamosTerminados',
+                ],
+                [
+                    'text' => 'Tramites terminados',
+                    'url'  => 'tramitesTerminados',
+                ],
 
 
             ]
@@ -292,7 +300,7 @@ return [
         [
             'text' => 'Liberacion',
             'url'  => 'admin/settings',
-            'icon' => 'fa fa-file',
+            'icon' => 'fa fa-file fa-file-checked',
             'submenu' => [
                 /*[
                     'text' => 'Iniciar liberacion',
@@ -305,54 +313,69 @@ return [
                     //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
                 ],
                 [
+                    'text' => 'Cancelados',
+                    'url'  => 'comprobantesCancelados',
+                    //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
+                ],
+                [
                     'text' => 'Liberados',
                     'url'  => 'mostrarLiberados',
                     //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
                 ],
+                // [
+                //     'text' => 'Tabla Estadisticas',
+                //     'url'  => 'generarReporte',
+                //     //
+                // ],
 
 
             ]
         ],
-        [
-            'text' => 'Estadisticas',
-            'url'  => 'admin/settings',
-            'icon' => 'fa fa-file',
-            'submenu' => [
-                [
-                    'text' => 'Generar reporte',
-                    'url'  => 'generarReporte',
-                    //
-                ],
-            ]
-        ],
+        // [
+        //     'text' => 'Estadisticas',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fa fa-file',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Generar reporte',
+        //             'url'  => 'generarReporte',
+        //             //
+        //         ],
+        //     ]
+        // ],
         [
             'text' => 'Inventario',
             'url'  => 'inventario',
             'icon' => 'fa fa-warehouse',
             'submenu' => [
+                // [
+                //     'text' => 'Laboratorios',
+                //     'url'  => 'informacionLaboratorios',
+                //     //
+                // ],
                 [
-                    'text' => 'Laboratorios',
-                    'url'  => 'informacionLaboratorios',
-                    //
-                ],
-                [
-                    'text' => 'Articulos',
+                    'text' => 'Articulos mayores',
                     'url'  => 'consultarArticulos',
                 ],
+                [
+                    'text' => 'Articulos menores',
+                    'url'  => 'consultarArticulosMenores',
+                ],
+                
             ]
         ],
-        [
-            'text' => 'Opciones',
-            'url'  => '#',
-            'icon' => 'fa fa-cog',
-            'submenu' => [
-                [
-                    'text' => 'Ayuda',
-                    'url'  => 'mostrarAyuda',
-                    //
-                ],
-            ]    
-        ],
+        // [
+        //     'text' => 'Opciones',
+        //     'url'  => '#',
+        //     'icon' => 'fa fa-cog',
+        //     'submenu' => [
+        //         [
+        //             'text' => 'Ayuda',
+        //             'url'  => 'mostrarAyuda',
+        //             //
+        //         ],
+        //     ]    
+        // ],
         [
             'text' => 'Salir',
             'url'  => 'admin/settings',

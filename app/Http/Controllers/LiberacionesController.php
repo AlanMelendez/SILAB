@@ -15,6 +15,9 @@ class LiberacionesController extends Controller
         return view ('Liberacion/liberados');
 
     }
+    public function mostrar_cancelados(){
+        return view('Components.comprobantes-cancelados');
+    }
 
 
 }

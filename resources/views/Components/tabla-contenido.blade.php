@@ -82,113 +82,185 @@
                 <div class="row">
                     <div class="tabla-component col-lg-12">
                         <table id="example1" class="table table-hover table-striped dataTable dtr-inline"
-                            aria-describedby="example1_info">
-                            <thead>
-                                <tr>
+                        aria-describedby="example1_info">
+                        <thead>
+                            <tr>
+                                <th class="" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-sort="ascending"
+                                    aria-label="Rendering engine: activate to sort column descending">ID
+                                </th>
+                                <th class="" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-label="Browser: activate to sort column ascending"
+                                    style="">Nombre</th>
+                                <th class="" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-label="Platform(s): activate to sort column ascending"
+                                    style="">Apellidos
+                                </th>
+                                <th class="" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-label="Engine version: activate to sort column ascending"
+                                    style="">No. Control</th>
+                                <th class="" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                    style="">Carrera</th>
+                                <th class="" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                    style="">Articulos</th>
+                                <th class="" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                    style="">Descripcion</th>
+                                <th class="" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                    style="">Fecha</th>
                                     <th class="" tabindex="0" aria-controls="example1" rowspan="1"
-                                        colspan="1" aria-sort="ascending"
-                                        aria-label="Rendering engine: activate to sort column descending">ID
-                                    </th>
-                                    <th class="" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        aria-label="Browser: activate to sort column ascending" style="">Nombre</th>
-                                    <th class="" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        aria-label="Platform(s): activate to sort column ascending" style="">Apellidos
-                                    </th>
-                                    <th class="" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        aria-label="Engine version: activate to sort column ascending" style="">No. Control</th>
-                                    <th class="" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending" style="">Carrera</th>       
-                                    <th class="" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        aria-label="CSS grade: activate to sort column ascending" style="">Articulos</th>
-                                    <th class="" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending" style="">Descripcion</th>
-                                    <th class="" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                        aria-label="CSS grade: activate to sort column ascending" style="">Fecha</th>
-                                    <th class="" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending" style="">Accion</th>    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr class="odd">
-                                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                                    <td style="">Firefox 1.0</td>
-                                    <td style="">Win 98+ / OSX.2+</td>
-                                    <td style="">1.7</td>
-                                    <td style="">A</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>
-                                        <select class="form-control">
-                                            <option>Cautin</option>
-                                            <option>Multimetro</option>
-                                            <option>Pinzas</option>
-                                            <option>Cables caiman</option>
-                                            <option>Resistencias</option>
-                                          </select>
-                                    </td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                </tr>
-                                <tr class="odd">
-                                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                                    <td style="">Firefox 1.0</td>
-                                    <td style="">Win 98+ / OSX.2+</td>
-                                    <td style="">1.7</td>
-                                    <td style="">A</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>
-                                        <select class="form-control">
-                                            <option>Cautin</option>
-                                            <option>Multimetro</option>
-                                            <option>Pinzas</option>
-                                            <option>Cables caiman</option>
-                                            <option>Resistencias</option>
-                                          </select>
-                                    </td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                </tr>
-                                <tr class="odd">
-                                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                                    <td style="">Firefox 1.0</td>
-                                    <td style="">Win 98+ / OSX.2+</td>
-                                    <td style="">1.7</td>
-                                    <td style="">A</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>
-                                        <select class="form-control">
-                                            <option>Cautin</option>
-                                            <option>Multimetro</option>
-                                            <option>Pinzas</option>
-                                            <option>Cables caiman</option>
-                                            <option>Resistencias</option>
-                                          </select>
-                                    </td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                </tr>
-                                <tr class="odd">
-                                    <td class="dtr-control sorting_1" tabindex="0">Gecko</td>
-                                    <td style="">Firefox 1.0</td>
-                                    <td style="">Win 98+ / OSX.2+</td>
-                                    <td style="">1.7</td>
-                                    <td style="">A</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>
-                                        <select class="form-control">
-                                            <option>Cautin</option>
-                                            <option>Multimetro</option>
-                                            <option>Pinzas</option>
-                                            <option>Cables caiman</option>
-                                            <option>Resistencias</option>
-                                          </select>
-                                    </td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                    <td>Lorem, ipsum dolor.</td>
-                                </tr>
+                                    colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                    style="">Status</th>
+                                    <th class="" tabindex="0" aria-controls="example1" rowspan="1"
+                                    colspan="1" aria-label="CSS grade: activate to sort column ascending"
+                                    style="">Accion</th>
                                 
-                            </tbody>
-                           
-                        </table>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="odd">
+                                <td class="dtr-control sorting_1" tabindex="0">1</td>
+                                <td style="">Alan</td>
+                                <td style="">Cuevas Melendez</td>
+                                <td style="">192310781</td>
+                                <td style="">Ing. Informatica</td>
+                                <td>5</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option>Cautin</option>
+                                        <option>Multimetro</option>
+                                        <option>Pinzas</option>
+                                        <option>Cables caiman</option>
+                                        <option>Resistencias</option>
+                                    </select>
+                                </td>
+                                <td>26-04-2022</td>
+                                <td>Activo</td>
+                                <td><a class="fa fa-trash" aria-hidden="true"
+                                    style="color: red; margin-right:25px;"></a><a class="fa fa-cog"
+                                    aria-hidden="true"></a></td>
+                            </tr>
+                            <tr class="odd">
+                                <td class="dtr-control sorting_1" tabindex="0">2</td>
+                                <td style="">Sebastian</td>
+                                <td style="">Alcantar Rangel</td>
+                                <td style="">192310781</td>
+                                <td style="">Ing. Informatica</td>
+                                <td>5</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option>Cautin</option>
+                                        <option>Multimetro</option>
+                                        <option>Pinzas</option>
+                                        <option>Cables caiman</option>
+                                        <option>Resistencias</option>
+                                    </select>
+                                </td>
+                                <td>26-04-2022</td>
+                                <td>Activo</td>
+                                <td><a class="fa fa-trash" aria-hidden="true"
+                                    style="color: red; margin-right:25px;"></a><a class="fa fa-cog"
+                                    aria-hidden="true"></a></td>
+                                
+                            </tr>
+                            <tr class="odd">
+                                <td class="dtr-control sorting_1" tabindex="0">3</td>
+                                <td style="">Jose Alfredo</td>
+                                <td style="">Galvan Medrano</td>
+                                <td style="">192310781</td>
+                                <td style="">Ing. Informatica</td>
+                                <td>5</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option>Cautin</option>
+                                        <option>Multimetro</option>
+                                        <option>Pinzas</option>
+                                        <option>Cables caiman</option>
+                                        <option>Resistencias</option>
+                                    </select>
+                                </td>
+                                <td>26-04-2022</td>
+                                <td>Activo</td>
+                                <td><a class="fa fa-trash" aria-hidden="true"
+                                    style="color: red; margin-right:25px;"></a><a class="fa fa-cog"
+                                    aria-hidden="true"></a></td>
+                                
+                            </tr>
+                            <tr class="odd">
+                                <td class="dtr-control sorting_1" tabindex="0">4</td>
+                                <td style="">Guadalupe</td>
+                                <td style="">Torres Caballeros</td>
+                                <td style="">192310781</td>
+                                <td style="">Ing. Informatica</td>
+                                <td>5</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option>Cautin</option>
+                                        <option>Multimetro</option>
+                                        <option>Pinzas</option>
+                                        <option>Cables caiman</option>
+                                        <option>Resistencias</option>
+                                    </select>
+                                </td>
+                                <td>26-04-2022</td>
+                                <td>Activo</td>
+                                <td><a class="fa fa-trash" aria-hidden="true"
+                                    style="color: red; margin-right:25px;"></a><a class="fa fa-cog"
+                                    aria-hidden="true"></a></td>
+                                
+                            </tr>
+                            <tr class="odd">
+                                <td class="dtr-control sorting_1" tabindex="0">5</td>
+                                <td style="">Karen Daniela</td>
+                                <td style="">Pena Estala</td>
+                                <td style="">192310781</td>
+                                <td style="">Ing. Informatica</td>
+                                <td>5</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option>Cautin</option>
+                                        <option>Multimetro</option>
+                                        <option>Pinzas</option>
+                                        <option>Cables caiman</option>
+                                        <option>Resistencias</option>
+                                    </select>
+                                </td>
+                                <td>26-04-2022</td>
+                                <td>Activo</td>
+                                <td><a class="fa fa-trash" aria-hidden="true"
+                                    style="color: red; margin-right:25px;"></a><a class="fa fa-cog"
+                                    aria-hidden="true"></a></td>
+                                
+                            </tr>
+                            <tr class="odd">
+                                <td class="dtr-control sorting_1" tabindex="0">6</td>
+                                <td style="">Monica Guadalupe</td>
+                                <td style="">Reyes Ornelas</td>
+                                <td style="">192310781</td>
+                                <td style="">Ing. Informatica</td>
+                                <td>5</td>
+                                <td>
+                                    <select class="form-control">
+                                        <option>Cautin</option>
+                                        <option>Multimetro</option>
+                                        <option>Pinzas</option>
+                                        <option>Cables caiman</option>
+                                        <option>Resistencias</option>
+                                    </select>
+                                </td>
+                                <td>26-04-2022</td>
+                                <td>Activo</td>
+                                <td><a class="fa fa-trash" aria-hidden="true"
+                                        style="color: red; margin-right:25px;"></a><a class="fa fa-cog"
+                                        aria-hidden="true"></a></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
                        
                     </div>
                 </div>

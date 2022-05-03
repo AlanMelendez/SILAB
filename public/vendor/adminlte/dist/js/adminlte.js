@@ -374,7 +374,7 @@
 
   $__default["default"](document).on('click', SELECTOR_DATA_COLLAPSE, function (event) {
     if (event) {
-      event.preventDefault();
+      preventDefault();
     }
 
     CardWidget._jQueryInterface.call($__default["default"](this), 'toggle');

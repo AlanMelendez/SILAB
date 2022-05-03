@@ -4,7 +4,6 @@
 
 @section('content_header')
 
-
 @section('content')
     <div class="container">
         <div class="filtros-estadistica">
@@ -58,38 +57,18 @@
                     <option>13</option>
                 </select>
             </div>
-        </div>
-        <div class="tabla-estadistica">
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Area Chart</h3>
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="chart">
-                        <div class="chartjs-size-monitor">
-                            <div class="chartjs-size-monitor-expand">
-                                <div class=""></div>
-                            </div>
-                            <div class="chartjs-size-monitor-shrink">
-                                <div class=""></div>
-                            </div>
-                        </div>
-                        <canvas id="areaChart"
-                            style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%; display: block; width: 324px;"
-                            width="648" height="500" class="chartjs-render-monitor"></canvas>
-                    </div>
-                </div>
-
+            <div class="elementos-estadistica">
+                <label class="form-label" for="generar"></label>
+                <button id="generar" class="form-control btn btn-accion1 btn-generar-stat">Generar</button>
             </div>
         </div>
+        <div class="tabla-estadistica">
+
+            <div class="container-tabla">
+                <canvas id="estadisticasChart" width="600" height="250"></canvas>
+            </div>
+        </div>
+            
     </div>
 
 @stop
@@ -100,7 +79,39 @@
 @stop
 
 @section('js')
+    <script src="{{asset('js/app.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <script>
-        console.log('Hi!');
+                //Funciones para graficas estadisticas
+        var popCanvas = $("#estadisticasChart");
+        var popCanvas = document.getElementById("estadisticasChart");
+        var popCanvas = document.getElementById("estadisticasChart").getContext("2d");
+
+        var barChart = new Chart(popCanvas, {
+            type: 'bar',
+            data: {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+       'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            datasets: [{
+                label: 'Population',
+                data: [77,10,20,30,40,50,70,55,10,99,90,40], //La grafica se adapta ala data que entra
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)'
+                ]
+            }]
+            }
+        });
     </script>
+
 @stop

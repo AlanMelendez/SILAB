@@ -23,7 +23,7 @@ Route::get('/', function () {
     return view('panel-control');
 });
 
-//Luberacion Alumnos
+//Liberacion Alumnos
 Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
 Route::get('/consultarAdeudo', [alumnosController::class, 'consultaAdeudo']);
 
@@ -32,10 +32,15 @@ Route::get('/generarReporte', 'FinancierosController@show');
 //Prestamos
 Route::get('/cosnultarAdeudoAlumno', [prestamosController::class,'consultaAdeudoAlumno']);
 Route::get('/todosPrestamos', [prestamosController::class,'todosPrestamos']);
+Route::get('/agregarPrestamo', [prestamosController::class,'agregarPrestamo']);
+Route::get('/prestamosTerminados', [prestamosController::class,'prestamosTerminados']);
+Route::get('/tramitesTerminados', [prestamosController::class,'tramitesTerminados']);
 
 //Liberacion Docentes
 Route::get('/comprobanteLiberacion', [LiberacionesController::class,'mostrar_pendientes']);
 Route::get('/mostrarLiberados', [LiberacionesController::class,'mostrar_liberados']);
+Route::get('/comprobantesCancelados', [LiberacionesController::class,'mostrar_cancelados']);
+
 
 
 //Ayuda
@@ -44,6 +49,8 @@ Route::get('/mostrarAyuda', [ayudaController::class,'mostrarAyuda']);
 Route::get('/informacionLaboratorios', 'laboratoristasController@show');
 
 Route::get('/consultarArticulos', [laboratoristasController::class, 'mostrarArticulos']);
+Route::get('/consultarArticulosMenores', [laboratoristasController::class, 'mostrarArticulosMenores']);
+
 
 
 //Todos registros
