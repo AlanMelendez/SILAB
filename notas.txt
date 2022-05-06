@@ -38,6 +38,16 @@ Documentacion para componentes:
     https://www.larashout.com/using-laravel-blade-components-and-slots
     
 
+INSTALACION DE BASE DATOS:
+    *Configuramos el .env con los datos de la base de datos
+    *Creamos una base de datos en MYSQL workbench
+    *Ejecutamos php artisan migrate
     
+
+
+Pendientes:
+
+hay que crear nuevas migraciones pero con el nombre:
+    create_alumnos_table , etc hay que seguir la sintaxis para no tener problemas.
 
         
