@@ -14,7 +14,7 @@ class CreatePrestamoTable extends Migration
     public function up()
     {
         Schema::create('prestamo', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->bigIncrements('id');
             $table->date('fecha');
             $table->boolean('status');
             //$table->timestamps();

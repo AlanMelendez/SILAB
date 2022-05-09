@@ -57,3 +57,7 @@ Route::get('/consultarArticulosMenores', [laboratoristasController::class, 'most
 Route::get('/todosRegistros',  [prestamosController::class,'showRegistros']);
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

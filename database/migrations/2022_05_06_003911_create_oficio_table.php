@@ -14,7 +14,7 @@ class CreateOficioTable extends Migration
     public function up()
     {
         Schema::create('oficio', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->bigIncrements('id');
             $table->string('nombre');
             $table->bigInteger('folio')->unique();
             $table->timestamps();

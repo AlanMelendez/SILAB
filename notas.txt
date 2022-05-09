@@ -37,8 +37,20 @@ Si tenemos error al no actualizar datos de AdminLTE
 Documentacion para componentes:
     https://www.larashout.com/using-laravel-blade-components-and-slots
     
+AUTENTICACION DE USUARIOS:
+    Para poder hacer uso de la AUTENTICACION de usuarios es necesario instalar el paquete
+    "ui" que nos permitira tener vistas y otras cosas para la autenticacion de usuarios.
 
-INSTALACION DE BASE DATOS:
+    comandos:
+        1-composer require laravel/ui*
+        2-php artisan ui bootstrap (Aqui no se incluyen vistas por defecto para el registro etc)
+            php artisan ui vue
+            php artisan ui react
+        2.1-php artisan ui bootstrap --auth (aqui se incluyen las vistas con el parametro adicional)
+            php artisan ui vue --auth
+            php artisan ui react --auth
+        3-npm i
+        4-npm run dev
     *Configuramos el .env con los datos de la base de datos
     *Creamos una base de datos en MYSQL workbench
     *Ejecutamos php artisan migrate

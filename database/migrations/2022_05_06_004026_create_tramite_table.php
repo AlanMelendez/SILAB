@@ -14,7 +14,7 @@ class CreateTramiteTable extends Migration
     public function up()
     {
         Schema::create('tramite', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->bigIncrements('id');
             $table->date('fecha');
             $table->boolean('status');
             //$table->timestamps();

@@ -14,7 +14,7 @@ class CreatePrestamoArticuloTable extends Migration
     public function up()
     {
         Schema::create('prestamo_articulo', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->bigIncrements('id');
            
         });
         Schema::table('prestamo_articulo', function (Blueprint $table) {

@@ -14,7 +14,7 @@ class CreateArticuloMayorTable extends Migration
     public function up()
     {
         Schema::create('articulo_mayor', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->bigIncrements('id');
             $table->string('nombre',50);
             $table->string('descripcion',100);
             $table->boolean('status');
