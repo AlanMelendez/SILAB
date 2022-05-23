@@ -29,6 +29,9 @@ Comandos:
 Para usar CSS:
 <link href="{{ asset('css/tramite-layout.css') }}" rel="stylesheet"> la carpeta css hace referencia a la que esta en public
 
+Comando para ver las listas de rutas:
+    php artisan route:list
+
 Para error de base de datos:
     php artisan config:cache
 Si tenemos error al no actualizar datos de AdminLTE
@@ -55,6 +58,15 @@ AUTENTICACION DE USUARIOS:
     *Creamos una base de datos en MYSQL workbench
     *Ejecutamos php artisan migrate
     
+AGREGAR DATOS CON FAKER:
+
+    *Hay que crear los factorys y seeders
+            php artisan make:factory UsuarioFactory --model=usuario
+            php artisan make:seeder UsersTableSeeder
+
+    *Dentro del factory rellenamos los datos segun los datos de nuestra tabla(tabla ala que hace referencia nuestro modelo)
+    *Dentro del seed "DatabaseSeeder" encontraremos las funciones que se ejecutaran (seran los otros seeders)
+    *Para ejecutar sera con -> php artisan db:seed
 
 
 Pendientes:

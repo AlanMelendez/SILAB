@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTramiteTable extends Migration
+class CreateTramitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateTramiteTable extends Migration
      */
     public function up()
     {
-        Schema::create('tramite', function (Blueprint $table) {
+        Schema::create('tramites', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('fecha');
             $table->boolean('status');
-            //$table->timestamps();
-        });
-        Schema::table('tramite', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_alumno');
             $table->unsignedBigInteger('id_oficio');
+            $table->unsignedBigInteger('id_alumno');
 
-            $table->foreign('id_alumno')->references('id')->on('alumno');
-            $table->foreign('id_oficio')->references('id')->on('oficio');
+            $table->foreign('id_oficio')->references('id')->on('oficios');
+            $table->foreign('id_alumno')->references('id')->on('alumnos');
+
+
         });
     }
 
@@ -35,6 +34,6 @@ class CreateTramiteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tramite');
+        Schema::dropIfExists('tramites');
     }
 }

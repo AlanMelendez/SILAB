@@ -13,9 +13,9 @@ class prestamosController extends Controller
     public function consultaAdeudoAlumno(){
         return view('Alumnos/adeudos');
     }
-    public function showRegistros(){
-        return view('Alumnos.registros');
-    }
+    // public function showRegistros(){
+    //     return view('Alumnos.registros');
+    // }
     public function agregarPrestamo(){
         return view ('Components.nuevo-prestamo-individual');
     }

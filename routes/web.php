@@ -17,27 +17,30 @@ use App\Http\Controllers\laboratoristasController;
 use App\Http\Controllers\ayudaController;
 use App\Http\Controllers\LiberacionesController;
 use App\Http\Controllers\prestamosController;
+use App\Http\Controllers\PersonalController;
+
 use Illuminate\Support\Facades\Route;
+Auth::routes();
 
 Route::get('/', function () {
     return view('panel-control');
 });
 
 //Liberacion Alumnos
-Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
-Route::get('/consultarAdeudo', [alumnosController::class, 'consultaAdeudo']);
+// Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
+// Route::get('/consultarAdeudo', [alumnosController::class, 'consultaAdeudo']);
 
 Route::get('/generarReporte', 'FinancierosController@show');
 
 //Prestamos
 Route::get('/cosnultarAdeudoAlumno', [prestamosController::class,'consultaAdeudoAlumno']);
 Route::get('/todosPrestamos', [prestamosController::class,'todosPrestamos']);
-Route::get('/agregarPrestamo', [prestamosController::class,'agregarPrestamo']);
+// Route::get('/agregarPrestamo', [prestamosController::class,'agregarPrestamo']);
 Route::get('/prestamosTerminados', [prestamosController::class,'prestamosTerminados']);
 Route::get('/tramitesTerminados', [prestamosController::class,'tramitesTerminados']);
 
 //Liberacion Docentes
-Route::get('/comprobanteLiberacion', [LiberacionesController::class,'mostrar_pendientes']);
+// Route::get('/comprobanteLiberacion', [LiberacionesController::class,'mostrar_pendientes']);
 Route::get('/mostrarLiberados', [LiberacionesController::class,'mostrar_liberados']);
 Route::get('/comprobantesCancelados', [LiberacionesController::class,'mostrar_cancelados']);
 
@@ -53,11 +56,20 @@ Route::get('/consultarArticulosMenores', [laboratoristasController::class, 'most
 
 
 
-//Todos registros
-Route::get('/todosRegistros',  [prestamosController::class,'showRegistros']);
+//Todos registros de prestamos
+// Route::get('/todosRegistros',  [prestamosController::class,'showRegistros']);
 
 
 
-Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('Personal', 'PersonalController');
+Route::resource('Prestamos', 'PrestamoController');
+Route::resource('Tramite', 'TramiteController');
+Route::resource('Liberacion', 'LiberacionController');
+
+
+
+

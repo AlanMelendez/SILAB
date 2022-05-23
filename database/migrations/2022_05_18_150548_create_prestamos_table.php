@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticuloMayorTable extends Migration
+class CreatePrestamosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateArticuloMayorTable extends Migration
      */
     public function up()
     {
-        Schema::create('articulo_mayor', function (Blueprint $table) {
+        Schema::create('prestamos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre',50);
-            $table->string('descripcion',100);
+            $table->date('fecha');
             $table->boolean('status');
-            $table->bigInteger('numero_serie');
-            $table->bigInteger('cantidad');
+            $table->unsignedBigInteger('id_alumno');
 
+            $table->foreign('id_alumno')->references('id')->on('alumnos');
 
-            //$table->timestamps();
         });
     }
 
@@ -33,6 +31,6 @@ class CreateArticuloMayorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articulo_mayor');
+        Schema::dropIfExists('prestamos');
     }
 }

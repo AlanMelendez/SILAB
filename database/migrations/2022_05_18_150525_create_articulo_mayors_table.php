@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOficioTable extends Migration
+class CreateArticuloMayorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateOficioTable extends Migration
      */
     public function up()
     {
-        Schema::create('oficio', function (Blueprint $table) {
+        Schema::create('articulo_mayors', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->bigInteger('folio')->unique();
-            $table->timestamps();
+            $table->string('descripcion_articulo');
+            $table->boolean('status');
+            $table->string('numero_serie');
+            $table->string('clave_producto');
+
         });
     }
 
@@ -28,6 +31,6 @@ class CreateOficioTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('oficio');
+        Schema::dropIfExists('articulo_mayors');
     }
 }

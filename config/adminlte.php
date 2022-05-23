@@ -257,15 +257,15 @@ return [
             'submenu' => [
                 [
                     'text' => 'Agregar Prestamo',
-                    'url'  => 'agregarPrestamo',
+                    'url'  => 'Prestamos/create',
                 ],
                 [
                     'text' => 'Todos los prestamos',
-                    'url'  => 'todosPrestamos',
+                    'url'  => '/Prestamos/{Prestamo}',
                 ],
                 [
                     'text' => 'Registros',
-                    'url'  => 'todosRegistros',
+                    'url'  => '/Prestamos',
                 ],
 
             ]
@@ -277,13 +277,13 @@ return [
             'submenu' => [
                 [
                     'text' => 'Iniciar tramite',
-                    'url'  => 'iniciarliberacion',
+                    'url'  => 'Tramite/create	',
                     //En una misma pagina agregar tramites (baja T, baja D,egresados)
                     //Dar opcion para cancelar el tramite
                 ],
                 [
                     'text' => 'Consulta(s)',
-                    'url'  => 'consultarAdeudo',
+                    'url'  => 'Tramite',
                 ],
                 [
                     'text' => 'Prestamos terminados',
@@ -309,7 +309,7 @@ return [
                 ],*/
                 [
                     'text' => 'Pendientes',
-                    'url'  => 'comprobanteLiberacion',
+                    'url'  => 'Liberacion/create',
                     //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
                 ],
                 [
@@ -319,7 +319,7 @@ return [
                 ],
                 [
                     'text' => 'Liberados',
-                    'url'  => 'mostrarLiberados',
+                    'url'  => 'Liberacion',
                     //Aqui agregamos la opcion de buscar liberaciones echas anteriormente (Con algun tipo de filtro)
                 ],
                 // [

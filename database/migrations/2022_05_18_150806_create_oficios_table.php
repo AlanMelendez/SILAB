@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticuloMenorTable extends Migration
+class CreateOficiosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateArticuloMenorTable extends Migration
      */
     public function up()
     {
-        Schema::create('articulo_menor', function (Blueprint $table) {
+        Schema::create('oficios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre',50);
-            $table->string('descripcion',100);
-            $table->boolean('status');
-            $table->bigInteger('stock');
+            $table->string('nombre');
+            $table->bigInteger('folio_oficio');
         });
     }
 
@@ -29,6 +27,6 @@ class CreateArticuloMenorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articulo_menor');
+        Schema::dropIfExists('oficios');
     }
 }
