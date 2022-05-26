@@ -30,7 +30,7 @@
                   type="button">
                     Agregar
                   </button> --}}
-                    <a href="{{ route('Articulos_mayores.create') }}" class="btn btn-agregar">Agregar articulo</a>
+                    <a href="{{ route('Articulos_menores.create') }}" class="btn btn-agregar">Agregar articulo</a>
                 </div>
                 <div class="btn-group">
                     <button type="button" class="btn btn-recargar">
@@ -78,7 +78,7 @@
                         aria-label="Platform(s): activate to sort column ascending" style="">Status
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                        aria-label="Engine version: activate to sort column ascending" style="">No. Serie</th>
+                        aria-label="Engine version: activate to sort column ascending" style="">Stock</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                         aria-label="Engine version: activate to sort column ascending" style="">Clave Articulo</th>
 
@@ -94,7 +94,7 @@
                         <td style="">{{ $articulo->nombre }}</td>
                         <td style="">{{ $articulo->descripcion_articulo }}</td>
                         <td style="">{{ $articulo->status }}</td>
-                        <td style="">{{ $articulo->numero_serie }}</td>
+                        <td style="">{{ $articulo->stock }}</td>
                         <td>{{ $articulo->clave_producto }}</td>
                         <td class="btn-acciones">
                             {{-- leemos el dato, si es diferente a uno que cambie el boton y cambie los datos ala BD --}}
@@ -105,7 +105,7 @@
                                 <a href="{{route('Articulos_mayores.update',$articulo->id)}}"class="btn btn-succes btn-accion2">Deshabilitar</a> --}}
 
                          
-                            <a href="{{ route('Articulos_mayores.edit', $articulo->id) }}"
+                            <a href="{{ route('Articulos_menores.edit', $articulo->id) }}"
                                 class="btn btn-succes btn-accion1 ">Editar</a>
                         </td>
                     </tr>

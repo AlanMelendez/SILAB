@@ -19,7 +19,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form  method="POST" action="{{ route('Articulos_mayores.store') }}">
+                    <form  method="POST" action="{{ route('Articulos_menores.store') }}">
                         @csrf
                         <div class="form-row">
 
@@ -33,12 +33,12 @@
                             <input type="text" class="form-control" id="inputAddress" placeholder="" name="descripcion">
                         </div>
                         <div class="form-group">
-                            <label for="inputAddress">No. Serie</label>
-                            <input type="text" class="form-control" id="inputAddress" placeholder="" name="numero_serie">
+                            <label for="inputAddress">Stock</label>
+                            <input type="number" class="form-control" id="inputAddress" placeholder="" name="stock">
                         </div>
                         <div class="col">
-                            <label for="inputAddress">Código articulo</label>
-                            <input type="text" class="form-control" placeholder="Codigo " name="codigo_articulo">
+                            <label for="inputAddress">Clave articulo</label>
+                            <input type="number" class="form-control"  name="clave_producto">
                         </div>
 
 

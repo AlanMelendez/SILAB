@@ -11,7 +11,7 @@ class laboratoristasController extends Controller
     }
 
     public function mostrarArticulos(){
-        return view('Laboratoristas/articulos');
+       
     }
     public function mostrarArticulosMenores(){
         return view('Laboratoristas/articulos-menores');

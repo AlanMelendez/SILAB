@@ -74,4 +74,5 @@ Pendientes:
 hay que crear nuevas migraciones pero con el nombre:
     create_alumnos_table , etc hay que seguir la sintaxis para no tener problemas.
 
-        
+Crear controlado con opciones CRUD:
+    php artisan make:controller LiberacionController --resource

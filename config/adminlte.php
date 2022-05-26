@@ -355,11 +355,11 @@ return [
                 // ],
                 [
                     'text' => 'Articulos mayores',
-                    'url'  => 'consultarArticulos',
+                    'url'  => 'Articulos_mayores',
                 ],
                 [
                     'text' => 'Articulos menores',
-                    'url'  => 'consultarArticulosMenores',
+                    'url'  => 'Articulos_menores',
                 ],
                 
             ]

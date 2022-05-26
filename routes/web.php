@@ -52,6 +52,8 @@ Route::get('/mostrarAyuda', [ayudaController::class,'mostrarAyuda']);
 Route::get('/informacionLaboratorios', 'laboratoristasController@show');
 
 Route::get('/consultarArticulos', [laboratoristasController::class, 'mostrarArticulos']);
+Route::post('/consultarArticulos', [laboratoristasController::class, 'mostrarArticulos'])->name('articulos_mayores.post');
+
 Route::get('/consultarArticulosMenores', [laboratoristasController::class, 'mostrarArticulosMenores']);
 
 
@@ -69,6 +71,8 @@ Route::resource('Personal', 'PersonalController');
 Route::resource('Prestamos', 'PrestamoController');
 Route::resource('Tramite', 'TramiteController');
 Route::resource('Liberacion', 'LiberacionController');
+Route::resource('Articulos_mayores','ArticulosMayoresController');
+Route::resource('Articulos_menores','ArticulosMenoresController');
 
 
 
