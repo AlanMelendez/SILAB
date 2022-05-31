@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class ArticulosMayoresController extends Controller
 {
+
+     public function __construct()
+     {
+         $this->middleware('auth'); //Se aplica restriccion para que a todas las rutaas solo se acceda autenticado.
+
+         //$this->middleware('auth')->only('create','edit');   asi limitamos solo las rutas a unas en esepcifico.
+     }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +23,7 @@ class ArticulosMayoresController extends Controller
     {
         //
         $articulos_mayores = articulo_mayor::all(); //Sacamos los datos del modelo
-        return view('Laboratoristas/articulos', array('articulos'=> $articulos_mayores)); // Los pasamos por el controlador ala vista, para asi mostrarlos en la tabla.
+        return view('Laboratoristas.articulos', array('articulos'=> $articulos_mayores)); // Los pasamos por el controlador ala vista, para asi mostrarlos en la tabla.
     }
 
     /**

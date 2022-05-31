@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\articulo_mayor;
+use App\articulo_menor;
+use App\usuario;
 use Illuminate\Http\Request;
 
 class PrestamoController extends Controller
@@ -22,10 +25,13 @@ class PrestamoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
-        return view ('Components.nuevo-prestamo-individual');
+        $usuarios= usuario::all();
+        $articulosme = articulo_menor::all();
+        $articulosma= articulo_mayor::all();
+        return view ('Components.nuevo-prestamo-individual', array('articulosme'=> $articulosme), array('articulosma'=> $articulosma));
 
     }
 

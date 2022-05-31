@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\tramite;
 use Illuminate\Http\Request;
 
 class LaboratorioController extends Controller
@@ -14,6 +15,7 @@ class LaboratorioController extends Controller
     public function index()
     {
         //
+        
     }
 
     /**
@@ -23,7 +25,8 @@ class LaboratorioController extends Controller
      */
     public function create()
     {
-        //
+       
+        
     }
 
     /**

@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ArticulosMenoresController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth'); //Se aplica restriccion para que a todas las rutaas solo se acceda autenticado.
+
+        //$this->middleware('auth')->only('create','edit');   asi limitamos solo las rutas a unas en esepcifico.
+    }
     /**
      * Display a listing of the resource.
      *

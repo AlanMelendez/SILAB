@@ -19,7 +19,7 @@ class CreatePersonalsTable extends Migration
             $table->string('descripcion_puesto');
             $table->unsignedBigInteger('id_usuario');
 
-            $table->foreign('id_usuario')->references('id')->on('usuarios');
+            $table->foreign('id_usuario')->references('id')->on('users');
 
         });
     }

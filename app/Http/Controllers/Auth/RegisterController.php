@@ -68,6 +68,9 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            // 'id_rol'=> $data['id_rol'], Quitar comentario si en el formulario vamos a dar opcion de elegir rol.
+
+            // https://es.stackoverflow.com/questions/401599/sqlstatehy000-general-error-1364-field-rol-id-doesnt-have-a-default-value
         ]);
     }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\alumno;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TramiteController extends Controller
 {
@@ -26,7 +28,9 @@ class TramiteController extends Controller
     public function create()
     {
         //
-        return view('Alumnos/tramite');
+        $alumno= alumno::all();
+
+        return view('Alumnos/tramite' ,array('alumno'=> $alumno));
 
     }
 

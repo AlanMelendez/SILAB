@@ -39,7 +39,7 @@ function ventanaModalArticulos(){
  function mostrarTablas(){
      //Este eventlistener evita que se recargue la pagina 
     document.getElementById("contenido-pagina-prestamo").addEventListener('submit', (event)=>{
-        event.preventDefault();
+        event.preventDefault(); //Eliminar los eventos por defecto.
     });
     var x = document.getElementById('tabla-articulos');
     if(x){
@@ -80,76 +80,78 @@ function ventanaModalArticulos(){
     }
  }
 
- var articulos_agregados= document.querySelector('#articulos');
+ var articulos_agregados= document.querySelector('#articulos-agregados');
 //  var _nom = 'Hola';
 //  var _cat = "hola2";
 //  var _precio = 'aasdasdads';
 //  var _stock = 'serios oks';
  function agregarArticulo(){
-     var value = document.getElementById('articulo-mayores').value;
-    switch (value){
-       case '1003':
-            var articulo = 'Cautin';
-            var marca = 'Truper';
-            var descripcion = 'Cautin punta cuadrada';
-            var clave = '1003';
-            var fila='<tr><td> ' +articulo+'</td><td>'+marca+'</td><td>'+descripcion+
-            '</td><td>'+clave + '</td></tr>';
-           var fila2 =document.getElementById('body-agregados');
-           var btn = document.createElement("TR");
-           btn.innerHTML=fila;
-            document.getElementById("body-agregados").appendChild(btn);
-           break;
-        case '1004':
-            var articulo = 'Arduino Uno R3';
-            var marca = 'Arduino';
-            var descripcion = 'Arduino color azul';
-            var clave = '1004';
-            var fila='<tr><td> ' +articulo+'</td><td>'+marca+'</td><td>'+descripcion+
-            '</td><td>'+clave + '</td></tr>';
-           var fila2 =document.getElementById('body-agregados');
-           var btn = document.createElement("TR");
-           btn.innerHTML=fila;
-            document.getElementById("body-agregados").appendChild(btn);
-           break;
-        case '1001':
-            var articulo = 'Resistencia';
-            var marca = 'Global';
-            var descripcion = 'Resistencia 20K';
-            var clave = '1001';
-            var fila='<tr><td> ' +articulo+'</td><td>'+marca+'</td><td>'+descripcion+
-            '</td><td>'+clave + '</td></tr>';
-             var fila2 =document.getElementById('body-agregados');
-            var btn = document.createElement("TR");
-            btn.innerHTML=fila;
-            document.getElementById("body-agregados").appendChild(btn);
-           break;
-        case '1002':
-            var articulo = 'Cables';
-            var marca = 'Generico';
-            var descripcion = 'Cables pinza caiman';
-            var clave = '1002';
-            var fila='<tr><td> ' +articulo+'</td><td>'+marca+'</td><td>'+descripcion+
-            '</td><td>'+clave + '</td></tr>';
-           var fila2 =document.getElementById('body-agregados');
-           var btn = document.createElement("TR");
-           btn.innerHTML=fila;
-            document.getElementById("body-agregados").appendChild(btn);
-           break;
-        case '1005':
-            var articulo = 'Lentes';
-            var marca = 'Truper';
-            var descripcion = 'Lentes proteccion transparentes';
-            var clave = '1005';
-            var fila='<tr><td> ' +articulo+'</td><td>'+marca+'</td><td>'+descripcion+
-            '</td><td>'+clave + '</td></tr>';
-           var fila2 =document.getElementById('body-agregados');
-           var btn = document.createElement("TR");
-           btn.innerHTML=fila;
-            document.getElementById("body-agregados").appendChild(btn);
-           break;
-        default:
-            //alert('adios');
-    }
+     var value = document.getElementById('busqueda-articulos').value;
+     console.log('hola desde value')
+     console.log(value);
+    // switch (value){
+    //    case '1003':
+    //         var articulo = 'Cautin';
+    //         var marca = 'Truper';
+    //         var descripcion = 'Cautin punta cuadrada';
+    //         var clave = '1003';
+    //         var fila='<tr><td> ' +articulo+'</td><td>'+marca+'</td><td>'+descripcion+
+    //         '</td><td>'+clave + '</td></tr>';
+    //        var fila2 =document.getElementById('body-agregados');
+    //        var btn = document.createElement("TR");
+    //        btn.innerHTML=fila;
+    //         document.getElementById("body-agregados").appendChild(btn);
+    //        break;
+    //     case '1004':
+    //         var articulo = 'Arduino Uno R3';
+    //         var marca = 'Arduino';
+    //         var descripcion = 'Arduino color azul';
+    //         var clave = '1004';
+    //         var fila='<tr><td> ' +articulo+'</td><td>'+marca+'</td><td>'+descripcion+
+    //         '</td><td>'+clave + '</td></tr>';
+    //        var fila2 =document.getElementById('body-agregados');
+    //        var btn = document.createElement("TR");
+    //        btn.innerHTML=fila;
+    //         document.getElementById("body-agregados").appendChild(btn);
+    //        break;
+    //     case '1001':
+    //         var articulo = 'Resistencia';
+    //         var marca = 'Global';
+    //         var descripcion = 'Resistencia 20K';
+    //         var clave = '1001';
+    //         var fila='<tr><td> ' +articulo+'</td><td>'+marca+'</td><td>'+descripcion+
+    //         '</td><td>'+clave + '</td></tr>';
+    //          var fila2 =document.getElementById('body-agregados');
+    //         var btn = document.createElement("TR");
+    //         btn.innerHTML=fila;
+    //         document.getElementById("body-agregados").appendChild(btn);
+    //        break;
+    //     case '1002':
+    //         var articulo = 'Cables';
+    //         var marca = 'Generico';
+    //         var descripcion = 'Cables pinza caiman';
+    //         var clave = '1002';
+    //         var fila='<tr><td> ' +articulo+'</td><td>'+marca+'</td><td>'+descripcion+
+    //         '</td><td>'+clave + '</td></tr>';
+    //        var fila2 =document.getElementById('body-agregados');
+    //        var btn = document.createElement("TR");
+    //        btn.innerHTML=fila;
+    //         document.getElementById("body-agregados").appendChild(btn);
+    //        break;
+    //     case '1005':
+    //         var articulo = 'Lentes';
+    //         var marca = 'Truper';
+    //         var descripcion = 'Lentes proteccion transparentes';
+    //         var clave = '1005';
+    //         var fila='<tr><td> ' +articulo+'</td><td>'+marca+'</td><td>'+descripcion+
+    //         '</td><td>'+clave + '</td></tr>';
+    //        var fila2 =document.getElementById('body-agregados');
+    //        var btn = document.createElement("TR");
+    //        btn.innerHTML=fila;
+    //         document.getElementById("body-agregados").appendChild(btn);
+    //        break;
+    //     default:
+    //         //alert('adios');
+    // }
  }
 

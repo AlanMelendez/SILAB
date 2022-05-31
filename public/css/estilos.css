@@ -388,6 +388,7 @@
 }
 .tabla-articulos{
     display: none;
+    height: 400px;
 }
 .tablas-articulos-prestamos{
     width: 100%;
@@ -398,7 +399,13 @@
     align-content: center;
 }
 .tabla-articulos-style{
+    /* scroll en las tablas */
     margin: 10px;
+    overflow:scroll;
+    height:300px;
+    width:500px;
+
+
 }
 .control-numero{
     width: 100%;
@@ -410,6 +417,7 @@
 }
 
 .articulos-style{
+    height: 100px;
     overflow-x: scroll;
 }
 .input-agregar-cancelar{
