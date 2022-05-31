@@ -365,7 +365,9 @@ return [
                     'url'  => 'Articulos_menores',
                 ],
                 
-            ]
+            ],
+            'can' => 'Articulos_mayores',
+
         ],
         // [
         //     'text' => 'Opciones',

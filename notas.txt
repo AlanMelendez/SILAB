@@ -75,7 +75,11 @@ AGREGAR DATOS CON FAKER:
     *Dentro del seed "DatabaseSeeder" encontraremos las funciones que se ejecutaran (seran los otros seeders)
     *Para ejecutar sera con -> php artisan db:seed
 
+SEEDERS DE PERMISOS:
+    Para ejecutar los seeder y se creen los roles y permisos ejecutar el siguiente comando:
+        php artisan migrate:refresh --seed
 
+    NOTA: dentro de la base de datos en la tabla model_has_role ... Es necesario agregar manualmente el [id del rol,App/User, id del usuario ] esto para crear manualmente los permisos
 Pendientes:
 
 hay que crear nuevas migraciones pero con el nombre:
