@@ -57,6 +57,13 @@ AUTENTICACION DE USUARIOS:
     *Configuramos el .env con los datos de la base de datos
     *Creamos una base de datos en MYSQL workbench
     *Ejecutamos php artisan migrate
+
+
+PERMISOS EN Laravel 
+    vamos a instalar el siguiente paquete que nos ayudara a crear permisos y roles:
+    composer requiere spatie/laravel-permission
+        en caso de error : composer require spatie/laravel-permission:*
+        https://spatie.be/docs/laravel-permission/v5/installation-laravel
     
 AGREGAR DATOS CON FAKER:
 
