@@ -23,33 +23,33 @@ class RoleSeeder extends Seeder
         $role3 = Role::create(['name'=> 'Invitado']);
 
         //Para tener coherencia, al NOMBRE del permiso le podemos llamar igual que la ruta que va proteger.
-        Permission::create(['name'=> 'Prestamos']); //Permiso para acceder al panel prestamo
-        Permission::create(['name'=> 'Prestamos.create']); //Permiso para acceder al panel prestamo
-        Permission::create(['name'=> 'Prestamos.edit']); 
+        Permission::create(['name'=> 'Prestamos'])->syncRoles($role1,$role3); //Permiso para acceder al panel prestamo
+        Permission::create(['name'=> 'Prestamos.create'])->syncRoles($role1,$role3); //Permiso para acceder al panel prestamo
+        Permission::create(['name'=> 'Prestamos.edit'])->syncRoles($role1,$role3); 
 
-        Permission::create(['name'=> 'Tramite']); //Permiso para acceder al panel tramite
-        Permission::create(['name'=> 'Tramite.create']); //Permiso para acceder al panel tramite
-        Permission::create(['name'=> 'prestamosTerminados']); //Permiso para acceder al panel tramite
-        Permission::create(['name'=> 'tramitesTerminados']); //Permiso para acceder al panel tramite
-
-
-        Permission::create(['name'=> 'Liberacion']); // permiso para acceder al panel liberacion
-        Permission::create(['name'=> 'Liberacion.create']); // permiso para acceder al panel liberacion
-        Permission::create(['name'=> 'comprobantesCancelados']); // permiso para acceder al panel liberacion
+        Permission::create(['name'=> 'Tramite'])->syncRoles($role2); //Permiso para acceder al panel tramite
+        Permission::create(['name'=> 'Tramite.create'])->syncRoles($role2); //Permiso para acceder al panel tramite
+        Permission::create(['name'=> 'prestamosTerminados'])->syncRoles($role2); //Permiso para acceder al panel tramite
+        Permission::create(['name'=> 'tramitesTerminados'])->syncRoles($role2); //Permiso para acceder al panel tramite
 
 
-        Permission::create(['name'=> 'Articulos_mayores']);
-        Permission::create(['name'=> 'Articulos_mayores.create']);
-        Permission::create(['name'=> 'Articulos_mayores.edit']);
-        Permission::create(['name'=> 'Articulos_mayores.store']);
-        Permission::create(['name'=> 'Articulos_mayores.destroy']);
+        Permission::create(['name'=> 'Liberacion'])->syncRoles($role1,$role3); // permiso para acceder al panel liberacion
+        Permission::create(['name'=> 'Liberacion.create'])->syncRoles($role1,$role3); // permiso para acceder al panel liberacion
+        Permission::create(['name'=> 'comprobantesCancelados'])->syncRoles($role1,$role3); // permiso para acceder al panel liberacion
 
 
-        Permission::create(['name'=> 'Articulos_menores']);
-        Permission::create(['name'=> 'Articulos_menores.create']);
-        Permission::create(['name'=> 'Articulos_menores.edit']);
-        Permission::create(['name'=> 'Articulos_menores.store']);
-        Permission::create(['name'=> 'Articulos_menores.destroy']);
+        Permission::create(['name'=> 'Articulos_mayores'])->syncRoles($role1,$role3);
+        Permission::create(['name'=> 'Articulos_mayores.create'])->syncRoles($role1,$role3);
+        Permission::create(['name'=> 'Articulos_mayores.edit'])->syncRoles($role1,$role3);
+        Permission::create(['name'=> 'Articulos_mayores.store'])->syncRoles($role1,$role3);
+        Permission::create(['name'=> 'Articulos_mayores.destroy'])->syncRoles($role1,$role3);
+
+
+        Permission::create(['name'=> 'Articulos_menores'])->syncRoles($role1,$role3);
+        Permission::create(['name'=> 'Articulos_menores.create'])->syncRoles($role1,$role3);
+        Permission::create(['name'=> 'Articulos_menores.edit'])->syncRoles($role1,$role3);
+        Permission::create(['name'=> 'Articulos_menores.store'])->syncRoles($role1,$role3);
+        Permission::create(['name'=> 'Articulos_menores.destroy'])->syncRoles($role1,$role3);
 
 
     }

@@ -268,7 +268,8 @@ return [
                     'url'  => '/Prestamos',
                 ],
 
-            ]
+            ],
+            'can' => 'Prestamos',
         ],
         [
             'text' => 'Tramite',
@@ -295,7 +296,8 @@ return [
                 ],
 
 
-            ]
+            ],
+            'can' => 'Tramite',
         ],
         [
             'text' => 'Liberacion',
@@ -329,7 +331,8 @@ return [
                 // ],
 
 
-            ]
+                ],
+                'can' => 'Liberacion',
         ],
         // [
         //     'text' => 'Estadisticas',
