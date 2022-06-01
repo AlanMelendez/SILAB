@@ -38,8 +38,8 @@
 
         <div id="tabla-articulos" class="tabla-articulos" style="display: block !important">
             <div class="nombre_alumno">
-                <table class="table">
-                    <thead>
+                <table class="table table-bordered">
+                    <thead class="thead-dark">
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Numero Control</th>
@@ -89,7 +89,7 @@
                 <div class="tabla-articulos-menores tabla-articulos-style">
                     <label for="articulos-menores">ARTICULOS MENORES</label>
                     <table id="articulos-menores" class="table articulos-style">
-                        <thead class="thead-light">
+                        <thead class="thead-dark">
                             <tr>
                                 {{-- <th scope="col">ID</th> --}}
                                 <th scope="col">Nombre</th>
@@ -118,7 +118,7 @@
                 <div class="tabla-articulos-mayores tabla-articulos-style">
                     <label for="articulos-mayores">ARTICULOS MAYORES</label>
                     <table id="articulos-mayores" class="table articulos-style">
-                        <thead class="thead-light">
+                        <thead class="thead-dark">
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Articulo</th>
@@ -151,7 +151,7 @@
             <div class="tabla-articulos-agregados tabla-articulos-style-2">
                 <label for="articulos-agregados">ARTICULOS AGREGADOS</label>
                 <table id="articulos-agregados" class="table articulos-style">
-                    <thead class="thead-light">
+                    <thead class="thead-dark">
                         <tr>
 
                             <th scope="col">Articulo</th>
