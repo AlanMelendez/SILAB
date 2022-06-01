@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\articulo_mayor;
 use App\articulo_menor;
+use App\User;
 use App\usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PrestamoController extends Controller
 {
@@ -27,13 +29,20 @@ class PrestamoController extends Controller
      */
     public function create(Request $request)
     {
-        //
-        $usuarios= usuario::all();
+        $numeroControl= trim($request->get('search_control')); //Obtenemos el numero control del input.
+        $usuarios= DB::table('alumnos')
+            ->join('users','users.id' , '=', 'alumnos.id')
+            ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name')
+            ->where('alumnos.numero_control','LIKE','%'.$numeroControl.'%' )
+            ->get();
+       
         $articulosme = articulo_menor::all();
         $articulosma= articulo_mayor::all();
-        return view ('Components.nuevo-prestamo-individual', array('articulosme'=> $articulosme), array('articulosma'=> $articulosma));
-
+        return view ('Components.nuevo-prestamo-individual',compact('numeroControl','usuarios','articulosme','articulosma'));
+        //return($usuarios);
     }
+    
+       
 
     /**
      * Store a newly created resource in storage.
@@ -44,7 +53,10 @@ class PrestamoController extends Controller
     public function store(Request $request)
     {
         //
+        
+        
     }
+    
 
     /**
      * Display the specified resource.

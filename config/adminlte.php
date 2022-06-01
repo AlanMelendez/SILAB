@@ -381,11 +381,11 @@ return [
         //         ],
         //     ]    
         // ],
-        [
-            'text' => 'Salir',
-            'url'  => 'admin/settings',
-            'icon' => 'fa fa-sign-out-alt',
-        ],
+        // [
+        //     'text' => 'Salir',
+        //     'url'  => 'admin/settings',
+        //     'icon' => 'fa fa-sign-out-alt',
+        // ],
         /*[
             'text'    => 'multilevel',
             'icon'    => 'fas fa-fw fa-share',

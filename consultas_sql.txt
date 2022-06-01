@@ -1,0 +1,7 @@
+EJECUTAR EN MYSQL
+// Saco la relacion de Alumno con Usuario
+select	* from silab.alumnos inner join silab.users on silab.alumnos.id_usuario = silab.users.id
+
+
+//Me traego solo [ semestre,carrera, numero control de la tabla alumno] y [nombre solo de la tabla usuario]
+select	silab.alumnos.semestre, silab.alumnos.carrera, silab.alumnos.numero_control, silab.users.name from silab.alumnos inner join silab.users on silab.alumnos.id_usuario = silab.users.i

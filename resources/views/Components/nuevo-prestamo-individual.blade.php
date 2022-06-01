@@ -13,12 +13,15 @@
             <div class="input-control">
                 <form class="form-inline form-buscar form-buscar-prestamo" action="{{ route('Prestamos.create') }}"
                     method="GET">
+                    @csrf
                     <div class="btn-grouper">
 
                         <input class="form-controlq mr-sm-2" type="number" name="search_control" placeholder=""
-                            aria-label="Search">
+                            value="{{ $numeroControl }}">
 
-                        <button class="btn-buscarBarra" type="submit" onclick="mostrarTablas();">
+
+
+                        <button class="btn-buscarBarra" type="submit" onclick="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-search" viewBox="0 0 16 16">
                                 <path
@@ -26,10 +29,46 @@
                             </svg>
                         </button>
                     </div>
+
+
                 </form>
+
             </div>
         </div>
-        <div id="tabla-articulos" class="tabla-articulos">
+
+        <div id="tabla-articulos" class="tabla-articulos" style="display: block !important">
+            <div class="nombre_alumno">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Numero Control</th>
+                            <th scope="col">Carrera</th>
+                            <th scope="col">Semestre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (count($usuarios) <= 0)
+                            {{-- Esto es para que cuando busquemos, si no encuentra nada con algun numero digitado pues muestre el mensaje --}}
+                            <tr>
+                                {{-- El colspan es para que afecte las 4 columnas --}}
+                                <td colspan="4">Sin resultados.</td>
+                            </tr>
+                        @elseif (count($usuarios)==1)
+                            @foreach ($usuarios as $usuario)
+                                <tr>
+                                    <th scope="row">{{ $usuario->name }}</th>
+                                    <td>{{ $usuario->numero_control }}</td>
+                                    <td>{{ $usuario->carrera }}</td>
+                                    <td>{{ $usuario->semestre }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+
+
+                    </tbody>
+                </table>
+            </div>
             <div class="form-articulos-prestamo">
                 <form class="form-inline form-buscar form-buscar-prestamo">
                     <div class="btn-grouper">

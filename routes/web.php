@@ -23,7 +23,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('panel-control');
+    // return view('panel-control');
+    return view('auth.login'); //Al iniciar el servidor, dirigir al login.
 });
 
 //Liberacion Alumnos

@@ -23,6 +23,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        //return view('home');
+        
+        //Al iniciar sesion, me rediriga al panel.
+        return view('panel-control');
     }
 }
