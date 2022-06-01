@@ -396,7 +396,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    align-content: center;
+    align-content: stretch;
 }
 .tabla-articulos-style{
     /* scroll en las tablas */

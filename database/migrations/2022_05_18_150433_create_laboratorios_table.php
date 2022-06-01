@@ -15,7 +15,7 @@ class CreateLaboratoriosTable extends Migration
     {
         Schema::create('laboratorios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nombre');
+            $table->string('nombre_laboratorio');
             $table->unsignedBigInteger('id_personal');
 
             $table->foreign('id_personal')->references('id')->on('personals');

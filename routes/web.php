@@ -74,6 +74,9 @@ Route::resource('Tramite', 'TramiteController');
 Route::resource('Liberacion', 'LiberacionController');
 Route::resource('Articulos_mayores','ArticulosMayoresController');
 Route::resource('Articulos_menores','ArticulosMenoresController');
+Route::resource('ArticulosMayoresLab','ArticuloMayorLabController');
+Route::resource('ArticulosMenoresLab','ArticuloMenorLabController');
+
 
 
 

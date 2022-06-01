@@ -357,6 +357,14 @@ return [
                 //     //
                 // ],
                 [
+                    'text' => 'Mayores Laboratorio',
+                    'url'  => 'ArticulosMayoresLab',
+                ],
+                [
+                    'text' => 'Menores Laboratorio',
+                    'url'  => 'ArticulosMenoresLab',
+                ],
+                [
                     'text' => 'Articulos mayores',
                     'url'  => 'Articulos_mayores',
                 ],
@@ -364,6 +372,7 @@ return [
                     'text' => 'Articulos menores',
                     'url'  => 'Articulos_menores',
                 ],
+                
                 
             ],
             'can' => 'Articulos_mayores',

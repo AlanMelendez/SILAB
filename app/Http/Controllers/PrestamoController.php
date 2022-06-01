@@ -29,9 +29,10 @@ class PrestamoController extends Controller
      */
     public function create(Request $request)
     {
+        // 192310781
         $numeroControl= trim($request->get('search_control')); //Obtenemos el numero control del input.
         $usuarios= DB::table('alumnos')
-            ->join('users','users.id' , '=', 'alumnos.id')
+            ->join('users','users.id' , '=', 'alumnos.id') //users es la tabla, no el modelo
             ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name')
             ->where('alumnos.numero_control','LIKE','%'.$numeroControl.'%' )
             ->get();
