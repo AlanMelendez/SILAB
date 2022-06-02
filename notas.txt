@@ -87,3 +87,19 @@ hay que crear nuevas migraciones pero con el nombre:
 
 Crear controlado con opciones CRUD:
     php artisan make:controller LiberacionController --resource
+
+
+
+
+
+
+
+
+    01 junio
+
+    Para resetear migraciones: php artisan migrate:refresh --seed
+    Luego en la aplicacion creamos usuarios
+    Tambien hay que crear los laboratorios.
+    En la base de datos, en la tabla model_has_role, Le asignamos roles alos usuarios
+
+    --Falta crear una interfaz que ayude a hacerlo (crear ususarios y su rol determinado) , o en todo caso un seeeder o algo parecido.
