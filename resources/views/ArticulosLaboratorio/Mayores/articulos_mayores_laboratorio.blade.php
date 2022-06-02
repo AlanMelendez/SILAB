@@ -30,7 +30,7 @@
                   type="button">
                     Agregar
                   </button> --}}
-                    <a href="{{ route('ArticulosMayoresLab.index') }}" class="btn btn-agregar">Agregar articulo</a>
+                    <a href="{{ route('ArticulosMayoresLab.create') }}" class="btn btn-agregar">Agregar articulo</a>
                 </div>
                 <div class="btn-group">
                     <button type="button" class="btn btn-recargar">
@@ -78,12 +78,15 @@
                         aria-label="Platform(s): activate to sort column ascending" style="">Status
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        aria-label="Platform(s): activate to sort column ascending" style="">Numero Serie
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                         aria-label="Engine version: activate to sort column ascending" style="">Laboratorio</th>
                     {{-- <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                         aria-label="Engine version: activate to sort column ascending" style="">Clave Articulo</th> --}}
 
-                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                        aria-label="CSS grade: activate to sort column ascending" style="">Accion</th>
+                    {{-- <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        aria-label="CSS grade: activate to sort column ascending" style="">Accion</th> --}}
                 </tr>
 
             </thead>
@@ -94,9 +97,10 @@
                         <td style="">{{ $articulo->nombre }}</td>
                         <td style="">{{ $articulo->descripcion_articulo }}</td>
                         <td style="">{{ $articulo->status }}</td>
+                        <td style="">{{ $articulo->numero_serie }}</td>
                         <td style="">{{ $articulo->nombre_laboratorio }}</td>
                         {{-- <td>{{ $articulo->clave_producto }}</td> --}}
-                        <td class="btn-acciones">
+                        {{-- <td class="btn-acciones">
                             {{-- leemos el dato, si es diferente a uno que cambie el boton y cambie los datos ala BD --}}
 {{--                            
                                 <a href="{{route('Articulos_mayores.update',$articulo->id)}}" class="btn btn-succes btn-accion1">Habilitar</a>
@@ -105,9 +109,9 @@
                                 <a href="{{route('Articulos_mayores.update',$articulo->id)}}"class="btn btn-succes btn-accion2">Deshabilitar</a> --}}
 
                          
-                            <a href="{{ route('Articulos_menores.edit', $articulo->id) }}"
+                            {{-- <a href="{{ route('Articulos_menores.edit', $articulo->id) }}"
                                 class="btn btn-succes btn-accion1 ">Editar</a>
-                        </td>
+                        </td>  --}}
                     </tr>
                 @endforeach
 

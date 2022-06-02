@@ -30,7 +30,7 @@
                   type="button">
                     Agregar
                   </button> --}}
-                    <a href="{{ route('ArticulosMayoresLab.index') }}" class="btn btn-agregar">Agregar articulo</a>
+                    <a href="{{ route('ArticulosMenoresLab.create') }}" class="btn btn-agregar">Agregar articulo</a>
                 </div>
                 <div class="btn-group">
                     <button type="button" class="btn btn-recargar">

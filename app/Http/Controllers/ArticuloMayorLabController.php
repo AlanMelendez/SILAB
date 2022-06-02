@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\articulo_mayor_laboratorio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\articulo_mayor;
+use App\laboratorio;
+use Illuminate\Support\Arr;
 
 class ArticuloMayorLabController extends Controller
 {
@@ -35,6 +38,8 @@ class ArticuloMayorLabController extends Controller
     public function create()
     {
         //
+        return view('ArticulosLaboratorio.Mayores.articulos-modal_laboratorio_mayor'); //vista modal de agregar articulos mayores
+
     }
 
     /**
@@ -46,8 +51,57 @@ class ArticuloMayorLabController extends Controller
     public function store(Request $request)
     {
         //
-    }
+        // print_r($_POST);
+        //en la variable almacenamos los datos del modelo, QUE VAMOS A INSERTAR.
+        $articuloMa = new articulo_mayor;
+        $articuloMa-> nombre= $request->input('nombre');
+        $articuloMa-> descripcion_articulo= $request->input('descripcion');
+        $articuloMa-> status='1';
+        $articuloMa-> numero_serie= $request->input('numero_serie');
+        $articuloMa-> clave_producto= $request->input('codigo_articulo');
 
+        $articuloMa->save(); //Guardamos los datos del articulo mayor primero
+        
+        //Guardamos el laboratorio traido desde el select
+        $labselect= $request->get('select-laboratorio');
+
+        //Creamos un objeto de laboratorio, para buscar el laboratorio que viene desde el select
+        $laboratorio= DB::table('laboratorios')
+            ->select('laboratorios.id')
+            ->where('laboratorios.nombre_laboratorio',$labselect)  //Si existe un laboratorio en la base de datos , =, ala del select
+            ->get();    //Guardala en la variable laboratorio
+
+
+        //El siguiente codigo viene desde articulos-modal_laboratorio_mayor.   
+        // Este agrega un nuevo articulo ala tabla articulos mayores pero con la sig opciones
+        //Se agregara a ArticulosMayoresLab
+        $articulolaboratorio= new articulo_mayor_laboratorio;
+        
+       
+        //Para guardar el id del articulo necesitamos traerlo una ves creado
+
+        //Traemos el numero de serie, este debe ser unico para cada articulo, es por eso que con esto lo validamos.
+        $numserie= $request->input('numero_serie');
+
+        $idArticulo=DB::table('articulo_mayors')
+            ->select('articulo_mayors.id') //Seleccionamos el id 
+            ->where('articulo_mayors.numero_serie',$numserie) //Verificamos que exista un numero de serie, con el del input
+            ->get(); //Nos guardara lo seleccionado (id) en la variable.
+        
+        $articulolaboratorio-> id_laboratorio=$laboratorio[0]->id; //$laboratorio es un conjunto de laboratorios. Entonces, si solo desea el campo "id" del PRIMER resultado, puede hacer $laboratorio[0]->id
+        $articulolaboratorio-> id_articulo_mayor=$idArticulo[0]->id; //Tomamos el id y lo guardamos
+        
+       
+        
+        
+        
+        $articulolaboratorio->save(); //Guardamos despues el articulo de laboratorio.
+
+       return redirect()->route("ArticulosMayoresLab.index")->with('success','Agregado con exito'); //Redirigimos ala pagina index, Y catcheamos cualquier errot con with.
+
+        
+    }
+    
     /**
      * Display the specified resource.
      *

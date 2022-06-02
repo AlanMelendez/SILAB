@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\articulo_mayor;
-
+use App\articulo_mayor_laboratorio;
 use Illuminate\Http\Request;
 
 class ArticulosMayoresController extends Controller
@@ -55,6 +55,7 @@ class ArticulosMayoresController extends Controller
         $articuloMa-> numero_serie= $request->input('numero_serie');
         $articuloMa-> clave_producto= $request->input('codigo_articulo');
         $articuloMa->save(); //Guardamos los datos
+        
         
 
         return redirect()->route("Articulos_mayores.index")->with('success','Agregado con exito'); //Redirigimos ala pagina index, Y catcheamos cualquier errot con with.

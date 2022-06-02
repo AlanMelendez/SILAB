@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\articulo_menor;
 use App\articulo_menor_laboratorio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -16,13 +17,13 @@ class ArticuloMenorLabController extends Controller
     public function index()
     {
         // $articulos_menores= articulo_mayor_laboratorio::all();
-        $articulos_menores= DB::table('articulo_menor_laboratorios')
-            -> join ('laboratorios', 'laboratorios.id', '=' , 'articulo_menor_laboratorios.id_laboratorio')
-            -> join ('articulo_menors', 'articulo_menor_laboratorios.id_articulo_menor', '=' , 'articulo_menors.id')
-            ->select("articulo_menor_laboratorios.id", 'articulo_menors.nombre','articulo_menors.descripcion_articulo', 'articulo_menors.stock', 'articulo_menors.status','articulo_menors.clave_producto', 'laboratorios.nombre_laboratorio' )
+        $articulos_menores = DB::table('articulo_menor_laboratorios')
+            ->join('laboratorios', 'laboratorios.id', '=', 'articulo_menor_laboratorios.id_laboratorio')
+            ->join('articulo_menors', 'articulo_menor_laboratorios.id_articulo_menor', '=', 'articulo_menors.id')
+            ->select("articulo_menor_laboratorios.id", 'articulo_menors.nombre', 'articulo_menors.descripcion_articulo', 'articulo_menors.stock', 'articulo_menors.status', 'articulo_menors.clave_producto', 'laboratorios.nombre_laboratorio')
             //->where('alumnos.numero_control','LIKE','%'.$numeroControl.'%' )
             ->get();
-        return view('ArticulosLaboratorio.Menores.articulos_menores_laboratorio',compact('articulos_menores'));
+        return view('ArticulosLaboratorio.Menores.articulos_menores_laboratorio', compact('articulos_menores'));
         //return($articulos_menores);
     }
 
@@ -34,6 +35,8 @@ class ArticuloMenorLabController extends Controller
     public function create()
     {
         //
+        return view('ArticulosLaboratorio.Menores.articulos-modal_laboratorio_menor'); //vista modal de agregar articulos mayores
+
     }
 
     /**
@@ -45,6 +48,55 @@ class ArticuloMenorLabController extends Controller
     public function store(Request $request)
     {
         //
+        //
+        // print_r($_POST);
+        //en la variable almacenamos los datos del modelo, QUE VAMOS A INSERTAR.
+        $articuloMa = new articulo_menor;
+        $articuloMa->nombre = $request->input('nombre');
+        $articuloMa->descripcion_articulo = $request->input('descripcion');
+        $articuloMa->stock = $request->input('stock');
+        $articuloMa->status = '1';
+        $articuloMa->clave_producto = $request->input('codigo_articulo');
+
+        $articuloMa->save(); //Guardamos los datos del articulo mayor primero
+
+        //Guardamos el laboratorio traido desde el select
+        $labselect = $request->get('select-laboratorio');
+
+        //Creamos un objeto de laboratorio, para buscar el laboratorio que viene desde el select
+        $laboratorio = DB::table('laboratorios')
+            ->select('laboratorios.id')
+            ->where('laboratorios.nombre_laboratorio', $labselect)  //Si existe un laboratorio en la base de datos , =, ala del select
+            ->get();    //Guardala en la variable laboratorio
+
+
+        //El siguiente codigo viene desde articulos-modal_laboratorio_mayor.   
+        // Este agrega un nuevo articulo ala tabla articulos mayores pero con la sig opciones
+        //Se agregara a ArticulosMayoresLab
+        $articulolaboratorio = new articulo_menor_laboratorio;
+
+
+        //Para guardar el id del articulo necesitamos traerlo una ves creado
+
+        //Traemos el numero de serie, este debe ser unico para cada articulo, es por eso que con esto lo validamos.
+        $numserie = $request->input('codigo_articulo');
+
+        $idArticulo = DB::table('articulo_menors')
+            ->select('articulo_menors.id') //Seleccionamos el id 
+            ->where('articulo_menors.clave_producto', $numserie) //Verificamos que exista un numero de serie, con el del input
+            ->get(); //Nos guardara lo seleccionado (id) en la variable.
+
+        $articulolaboratorio->id_laboratorio = $laboratorio[0]->id; //$laboratorio es un conjunto de laboratorios. Entonces, si solo desea el campo "id" del PRIMER resultado, puede hacer $laboratorio[0]->id
+        $articulolaboratorio->id_articulo_menor = $idArticulo[0]->id; //Tomamos el id y lo guardamos
+
+
+
+
+
+        $articulolaboratorio->save(); //Guardamos despues el articulo de laboratorio.
+
+        return redirect()->route("ArticulosMenoresLab.index")->with('success', 'Agregado con exito'); //Redirigimos ala pagina index, Y catcheamos cualquier errot con with.
+
     }
 
     /**
