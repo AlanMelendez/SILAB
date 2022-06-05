@@ -54,7 +54,7 @@
                                 {{-- El colspan es para que afecte las 4 columnas --}}
                                 <td colspan="4">Sin resultados.</td>
                             </tr>
-                        @elseif (count($usuarios)==1)
+                        @elseif (count($usuarios) == 1)
                             @foreach ($usuarios as $usuario)
                                 <tr>
                                     <th scope="row">{{ $usuario->name }}</th>

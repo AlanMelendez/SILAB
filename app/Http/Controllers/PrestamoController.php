@@ -30,7 +30,7 @@ class PrestamoController extends Controller
      */
     public function create(Request $request)
     {
-        // ---------------------------- Saber que usuario esta logeado ----------------------------------------------
+        // ---------------------------- Saber que usuario/personal esta logeado ----------------------------------------------
             //Obtenemos las credenciales del ususario loggeado, De esta manera mostramos los articulos dependiendo del laboratorio que tenga asignado.
             $user_loged= auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
             $id_user_loged= $user_loged->id; //Obtenemos el id.
