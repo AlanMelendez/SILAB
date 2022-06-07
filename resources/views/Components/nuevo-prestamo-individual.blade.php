@@ -8,6 +8,7 @@
     <div class="container container-prestamo" id="contenido-pagina-prestamo">
         <div class="control-numero">
 
+               
             <div class="input-control" id="control-numero">
                 <div class="label-control">
                     <h4>No. Control</h4>
@@ -18,7 +19,7 @@
                     <div class="btn-grouper">
 
                         <input class="form-controlq mr-sm-2" type="number" name="search_control" placeholder=""
-                            id="input-numero-control" value="{{ $numeroControl }}">
+                            id="input-numero-control" value="{{ $numeroControl }}" onkeypress="enter(e);">
 
 
 
@@ -49,14 +50,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if (count($usuarios) <= 0)
+                        @if (count($numero_control_sesion) <= 0)
                             {{-- Esto es para que cuando busquemos, si no encuentra nada con algun numero digitado pues muestre el mensaje --}}
                             <tr>
                                 {{-- El colspan es para que afecte las 4 columnas --}}
                                 <td colspan="4">Sin resultados.</td>
                             </tr>
-                        @elseif (count($usuarios) == 1)
-                            @foreach ($usuarios as $usuario)
+                        @elseif (count($numero_control_sesion) == 1)
+                            @foreach ($numero_control_sesion as $usuario)
                                 <tr>
                                     <th scope="row">{{ $usuario->name }}</th>
                                     <td>{{ $usuario->numero_control }}</td>
@@ -178,6 +179,14 @@
                     }
                 }
             });
+        }
+        function enter(e){
+            var code = (e.keyCode ? e.keyCode : e.which);
+                if (code == 13) {
+                    e.preventDefault();
+                    console.log('prevent default');
+                    document.getElementById('busqueda-articulos').focus;
+                }
         }
         
         function obtenerDatosTabla() {

@@ -30,6 +30,8 @@ class PrestamoController extends Controller
      */
     public function create(Request $request)
     {
+        session_start();
+
         // ---------------------------- Saber que usuario/personal esta logeado ----------------------------------------------
         //Obtenemos las credenciales del ususario loggeado, De esta manera mostramos los articulos dependiendo del laboratorio que tenga asignado.
         $user_loged = auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
@@ -61,7 +63,8 @@ class PrestamoController extends Controller
             ->get();
 
 
-
+            //Guardamos el numero de control en session para que no se borre al recargar.
+            $numero_control_sesion= $_SESSION["numero_contro"]=$usuarios;
 
 
         /*--------------------------Mostrar articulos de laboratorio segun el docente-----------------------------*/
@@ -119,7 +122,7 @@ class PrestamoController extends Controller
 
 
         //return( $articulo_devolver );
-        return view ('Components.nuevo-prestamo-individual',compact('numeroControl','usuarios','articulosme','articulosma',response(json_encode($menores), 200)->header('Content-type', 'text/plain')));
+        return view ('Components.nuevo-prestamo-individual',compact('numeroControl','usuarios','articulosme','articulosma','numero_control_sesion'));
 
     }
 
