@@ -18,7 +18,7 @@ use App\Http\Controllers\ayudaController;
 use App\Http\Controllers\LiberacionesController;
 use App\Http\Controllers\prestamosController;
 use App\Http\Controllers\PersonalController;
-
+use App\Http\Controllers\PrestamoController;
 use Illuminate\Support\Facades\Route;
 Auth::routes();
 
@@ -64,7 +64,7 @@ Route::get('/consultarArticulosMenores', [laboratoristasController::class, 'most
 
 
 
-
+Route::post('articulosMAME',[PrestamoController::class, 'mostrarArticulos']);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -78,6 +78,6 @@ Route::resource('ArticulosMayoresLab','ArticuloMayorLabController');
 Route::resource('ArticulosMenoresLab','ArticuloMenorLabController');
 
 
-
+Route::resource('PruebaRuta','PruebaController');
 
 
