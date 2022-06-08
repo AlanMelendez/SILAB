@@ -114,29 +114,33 @@ class PrestamoController extends Controller
     {
         session_start();
 
+        $numeroControl = trim($request->get('search_control')); //Obtenemos el numero control del input.
 
 
         //Guardamos el numero de control en session para que no se borre al recargar.
         
+       
+        
+        $usuarios = DB::table('alumnos')
+        ->join('users', 'users.id', '=', 'alumnos.id_usuario') //users es la tabla, no el modelo
+        ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name', 'alumnos.id')
+        ->where('alumnos.numero_control', $numeroControl )
+        ->get();
+        $numero_control_sesion = $_SESSION["numero_contro"] = $usuarios;
         $numero_control_desde_sesion = json_encode($_SESSION["numero_contro"]); //Nos traemos el numero de control que capturamos en la sesion
         $controlStr = json_decode($numero_control_desde_sesion);
 
         if (DB::table('prestamos')->where([
-            ['prestamos.id_alumno', '=', $controlStr[0]->id],
+            ['prestamos.id_alumno', '=', $usuarios[0]->id],
             ['prestamos.status', '=', '1'],
         ])->exists()) {
 
-            var_dump('no agregare, ya existe registro con ese id, y status1');
+            // var_dump('no agregare, ya existe registro con ese id, y status1');
             return (response(500)->header('Content-type', 'text/plain'));
+            
         } else {
             
-            $numeroControl = trim($request->get('search_control')); //Obtenemos el numero control del input.
-            $usuarios = DB::table('alumnos')
-                ->join('users', 'users.id', '=', 'alumnos.id') //users es la tabla, no el modelo
-                ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name', 'alumnos.id')
-                ->where('alumnos.numero_control', 'LIKE', '%' . $numeroControl . '%')
-                ->get();
-                $numero_control_sesion = $_SESSION["numero_contro"] = $usuarios;
+           
             return (response(json_encode($numero_control_sesion), 200)->header('Content-type', 'text/plain')); //[{"nombre":"jeje","descripcion_articulo":"jeje","clave_producto":"22313123"}]
 
         }

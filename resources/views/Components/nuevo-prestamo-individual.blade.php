@@ -229,6 +229,7 @@
                         timer: 2500,
                         showCloseButton: true,
                     });
+                    location.reload(); //Recargamos pagina 
                 }
             });
         }
@@ -270,13 +271,14 @@
                     Swal.fire({
                         position: "top",
                         icon: "success",
-                        title: "¡Datos enviados con exito!",
+                        title: "¡Prestamo creado con exito!",
                         text: "Haz click sobre el siguiente boton para visualizar el estado de tu tramite.",
                         footer: ' <a href="consultarAdeudo">Consulta(s).</a>',
                         showConfirmButton: false,
-                        timer: 15000,
+                        timer: 115000,
                         showCloseButton: true,
                     });
+                    location.reload(); //Recargamos pagina al realizar prestamo.
                 }
                 ).fail(function(){
                     Swal.fire({
