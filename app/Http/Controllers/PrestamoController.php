@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\articulo_mayor;
 use App\articulo_menor;
+use App\prestamo;
 use App\User;
 use App\usuario;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -20,8 +22,11 @@ class PrestamoController extends Controller
     public function index()
     {
         //
+
         return view('Alumnos.registros');
     }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -63,8 +68,8 @@ class PrestamoController extends Controller
             ->get();
 
 
-            //Guardamos el numero de control en session para que no se borre al recargar.
-            $numero_control_sesion= $_SESSION["numero_contro"]=$usuarios;
+        //Guardamos el numero de control en session para que no se borre al recargar.
+        $numero_control_sesion = $_SESSION["numero_contro"] = $usuarios;
 
 
         /*--------------------------Mostrar articulos de laboratorio segun el docente-----------------------------*/
@@ -85,60 +90,107 @@ class PrestamoController extends Controller
 
         /* --------------------------------BUSCAR ARTICULOS DESDE LA BARRA ------------------------------------- */
         // Ahora obtenemos el dato que esta buscando el input
-        $articulo_search = $request->get('search_articles'); //Obtenemos el valor que se esta digitando en el input.
+        // $articulo_search = $request->get('search_articles'); //Obtenemos el valor que se esta digitando en el input.
 
 
-        //Validamos que exista un registro:
+        // //Validamos que exista un registro:
 
-        $mayores =  DB::table('articulo_mayors')
-            ->select('articulo_mayors.clave_producto', 'articulo_mayors.nombre', 'articulo_mayors.descripcion_articulo') //Que nos seleccione todos los articulos mayores
-            ->where('articulo_mayors.clave_producto', $articulo_search) //Pero solo los de el laboratorio que tiene el usuario loggeado.
-            ->get();
+        // $mayores =  DB::table('articulo_mayors')
+        //     ->select('articulo_mayors.clave_producto', 'articulo_mayors.nombre', 'articulo_mayors.descripcion_articulo') //Que nos seleccione todos los articulos mayores
+        //     ->where('articulo_mayors.clave_producto', $articulo_search) //Pero solo los de el laboratorio que tiene el usuario loggeado.
+        //     ->get();
 
 
-        $menores = DB::table('articulo_menors')
-            ->select('articulo_menors.nombre', 'articulo_menors.descripcion_articulo', 'articulo_menors.clave_producto') //Que nos seleccione todos los articulos mayores
-            ->where('articulo_menors.clave_producto', $articulo_search) //Pero solo los de el laboratorio que tiene el usuario loggeado.
-            ->get();
-
+        // $menores = DB::table('articulo_menors')
+        //     ->select('articulo_menors.nombre', 'articulo_menors.descripcion_articulo', 'articulo_menors.clave_producto') //Que nos seleccione todos los articulos mayores
+        //     ->where('articulo_menors.clave_producto', $articulo_search) //Pero solo los de el laboratorio que tiene el usuario loggeado.
+        //     ->get();
 
 
         //return( $articulo_devolver );
-        return view ('Components.nuevo-prestamo-individual',compact('numeroControl','usuarios','articulosme','articulosma','numero_control_sesion'));
-
+        return view('Components.nuevo-prestamo-individual', compact('numeroControl', 'usuarios', 'articulosme', 'articulosma', 'numero_control_sesion'));
     }
-    public function mostrarNumeroControl(Request $request){
+    public function mostrarNumeroControl(Request $request)
+    {
+        session_start();
+
         $numeroControl = trim($request->get('search_control')); //Obtenemos el numero control del input.
         $usuarios = DB::table('alumnos')
             ->join('users', 'users.id', '=', 'alumnos.id') //users es la tabla, no el modelo
-            ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name')
+            ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name', 'alumnos.id')
             ->where('alumnos.numero_control', 'LIKE', '%' . $numeroControl . '%')
             ->get();
 
 
-            //Guardamos el numero de control en session para que no se borre al recargar.
-            $numero_control_sesion= $_SESSION["numero_contro"]=$usuarios;
-            return (response(json_encode($numero_control_sesion), 200)->header('Content-type', 'text/plain')); //[{"nombre":"jeje","descripcion_articulo":"jeje","clave_producto":"22313123"}]
+        //Guardamos el numero de control en session para que no se borre al recargar.
+        $numero_control_sesion = $_SESSION["numero_contro"] = $usuarios;
+        return (response(json_encode($numero_control_sesion), 200)->header('Content-type', 'text/plain')); //[{"nombre":"jeje","descripcion_articulo":"jeje","clave_producto":"22313123"}]
 
     }
     public function mostrarArticulos(Request $request)
     {
-        $arreglo=array();
+        session_start();
+
+
         // Ahora obtenemos el dato que esta buscando el input
         $articulo_search = $request->get('search_articles'); //Obtenemos el valor que se esta digitando en el input.
         $mayores =  DB::table('articulo_mayors')
-            ->select('articulo_mayors.clave_producto', 'articulo_mayors.nombre', 'articulo_mayors.descripcion_articulo') //Que nos seleccione todos los articulos mayores
+            ->select('articulo_mayors.clave_producto', 'articulo_mayors.nombre', 'articulo_mayors.descripcion_articulo', 'articulo_mayors.tipo') //Que nos seleccione todos los articulos mayores
             ->where('articulo_mayors.clave_producto', $articulo_search) //Pero solo los de el laboratorio que tiene el usuario loggeado.
             ->get();
 
 
         $menores = DB::table('articulo_menors')
-            ->select('articulo_menors.nombre', 'articulo_menors.descripcion_articulo', 'articulo_menors.clave_producto') //Que nos seleccione todos los articulos mayores
+            ->select('articulo_menors.nombre', 'articulo_menors.descripcion_articulo', 'articulo_menors.clave_producto', 'articulo_menors.tipo') //Que nos seleccione todos los articulos mayores
             ->where('articulo_menors.clave_producto', $articulo_search) //Pero solo los de el laboratorio que tiene el usuario loggeado.
             ->get();
-       return (response(json_encode($menores), 200)->header('Content-type', 'text/plain')); //[{"nombre":"jeje","descripcion_articulo":"jeje","clave_producto":"22313123"}]
-       //return view ('Components.nuevo-prestamo-individual',compact($menores));
-       
+
+        //validamos articulos mayores y menores y retornamos.
+        if (DB::table('articulo_mayors')->where('articulo_mayors.clave_producto', $articulo_search)->exists()) {
+
+            return (response(json_encode($mayores), 200)->header('Content-type', 'text/plain'));
+        }
+        if (DB::table('articulo_menors')->where('articulo_menors.clave_producto', $articulo_search)->exists()) {
+            return (response(json_encode($menores), 200)->header('Content-type', 'text/plain'));
+        }
+    }
+    public function crearPrestamo(Request $request)
+    {
+        session_start();
+
+        //$data=json_decode($_POST['array']);
+
+
+        $numero_control_desde_sesion = json_encode($_SESSION["numero_contro"]); //Nos traemos el numero de control que capturamos en la sesion
+        $controlStr = json_decode($numero_control_desde_sesion);
+        //return $controlStr[0]->id; //[{"semestre":5,"carrera":"Informatica","numero_control":192310781,"name":"Alan Cuevas"}]
+
+        $fecha = date('Y-m-d  H:i:s');
+        
+        if (DB::table('prestamos')->where([
+            ['prestamos.id_alumno', '=', $controlStr[0]->id],
+            ['prestamos.status', '=', '1'],
+        ])->exists()) {
+
+            var_dump('no agregare, ya existe registro con ese id, y status1');
+        }else{
+            $prestamo_alumno = new prestamo();
+            $prestamo_alumno->fecha = $fecha;
+            $prestamo_alumno->status = 1;
+            $prestamo_alumno->id_alumno = $controlStr[0]->id;
+            $prestamo_alumno->save(); //Guardamos los datos
+            var_dump('Se agrego el registro bb');
+        }
+
+        //Forma 2 de validar status y id
+        // if(DB::table('prestamos')
+        //     ->where('prestamos.id_alumno',$controlStr[0]->id)
+        //     ->orWhere('prestamos.status','1')
+        //     ->exists()){
+        //     return ('no agregue nada perro');
+        // }
+        //return redirect()->route("Articulos_mayores.index")->with('success','Agregado con exito'); //Redirigimos ala pagina index, Y catcheamos cualquier errot con with.
+
     }
 
     /**
@@ -149,9 +201,6 @@ class PrestamoController extends Controller
      */
     public function store(Request $request)
     {
-        //
-
-
     }
 
 
@@ -165,6 +214,7 @@ class PrestamoController extends Controller
     {
         //Aqui leemos el id , que el id podria ser el de un alumno, y leer todos los registros de un alumno
         return view('Alumnos.prestamos');
+        print_r('hola');
     }
 
     /**

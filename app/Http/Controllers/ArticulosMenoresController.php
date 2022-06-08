@@ -53,6 +53,7 @@ class ArticulosMenoresController extends Controller
         $articuloMe-> status='1';
         $articuloMe-> stock= $request->input('stock');
         $articuloMe-> clave_producto= $request->input('clave_producto');
+        $articuloMe-> tipo='Articulo Menor';
         $articuloMe->save(); //Guardamos los datos
         
 

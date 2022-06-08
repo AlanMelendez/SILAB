@@ -2,25 +2,26 @@
 
 @section('title', 'SILAB')
 @section('content_header')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 @stop
 
 @section('content')
     <div class="container container-prestamo" id="contenido-pagina-prestamo">
         <div class="control-numero">
 
-               
+
             <div class="input-control" id="control-numero">
                 <div class="label-control">
                     <h4>No. Control</h4>
                 </div>
-                <form  class="form-inline form-buscar form-buscar-prestamo" action="numeroControlGet"
-                    method="POST" id="numero_control_form" name="form_numero_control">
+                <form class="form-inline form-buscar form-buscar-prestamo" action="numeroControlGet" method="POST"
+                    id="numero_control_form" name="form_numero_control">
                     @csrf
                     <div class="btn-grouper">
                         {{-- Input para mandar token , no basta con csrf de arriba xd --}}
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input class="form-controlq mr-sm-2" type="number" pattern="[0-9]" name="search_control" placeholder=""
-                            id="input-numero-control" value="{{ $numeroControl }}" >
+                        <input class="form-controlq mr-sm-2" type="number" pattern="[0-9]" name="search_control"
+                            placeholder="" id="input-numero-control" value="{{ $numeroControl }}">
 
 
 
@@ -51,7 +52,7 @@
                         </tr>
                     </thead>
                     <tbody id="body_numero_control">
-                       
+
 
 
                     </tbody>
@@ -69,8 +70,8 @@
                                 {{-- Input para mandar token , no basta con csrf de arriba xd --}}
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                <input class="form-controlq mr-sm-2" id="busqueda-articulos" placeholder="Buscar articulo"
-                                    name="search_articles">
+                                <input type="text" class="form-controlq mr-sm-2" id="busqueda-articulos"
+                                    placeholder="Buscar articulo" name="search_articles">
                                 {{-- <button class="btn-buscarBarra" type="submit">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                         class="bi bi-search" viewBox="0 0 16 16">
@@ -91,22 +92,27 @@
 
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripcion</th>
-                            <th scope="col">Numero Serie</th>
-                            <th scope="col">Clave</th>
+                            <th scope="col">Clave Producto</th>
                             <th scope="col">Tipo</th>
 
                         </tr>
                     </thead>
                     <tbody id="tbodys">
-                        
+
                     </tbody>
                 </table>
 
 
             </div>
             <div class="input-agregar-cancelar">
+                <form action="" method="POST">
+                    @csrf
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <input type="button" class="btn btn-accion1" value="Agregar" onclick="mandarPhp();">
+                </form>
                 <input type="button" class="btn btn-accion2" value="Cancelar" onclick="cerrarTablas('');">
-                <input type="button" class="btn btn-accion1" value="Agregar" onclick="obtenerDatosTabla();">
+
 
             </div>
         </div>
@@ -155,6 +161,7 @@
                 url: '/articulosMAME',
                 data: $('#buscar_articulos').serialize(),
                 success: function(res) {
+                    console.log(res);
                     var arreglo = JSON.parse(res);
                     for (let x = 0; x < arreglo.length; x++) {
 
@@ -162,9 +169,9 @@
                         let template = `<tr>
                             <td>${arreglo[x].nombre}</td>
                             <td>${arreglo[x].descripcion_articulo}</td>
-                            <td>-</td>
+                            
                             <td class="clave_producto_td">${arreglo[x].clave_producto}</td>
-                            <td>indefinido xd</td>
+                            <td>${arreglo[x].tipo}</td>
                             
                             </tr>`;
 
@@ -175,9 +182,11 @@
                     }
                 }
             });
-            $('#busqueda-articulos').val(''); //Despues de llenar un dato, vaciamos el input para que el leector de barras leea uno nuevo.
+            $('#busqueda-articulos').val(
+                ''); //Despues de llenar un dato, vaciamos el input para que el leector de barras leea uno nuevo.
         }
-        function obtenerNumeroControl(){
+
+        function obtenerNumeroControl() {
             $.ajax({
                 type: 'POST',
                 url: '/numeroControlGet',
@@ -198,29 +207,74 @@
                             </tr>`;
 
                         // //$('tbody').append(todo)
-                        
+
                         $('#body_numero_control').append(template)
                         //[{"nombre":"jeje","descripcion_articulo":"jeje","clave_producto":"22313123"}]
-                        $('#control-numero').hide('fast'); // Ocultamos el div despues de mostrar los datos en la tabla
+                        $('#control-numero').hide(
+                            'fast'); // Ocultamos el div despues de mostrar los datos en la tabla
 
-                        $('#busqueda-articulos').focus(); //Apuntamos el puntero hacia la barra de busqueda de articulos.
+                        $('#busqueda-articulos')
+                            .focus(); //Apuntamos el puntero hacia la barra de busqueda de articulos.
                     }
-                    arreglo=0;
+                    arreglo = 0;
                 }
             });
         }
-       
+
+        var numeros = [];
+
         function obtenerDatosTabla() {
-            var numeros = [];
+
             console.log('hola xddcd desde tablas');
-            document.querySelectorAll('.tablaAgregados tbody tr').forEach(function(e){
-                let fila ={clave_producto: e.querySelector('.clave_producto_td').innerText};
-                
+            document.querySelectorAll('.tablaAgregados tbody tr').forEach(function(e) {
+                let fila = {
+                    clave_producto: e.querySelector('.clave_producto_td').innerText
+                };
+
                 numeros.push(fila);
             });
             console.log(numeros)
-            //return numeros;  para devolverlo en una funcion 
+
         }
+
+        function mandarPhp() {
+
+            // $.post('/Prestamos/store',{alumno:datosTabla}, function(data){
+            //     if (data!=null) {
+            //         alert('Datos enviados correctamente.');
+            //     }else{
+            //         alert('No se enviaron datos.');
+            //     }
+            // })
+            $.ajax({
+                type: 'POST',
+                url: "/crearprestamo",
+                data: {
+                    'array': JSON.stringify(numeros),
+                    "_token": $("meta[name='csrf-token']").attr("content")
+                }
+            }).done(
+                function() {
+                    Swal.fire({
+                        position: "top",
+                        icon: "success",
+                        title: "¡Datos enviados con exito!",
+                        text: "Haz click sobre el siguiente boton para visualizar el estado de tu tramite.",
+                        footer: ' <a href="consultarAdeudo">Consulta(s).</a>',
+                        showConfirmButton: false,
+                        timer: 15000,
+                        showCloseButton: true,
+                    });
+                }
+                );
+
+                // fetch('Prestamos.store'),{
+                //     method: 'POST',
+                //     body: datosTabla
+                // })
+                //     .then(res=> res.json())
+                //     .then(data=>{console.log('no se envio nada we')})
+            }
     </script>
 
 @stop

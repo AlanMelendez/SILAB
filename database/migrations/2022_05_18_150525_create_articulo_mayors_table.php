@@ -20,6 +20,7 @@ class CreateArticuloMayorsTable extends Migration
             $table->boolean('status');
             $table->string('numero_serie');
             $table->string('clave_producto');
+            $table->string('tipo');
 
         });
     }

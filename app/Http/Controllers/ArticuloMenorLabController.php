@@ -57,6 +57,7 @@ class ArticuloMenorLabController extends Controller
         $articuloMa->stock = $request->input('stock');
         $articuloMa->status = '1';
         $articuloMa->clave_producto = $request->input('codigo_articulo');
+        $articuloMa->tipo='Articulo Menor';
 
         $articuloMa->save(); //Guardamos los datos del articulo mayor primero
 

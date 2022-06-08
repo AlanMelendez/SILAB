@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->unsignedBigInteger('id_rol')->nullable();
 
+
             $table->rememberToken();
             $table->timestamps();
 

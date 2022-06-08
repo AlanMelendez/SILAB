@@ -66,7 +66,8 @@ Route::get('/consultarArticulosMenores', [laboratoristasController::class, 'most
 
 Route::post('articulosMAME',[PrestamoController::class, 'mostrarArticulos']);
 Route::post('numeroControlGet',[PrestamoController::class, 'mostrarNumeroControl']);
-
+Route::post('crearprestamo','PrestamoController@crearPrestamo')->name('crearprestamo');
+Route::get('crearprestamo2','PrestamoController@crearPrestamo')->name('crearprestamo2');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('Personal', 'PersonalController');

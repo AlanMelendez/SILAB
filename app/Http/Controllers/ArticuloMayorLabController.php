@@ -59,6 +59,7 @@ class ArticuloMayorLabController extends Controller
         $articuloMa-> status='1';
         $articuloMa-> numero_serie= $request->input('numero_serie');
         $articuloMa-> clave_producto= $request->input('codigo_articulo');
+        $articuloMa->tipo='Articulo Mayor';
 
         $articuloMa->save(); //Guardamos los datos del articulo mayor primero
         

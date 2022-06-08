@@ -20,6 +20,7 @@ class CreateArticuloMenorsTable extends Migration
             $table->boolean('status');
             $table->bigInteger('stock');
             $table->string('clave_producto');
+            $table->string('Tipo');
         });
     }
 
