@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use App\usuario;
 use Illuminate\Database\Seeder;
 
@@ -13,6 +14,7 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\usuario::class,20)->create();
+        $laboratorio1 = User::create(['name'=> 'Admin', 'email' => 'admin@admin.com', 'password'=> '12345test']);
+
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\personal;
 use Illuminate\Database\Seeder;
 
 class PersonalSeeder extends Seeder
@@ -12,7 +13,8 @@ class PersonalSeeder extends Seeder
     public function run()
     {
         //
-        factory(App\personal::class,10)->create();
+        //factory(App\personal::class,10)->create();
+        $personal = personal::create(['numero_checador'=> '00000000', 'descripcion_puesto' => 'Admin', 'id_usuario'=> '1']);
 
     }
 }
