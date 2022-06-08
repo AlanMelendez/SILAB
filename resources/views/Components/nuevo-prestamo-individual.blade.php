@@ -13,13 +13,14 @@
                 <div class="label-control">
                     <h4>No. Control</h4>
                 </div>
-                <form class="form-inline form-buscar form-buscar-prestamo" action="{{ route('Prestamos.create') }}"
-                    method="GET" id="numero_control_form">
+                <form  class="form-inline form-buscar form-buscar-prestamo" action="numeroControlGet"
+                    method="POST" id="numero_control_form" name="form_numero_control">
                     @csrf
                     <div class="btn-grouper">
-
-                        <input class="form-controlq mr-sm-2" type="number" name="search_control" placeholder=""
-                            id="input-numero-control" value="{{ $numeroControl }}" onkeypress="enter(e);">
+                        {{-- Input para mandar token , no basta con csrf de arriba xd --}}
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input class="form-controlq mr-sm-2" type="number" pattern="[0-9]" name="search_control" placeholder=""
+                            id="input-numero-control" value="{{ $numeroControl }}" >
 
 
 
@@ -49,23 +50,8 @@
                             <th scope="col">Semestre</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @if (count($numero_control_sesion) <= 0)
-                            {{-- Esto es para que cuando busquemos, si no encuentra nada con algun numero digitado pues muestre el mensaje --}}
-                            <tr>
-                                {{-- El colspan es para que afecte las 4 columnas --}}
-                                <td colspan="4">Sin resultados.</td>
-                            </tr>
-                        @elseif (count($numero_control_sesion) == 1)
-                            @foreach ($numero_control_sesion as $usuario)
-                                <tr>
-                                    <th scope="row">{{ $usuario->name }}</th>
-                                    <td>{{ $usuario->numero_control }}</td>
-                                    <td>{{ $usuario->carrera }}</td>
-                                    <td>{{ $usuario->semestre }}</td>
-                                </tr>
-                            @endforeach
-                        @endif
+                    <tbody id="body_numero_control">
+                       
 
 
                     </tbody>
@@ -148,6 +134,16 @@
                     obtenerDatos();
                 }
             });
+            $("#input-numero-control").keypress(function(e) {
+                //no recuerdo la fuente pero lo recomiendan para
+                //mayor compatibilidad entre navegadores.
+                var code = (e.keyCode ? e.keyCode : e.which);
+                if (code == 13) {
+                    e.preventDefault();
+                    // console.log('prevent default numero control');
+                    obtenerNumeroControl();
+                }
+            });
 
 
         });
@@ -179,32 +175,51 @@
                     }
                 }
             });
+            $('#busqueda-articulos').val(''); //Despues de llenar un dato, vaciamos el input para que el leector de barras leea uno nuevo.
         }
-        function enter(e){
-            var code = (e.keyCode ? e.keyCode : e.which);
-                if (code == 13) {
-                    e.preventDefault();
-                    console.log('prevent default');
-                    document.getElementById('busqueda-articulos').focus;
+        function obtenerNumeroControl(){
+            $.ajax({
+                type: 'POST',
+                url: '/numeroControlGet',
+                data: $('#numero_control_form').serialize(), //obtener formulario
+                success: function(res) {
+                    var arreglo = JSON.parse(res);
+                    for (let x = 0; x < arreglo.length; x++) {
+
+
+                        let template = `<tr>
+                            <td>${arreglo[x].name}</td>
+                            <td>${arreglo[x].numero_control}</td>
+                            <td>${arreglo[x].carrera}</td>
+                            <td class="">${arreglo[x].semestre}</td>
+                            
+                            
+                            
+                            </tr>`;
+
+                        // //$('tbody').append(todo)
+                        
+                        $('#body_numero_control').append(template)
+                        //[{"nombre":"jeje","descripcion_articulo":"jeje","clave_producto":"22313123"}]
+                        $('#control-numero').hide('fast'); // Ocultamos el div despues de mostrar los datos en la tabla
+
+                        $('#busqueda-articulos').focus(); //Apuntamos el puntero hacia la barra de busqueda de articulos.
+                    }
+                    arreglo=0;
                 }
+            });
         }
-        
+       
         function obtenerDatosTabla() {
             var numeros = [];
+            console.log('hola xddcd desde tablas');
             document.querySelectorAll('.tablaAgregados tbody tr').forEach(function(e){
                 let fila ={clave_producto: e.querySelector('.clave_producto_td').innerText};
                 
                 numeros.push(fila);
             });
-            // var mi_tabla = document.getElementById('tbodys');
-            // var obtenerFila= document.getElementById('clave_produtcto_td');
-            // var elementosFila= obtenerFila.getElementsByTagName('td');
-            
-            // var tabla=mi_tabla.getElementsByTagName("td");
-            // for (var i = 0; i < tabla.length; i++) {
-            //     numeros.push(tabla[i].innerHTML);
-            // }
-            return numeros;
+            console.log(numeros)
+            //return numeros;  para devolverlo en una funcion 
         }
     </script>
 

@@ -103,29 +103,24 @@ class PrestamoController extends Controller
 
 
 
-
-
-
-        // //Verificamos que no este null la variable.
-        // if(empty($mayores)){
-
-        // }else{
-        //     array_push($articulo_devolver,$mayores); //Si no esta null, le asignamos valor
-
-        // }
-        // if(empty($menores)){
-        // }else{
-        //     array_push($articulo_devolver,$menores);
-
-        // }
-
-
-
         //return( $articulo_devolver );
         return view ('Components.nuevo-prestamo-individual',compact('numeroControl','usuarios','articulosme','articulosma','numero_control_sesion'));
 
     }
+    public function mostrarNumeroControl(Request $request){
+        $numeroControl = trim($request->get('search_control')); //Obtenemos el numero control del input.
+        $usuarios = DB::table('alumnos')
+            ->join('users', 'users.id', '=', 'alumnos.id') //users es la tabla, no el modelo
+            ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name')
+            ->where('alumnos.numero_control', 'LIKE', '%' . $numeroControl . '%')
+            ->get();
 
+
+            //Guardamos el numero de control en session para que no se borre al recargar.
+            $numero_control_sesion= $_SESSION["numero_contro"]=$usuarios;
+            return (response(json_encode($numero_control_sesion), 200)->header('Content-type', 'text/plain')); //[{"nombre":"jeje","descripcion_articulo":"jeje","clave_producto":"22313123"}]
+
+    }
     public function mostrarArticulos(Request $request)
     {
         $arreglo=array();

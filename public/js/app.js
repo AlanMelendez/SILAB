@@ -20,7 +20,12 @@ function iniciarTramite() {
     //   })
 }
 
-
+function pulsar(e) {
+    if (e.keyCode === 13 && !e.shiftKey) {
+        e.preventDefault();
+        document.getElementById("busqueda-articulos").focus();
+    }
+}
 
 function ocultarNumeroControl2() {
     document.getElementById("div_numeroControl").style.display = "none";
