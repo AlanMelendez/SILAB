@@ -114,18 +114,32 @@ class PrestamoController extends Controller
     {
         session_start();
 
-        $numeroControl = trim($request->get('search_control')); //Obtenemos el numero control del input.
-        $usuarios = DB::table('alumnos')
-            ->join('users', 'users.id', '=', 'alumnos.id') //users es la tabla, no el modelo
-            ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name', 'alumnos.id')
-            ->where('alumnos.numero_control', 'LIKE', '%' . $numeroControl . '%')
-            ->get();
 
 
         //Guardamos el numero de control en session para que no se borre al recargar.
-        $numero_control_sesion = $_SESSION["numero_contro"] = $usuarios;
-        return (response(json_encode($numero_control_sesion), 200)->header('Content-type', 'text/plain')); //[{"nombre":"jeje","descripcion_articulo":"jeje","clave_producto":"22313123"}]
+        
+        $numero_control_desde_sesion = json_encode($_SESSION["numero_contro"]); //Nos traemos el numero de control que capturamos en la sesion
+        $controlStr = json_decode($numero_control_desde_sesion);
 
+        if (DB::table('prestamos')->where([
+            ['prestamos.id_alumno', '=', $controlStr[0]->id],
+            ['prestamos.status', '=', '1'],
+        ])->exists()) {
+
+            var_dump('no agregare, ya existe registro con ese id, y status1');
+            return (response(500)->header('Content-type', 'text/plain'));
+        } else {
+            
+            $numeroControl = trim($request->get('search_control')); //Obtenemos el numero control del input.
+            $usuarios = DB::table('alumnos')
+                ->join('users', 'users.id', '=', 'alumnos.id') //users es la tabla, no el modelo
+                ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name', 'alumnos.id')
+                ->where('alumnos.numero_control', 'LIKE', '%' . $numeroControl . '%')
+                ->get();
+                $numero_control_sesion = $_SESSION["numero_contro"] = $usuarios;
+            return (response(json_encode($numero_control_sesion), 200)->header('Content-type', 'text/plain')); //[{"nombre":"jeje","descripcion_articulo":"jeje","clave_producto":"22313123"}]
+
+        }
     }
     public function mostrarArticulos(Request $request)
     {
@@ -166,14 +180,14 @@ class PrestamoController extends Controller
         //return $controlStr[0]->id; //[{"semestre":5,"carrera":"Informatica","numero_control":192310781,"name":"Alan Cuevas"}]
 
         $fecha = date('Y-m-d  H:i:s');
-        
+
         if (DB::table('prestamos')->where([
             ['prestamos.id_alumno', '=', $controlStr[0]->id],
             ['prestamos.status', '=', '1'],
         ])->exists()) {
 
             var_dump('no agregare, ya existe registro con ese id, y status1');
-        }else{
+        } else {
             $prestamo_alumno = new prestamo();
             $prestamo_alumno->fecha = $fecha;
             $prestamo_alumno->status = 1;
@@ -182,13 +196,7 @@ class PrestamoController extends Controller
             var_dump('Se agrego el registro bb');
         }
 
-        //Forma 2 de validar status y id
-        // if(DB::table('prestamos')
-        //     ->where('prestamos.id_alumno',$controlStr[0]->id)
-        //     ->orWhere('prestamos.status','1')
-        //     ->exists()){
-        //     return ('no agregue nada perro');
-        // }
+
         //return redirect()->route("Articulos_mayores.index")->with('success','Agregado con exito'); //Redirigimos ala pagina index, Y catcheamos cualquier errot con with.
 
     }

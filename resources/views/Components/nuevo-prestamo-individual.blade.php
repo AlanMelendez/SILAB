@@ -217,6 +217,18 @@
                             .focus(); //Apuntamos el puntero hacia la barra de busqueda de articulos.
                     }
                     arreglo = 0;
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    Swal.fire({
+                        position: "top",
+                        icon: "error",
+                        title: "¡Prestamo activo!",
+                        text: "No se permite mas prestamos.",
+                        footer: '',
+                        showConfirmButton: false,
+                        timer: 2500,
+                        showCloseButton: true,
+                    });
                 }
             });
         }
@@ -266,7 +278,18 @@
                         showCloseButton: true,
                     });
                 }
-                );
+                ).fail(function(){
+                    Swal.fire({
+                        position: "top",
+                        icon: "error",
+                        title: "¡Prestamo activo!",
+                        text: "No se permite mas prestamos.",
+                        footer: '',
+                        showConfirmButton: false,
+                        timer: 2500,
+                        showCloseButton: true,
+                    });
+                });
 
                 // fetch('Prestamos.store'),{
                 //     method: 'POST',
