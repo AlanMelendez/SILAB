@@ -84,8 +84,8 @@ class ArticulosMayoresController extends Controller
     public function edit($id)
     {
         //
-        $articulo = articulo_mayor::find($id);
-        return view('Components.art_mayores_edit', compact('articulo')); //Regresamos la vista, y mandamos los datos para que la vista reciba los datos
+        $articulo = articulo_mayor::find($id); //Busca el id que mandamos por el link.
+        return view('Components.art_mayores_edit', compact('articulo')); //Regresamos la vista (vista para editar el articulo), y mandamos los datos para que la vista reciba los datos
 
     }
 

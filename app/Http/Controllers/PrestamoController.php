@@ -137,7 +137,7 @@ class PrestamoController extends Controller
         ])->exists()) {
 
             // var_dump('no agregare, ya existe registro con ese id, y status1');
-            return (response(500)->header('Content-type', 'text/plain'));
+            // return (response(500)->header('Content-type', 'text/plain'));
             
         } else {
             
@@ -251,6 +251,11 @@ class PrestamoController extends Controller
     public function edit($id)
     {
         //
+       
+        $prestamo = prestamo::findOrFail($id); //Buscamos el id del prestamo que recibimos.
+        $prestamo->status = 0; //Cambiamos el status del prestamo (recordar que cambiando a status 0 es igual a eliminar.)
+        $prestamo->save();
+        return view('Prestamos.edit');
     }
 
     /**

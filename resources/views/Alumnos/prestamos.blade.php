@@ -121,7 +121,7 @@
                             </thead>
                             <tbody>
                                 @foreach ($prestamos as $prestamo)
-                                    <tr class="odd">
+                                    <tr class="odd" >
                                     <td class="dtr-control sorting_1" tabindex="0">#{{$prestamo->id}}</td>
                                         <td style="">{{$prestamo->name}}</td>
                                         <td style="">{{$prestamo->semestre}}</td>
@@ -129,9 +129,18 @@
                                         <td style="">{{$prestamo->numero_control}}</td>
                                         <td>{{$prestamo->fecha}}</td>
                                         <td>{{$prestamo->status}}</td>
-                                        <td><a class="fa fa-trash" aria-hidden="true"
-                                                style="color: red; margin-right:25px;"></a><a class="fa fa-cog"
-                                                aria-hidden="true"></a></td>
+                                        <td class="btn-acciones">
+                                            {{-- leemos el dato, si es diferente a uno que cambie el boton y cambie los datos ala BD --}}
+                {{--                            
+                                                <a href="{{route('Articulos_mayores.update',$articulo->id)}}" class="btn btn-succes btn-accion1">Habilitar</a>
+                                            
+                                           
+                                                <a href="{{route('Articulos_mayores.update',$articulo->id)}}"class="btn btn-succes btn-accion2">Deshabilitar</a> --}}
+                
+                                         
+                                            <a href="{{ route('Prestamos.edit', $prestamo->id) }}"
+                                                class="btn btn-danger btn-accion2 " style="margin-bottom: 30px;">Eliminar</a>
+                                        </td>
                                     </tr>
                                 @endforeach
 
@@ -143,7 +152,7 @@
 
                     </div>
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-sm-12 col-md-5">
                         <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of
                             57 entries</div>
@@ -172,7 +181,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
         </div>

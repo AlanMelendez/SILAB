@@ -193,6 +193,7 @@
                 data: $('#numero_control_form').serialize(), //obtener formulario
                 success: function(res) {
                     var arreglo = JSON.parse(res);
+                    // console.log(res);
                     for (let x = 0; x < arreglo.length; x++) {
 
 
