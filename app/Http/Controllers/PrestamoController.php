@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\articulo_mayor;
 use App\articulo_menor;
 use App\prestamo;
+use App\PrestamoLaboratior;
 use App\User;
 use App\usuario;
 use Carbon\Carbon;
@@ -57,7 +58,7 @@ class PrestamoController extends Controller
                         $laboratorista[0]->descripcion_puesto
                         etc...
                 */
-
+         $_SESSION["laboratorista"] = $laboratorista[0]->id; //Guardamos el laboratorio del actual laboratorista
         //-------------Para buscar el numero de control y poder agregar ese prestamo.-------------------------------
 
         $numeroControl = trim($request->get('search_control')); //Obtenemos el numero control del input.
@@ -196,11 +197,15 @@ class PrestamoController extends Controller
             $prestamo_alumno->fecha = $fecha;
             $prestamo_alumno->status = 1;
             $prestamo_alumno->id_alumno = $controlStr[0]->id;
+            $prestamo_alumno->id_laboratorio=$_SESSION["laboratorista"];
             $prestamo_alumno->save(); //Guardamos los datos
-            var_dump('Se agrego el registro bb');
+
+            // $prestamo_lab= new PrestamoLaboratior();
+            // $prestamo_lab->id_laboratorio=$_SESSION["laboratorista"];
+            // $prestamo_lab->id_laboratorio=;
         }
 
-
+        
         //return redirect()->route("Articulos_mayores.index")->with('success','Agregado con exito'); //Redirigimos ala pagina index, Y catcheamos cualquier errot con with.
 
     }

@@ -16,7 +16,22 @@ class TramiteController extends Controller
     public function index()
     {
         //
-        return view('Alumnos/adeudos-vista-alumnos');
+        session_start();
+
+        // ---------------------------- Saber que usuario/alumno esta logeado ----------------------------------------------
+        //Obtenemos las credenciales del ususario loggeado, De esta manera mostramos los articulos dependiendo del laboratorio que tenga asignado.
+        $user_loged = auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
+        $id_user_loged = $user_loged->id; //Obtenemos el id.
+
+        $prestamos= DB::table('prestamos')
+            ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno') 
+            ->join('users', 'users.id', '=', 'alumnos.id_usuario') 
+            ->join('laboratorios','laboratorios.id','=','prestamos.id_laboratorio')
+            ->select('prestamos.id','prestamos.fecha','prestamos.status','laboratorios.nombre_laboratorio','users.name','alumnos.semestre','alumnos.carrera','alumnos.numero_control') 
+            ->where([['users.id','=',$id_user_loged],['prestamos.status','=', 1]]) //Array con varias clausulas where
+            ->get();
+        return view('Alumnos/adeudos-vista-alumnos',compact('prestamos')); //[{"id":1,"fecha":"2022-06-08","status":1,"name":"Alan","semestre":6,"carrera":"Informatica","numero_control":192310781}]
+        //return($prestamos);
 
     }
 

@@ -46,35 +46,29 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
+                        <th scope="col">Semestre</th>
+                        <th scope="col">Carrera</th>
                         <th scope="col">No. Control</th>
                         <th scope="col">Laboratorio</th>
-                        <th scope="col">Articulos</th>
-                        <th scope="col">Descripcion</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Fecha</th>
-                        <th>Status</th>
                     </tr>
                     </thead>
                     <tbody>
+                        @foreach ($prestamos as $prestamo )
                         <tr>
-                            <th scope="row">1</th>
-                            <td>Alan</td>
-                            <td>Cuevas</td>
-                            <td>192xxxx</td>
-                            <td>Computo</td>
-                            <td>5</td>
-                            <td>
-                            <select class="form-control">
-                                <option>Cautin</option>
-                                <option>Multimetro</option>
-                                <option>Pinzas</option>
-                                <option>Cables caiman</option>
-                                <option>Resistencias</option>
-                            </select>
-                            </td>
-                            <td>25/04/2022</td>
-                            <td>Pendiente</td>
+                            <th scope="row">#{{$prestamo->id}}</th>
+                            <td>{{$prestamo->name}}</td>
+                            <td>{{$prestamo->semestre}}</td>
+                            <td>{{$prestamo->carrera}}</td>
+                            <td>{{$prestamo->numero_control}}</td>
+                            <td>{{$prestamo->nombre_laboratorio}}</td>
+                            <td>{{$prestamo->status}}</td>
+                            <td>{{$prestamo->fecha}}</td>
+                            
                         </tr>
+                        @endforeach
+                       
                         
                         
                     </tbody>

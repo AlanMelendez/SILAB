@@ -18,8 +18,10 @@ class CreatePrestamosTable extends Migration
             $table->date('fecha');
             $table->boolean('status');
             $table->unsignedBigInteger('id_alumno');
+            $table->unsignedBigInteger('id_laboratorio');
 
             $table->foreign('id_alumno')->references('id')->on('alumnos');
+            $table->foreign('id_laboratorio')->references('id')->on('laboratorios');
 
         });
     }
