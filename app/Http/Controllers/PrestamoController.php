@@ -227,7 +227,7 @@ class PrestamoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         $prestamos= DB::table('prestamos')
             ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno') //Verificamos que el id de un articulo laboratorio, exista en la tabla articulos generales.
@@ -254,8 +254,8 @@ class PrestamoController extends Controller
        
         $prestamo = prestamo::findOrFail($id); //Buscamos el id del prestamo que recibimos.
         $prestamo->status = 0; //Cambiamos el status del prestamo (recordar que cambiando a status 0 es igual a eliminar.)
-        $prestamo->save();
-        return view('Prestamos.edit');
+        $prestamo->save(); //Guardamos los cambios
+        return  redirect('Prestamos/show'); //redirigimos ala pagina.
     }
 
     /**
