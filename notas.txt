@@ -9,6 +9,7 @@ Comandos:
         2-copy .env.example .env (Si no viene el .env.example hay que crear el archivo manualmente)
         3-php artisan key:generate
         4-npm install
+        5- composer update (opcional)
     Crear controlador:
         php artisan make:controller recursosHumanosController
 
