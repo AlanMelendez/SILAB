@@ -39,7 +39,7 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">Excel</a>
-                        <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">PDF</a>
+                        <a class="dropdown-item" type="button" href="{{ route('PDFdescargar') }}" data-toggle="" data-target="">PDF</a>
                         <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">Imprimir</a>
                     </div>
                 </div>
