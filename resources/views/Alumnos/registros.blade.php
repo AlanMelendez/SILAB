@@ -33,15 +33,16 @@
 
                 </div> --}}
                 <div class="btn-group">
-                    <button class="btn btn-agregar dropdown-toggle" type="button" id="dropdownMenuButton"
+                    {{-- <button class="btn btn-agregar dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Descargar
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">Excel</a>
                         <a class="dropdown-item" type="button" href="{{ route('PDFdescargar') }}" data-toggle="" data-target="">PDF</a>
-                        {{-- <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">Imprimir</a> --}}
-                    </div>
+                        
+                    </div> --}}
+                    <a class="btn btn-agregar" type="button" href="{{ route('PDFdescargar') }}" data-toggle="" data-target="">Descargar</a>
                 </div>
                 <div class="btn-group">
                     {{-- <button type="button" class="btn btn-recargar">
