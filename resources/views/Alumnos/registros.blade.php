@@ -26,12 +26,12 @@
         <div class="btn-grouper1">
             <div class="dt-buttons btn-group   col-sm-6">
 
-                <div class="btn-group">
+                {{-- <div class="btn-group">
                     <button type="button" class="btn btn-agregar" data-toggle="modal" data-target="#modal-filtro">
                         Filtros
                     </button>
 
-                </div>
+                </div> --}}
                 <div class="btn-group">
                     <button class="btn btn-agregar dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -40,17 +40,22 @@
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">Excel</a>
                         <a class="dropdown-item" type="button" href="{{ route('PDFdescargar') }}" data-toggle="" data-target="">PDF</a>
-                        <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">Imprimir</a>
+                        {{-- <a class="dropdown-item" type="button" onclick="" data-toggle="" data-target="">Imprimir</a> --}}
                     </div>
                 </div>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-recargar">
+                    {{-- <button type="button" class="btn btn-recargar">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="25" height="25">
                             <path fill-rule="evenodd"
                                 d="M8 2.5a5.487 5.487 0 00-4.131 1.869l1.204 1.204A.25.25 0 014.896 6H1.25A.25.25 0 011 5.75V2.104a.25.25 0 01.427-.177l1.38 1.38A7.001 7.001 0 0114.95 7.16a.75.75 0 11-1.49.178A5.501 5.501 0 008 2.5zM1.705 8.005a.75.75 0 01.834.656 5.501 5.501 0 009.592 2.97l-1.204-1.204a.25.25 0 01.177-.427h3.646a.25.25 0 01.25.25v3.646a.25.25 0 01-.427.177l-1.38-1.38A7.001 7.001 0 011.05 8.84a.75.75 0 01.656-.834z">
                             </path>
                         </svg>
-                    </button>
+                    </button> --}}
+                    <a class="btn btn-recargar" type="button" onclick="recargarPagina();" data-toggle="" data-target=""><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="25" height="25">
+                        <path fill-rule="evenodd"
+                            d="M8 2.5a5.487 5.487 0 00-4.131 1.869l1.204 1.204A.25.25 0 014.896 6H1.25A.25.25 0 011 5.75V2.104a.25.25 0 01.427-.177l1.38 1.38A7.001 7.001 0 0114.95 7.16a.75.75 0 11-1.49.178A5.501 5.501 0 008 2.5zM1.705 8.005a.75.75 0 01.834.656 5.501 5.501 0 009.592 2.97l-1.204-1.204a.25.25 0 01.177-.427h3.646a.25.25 0 01.25.25v3.646a.25.25 0 01-.427.177l-1.38-1.38A7.001 7.001 0 011.05 8.84a.75.75 0 01.656-.834z">
+                        </path>
+                    </svg></a>
 
                 </div>
 
@@ -147,5 +152,13 @@
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">
     <link rel="stylesheet" href="{{ asset('css/estilos.css') }}">
+@stop
+@section('js')
+    <script>
+        function recargarPagina(){
+            //location.reload()
+            window.location.href = window.location.href;
+        }
+    </script>
 @stop
 
