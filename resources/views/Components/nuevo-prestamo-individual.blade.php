@@ -129,6 +129,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         $(document).ready(function() {
+            $('#input-numero-control').focus(); //Siempre que se recargue apuntar al input.
 
             $("#busqueda-articulos").keypress(function(e) {
                 //no recuerdo la fuente pero lo recomiendan para

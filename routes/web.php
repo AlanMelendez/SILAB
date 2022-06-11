@@ -69,6 +69,7 @@ Route::post('numeroControlGet',[PrestamoController::class, 'mostrarNumeroControl
 Route::post('crearprestamo','PrestamoController@crearPrestamo')->name('crearprestamo');
 Route::get('crearprestamo2','PrestamoController@crearPrestamo')->name('crearprestamo2');
 Route::get('PDFdescargar','PrestamoController@PDF')->name('PDFdescargar');
+Route::get('storeprueba',[PrestamoController::class, 'store'])->name('storeprueba');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

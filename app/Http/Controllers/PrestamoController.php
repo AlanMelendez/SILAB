@@ -12,8 +12,9 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Barryvdh\DomPDF\Facade\Pdf ;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\App;
+
 class PrestamoController extends Controller
 {
     /**
@@ -21,31 +22,62 @@ class PrestamoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $prestamos= DB::table('prestamos')
-        ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno') //Verificamos que el id de un articulo laboratorio, exista en la tabla articulos generales.
-        ->join('users', 'users.id', '=', 'alumnos.id_usuario') //Buscamos que existan coincidencias de laboratorio
-        ->select('prestamos.id','prestamos.fecha','prestamos.status','users.name','alumnos.semestre','alumnos.carrera','alumnos.numero_control') //Que nos seleccione todos los articulos menores
-        //->where('prestamos.status', 1) //nos traemos los datos solo si hay prestamos con status 1 (activos)
-        ->paginate(5);
-        // ->get();
-
-    
-
-        return view('Alumnos.registros',compact('prestamos'));
-    }
-
-    public function PDF(){
-        $prestamos= DB::table('prestamos')
+        
+       $numeroControljeje = trim($request->input('search_control2')); //Obtenemos el numero control del input.
+       //$numeroInt= intval($numeroControljeje);
+        // $usuarios = DB::table('alumnos')
+        //     ->join('users', 'users.id', '=', 'alumnos.id') //users es la tabla, no el modelo
+        //     ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name')
+        //     ->where('alumnos.numero_control', 'LIKE', '%' . $numeroControl . '%')
+        //     ->get();
+        $prestamos_numeroControl = DB::table('prestamos')
             ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno') //Verificamos que el id de un articulo laboratorio, exista en la tabla articulos generales.
             ->join('users', 'users.id', '=', 'alumnos.id_usuario') //Buscamos que existan coincidencias de laboratorio
-            ->select('prestamos.id','prestamos.fecha','prestamos.status','users.name','alumnos.semestre','alumnos.carrera','alumnos.numero_control') //Que nos seleccione todos los articulos menores
+            ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control') //Que nos seleccione todos los articulos menores
+            //->where('alumnos.numero_control', 'LIKE', '%' . $numeroControl . '%') //nos traemos los datos solo si hay prestamos con status 1 (activos)
+            ->where('alumnos.numero_control', 'LIKE', '%' . $numeroControljeje . '%')
+            ->orderBy('prestamos.fecha','DESC')
+            //->paginate(5);
+             ->get();
+        $prestamos = DB::table('prestamos')
+            ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno') //Verificamos que el id de un articulo laboratorio, exista en la tabla articulos generales.
+            ->join('users', 'users.id', '=', 'alumnos.id_usuario') //Buscamos que existan coincidencias de laboratorio
+            ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control') //Que nos seleccione todos los articulos menores
+            //->where('prestamos.status', 1) //nos traemos los datos solo si hay prestamos con status 1 (activos)
+            ->orderBy('prestamos.fecha','DESC')
+            ->paginate(5);
+        // ->get();
+        // if (DB::table('prestamos')->where([
+        //     ['prestamos.id_alumno', '=', $usuarios[0]->id],
+        //     ['prestamos.status', '=', '1'],
+        // ])->exists()) {
+
+        //     return view('Alumnos.registros', compact('prestamos', 'prestamos_numeroControl','numeroControljeje'));
+
+
+        // } else {
+
+
+        //     return view('Alumnos.registros', compact('prestamos', 'prestamos_numeroControl','numeroControljeje'));
+
+        // }
+
+        return view('Alumnos.registros', compact('prestamos', 'prestamos_numeroControl','numeroControljeje'));
+    }
+
+    public function PDF()
+    {
+        $prestamos = DB::table('prestamos')
+            ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno') //Verificamos que el id de un articulo laboratorio, exista en la tabla articulos generales.
+            ->join('users', 'users.id', '=', 'alumnos.id_usuario') //Buscamos que existan coincidencias de laboratorio
+            ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control') //Que nos seleccione todos los articulos menores
             //->where('prestamos.status', 1) //nos traemos los datos solo si hay prestamos con status 1 (activos)
             ->get();
         //$view= View::make('Laboratoristas.PDF_prestamos',compact('prestamos'));
-        $view= view('Laboratoristas.PDF_prestamos',compact('prestamos'));
+        $view = view('Laboratoristas.PDF_prestamos', compact('prestamos'));
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
         return $pdf->stream();
@@ -79,7 +111,7 @@ class PrestamoController extends Controller
                         $laboratorista[0]->descripcion_puesto
                         etc...
                 */
-         $_SESSION["laboratorista"] = $laboratorista[0]->id; //Guardamos el laboratorio del actual laboratorista
+        $_SESSION["laboratorista"] = $laboratorista[0]->id; //Guardamos el laboratorio del actual laboratorista
         //-------------Para buscar el numero de control y poder agregar ese prestamo.-------------------------------
 
         $numeroControl = trim($request->get('search_control')); //Obtenemos el numero control del input.
@@ -140,14 +172,14 @@ class PrestamoController extends Controller
 
 
         //Guardamos el numero de control en session para que no se borre al recargar.
-        
-       
-        
+
+
+
         $usuarios = DB::table('alumnos')
-        ->join('users', 'users.id', '=', 'alumnos.id_usuario') //users es la tabla, no el modelo
-        ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name', 'alumnos.id')
-        ->where('alumnos.numero_control', $numeroControl )
-        ->get();
+            ->join('users', 'users.id', '=', 'alumnos.id_usuario') //users es la tabla, no el modelo
+            ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name', 'alumnos.id')
+            ->where('alumnos.numero_control', $numeroControl)
+            ->get();
         $numero_control_sesion = $_SESSION["numero_contro"] = $usuarios;
         $numero_control_desde_sesion = json_encode($_SESSION["numero_contro"]); //Nos traemos el numero de control que capturamos en la sesion
         $controlStr = json_decode($numero_control_desde_sesion);
@@ -159,10 +191,10 @@ class PrestamoController extends Controller
 
             // var_dump('no agregare, ya existe registro con ese id, y status1');
             // return (response(500)->header('Content-type', 'text/plain'));
-            
+
         } else {
-            
-           
+
+
             return (response(json_encode($numero_control_sesion), 200)->header('Content-type', 'text/plain')); //[{"nombre":"jeje","descripcion_articulo":"jeje","clave_producto":"22313123"}]
 
         }
@@ -218,7 +250,7 @@ class PrestamoController extends Controller
             $prestamo_alumno->fecha = $fecha;
             $prestamo_alumno->status = 1;
             $prestamo_alumno->id_alumno = $controlStr[0]->id;
-            $prestamo_alumno->id_laboratorio=$_SESSION["laboratorista"];
+            $prestamo_alumno->id_laboratorio = $_SESSION["laboratorista"];
             $prestamo_alumno->save(); //Guardamos los datos
 
             // $prestamo_lab= new PrestamoLaboratior();
@@ -226,7 +258,7 @@ class PrestamoController extends Controller
             // $prestamo_lab->id_laboratorio=;
         }
 
-        
+
         //return redirect()->route("Articulos_mayores.index")->with('success','Agregado con exito'); //Redirigimos ala pagina index, Y catcheamos cualquier errot con with.
 
     }
@@ -239,6 +271,17 @@ class PrestamoController extends Controller
      */
     public function store(Request $request)
     {
+        //-------------Para buscar el numero de control y poder mostrar los prestamos del alumno.-------------------------------
+
+        $numeroControl = trim($request->get('search_control')); //Obtenemos el numero control del input.
+        $usuarios = DB::table('alumnos')
+            ->join('users', 'users.id', '=', 'alumnos.id') //users es la tabla, no el modelo
+            ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name')
+            ->where('alumnos.numero_control', 'LIKE', '%' . $numeroControl . '%')
+            ->get();
+
+        //return view('Alumnos.registros',compact('numeroControl'));
+        return redirect()->route("Prestamos.index");
     }
 
 
@@ -250,17 +293,18 @@ class PrestamoController extends Controller
      */
     public function show()
     {
-        $prestamos= DB::table('prestamos')
+
+        $prestamos = DB::table('prestamos')
             ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno') //Verificamos que el id de un articulo laboratorio, exista en la tabla articulos generales.
             ->join('users', 'users.id', '=', 'alumnos.id_usuario') //Buscamos que existan coincidencias de laboratorio
-            ->select('prestamos.id','prestamos.fecha','prestamos.status','users.name','alumnos.semestre','alumnos.carrera','alumnos.numero_control') //Que nos seleccione todos los articulos menores
+            ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control') //Que nos seleccione todos los articulos menores
             ->where('prestamos.status', 1) //nos traemos los datos solo si hay prestamos con status 1 (activos)
             ->get();
 
         //Aqui leemos el id , que el id podria ser el de un alumno, y leer todos los registros de un alumno
-        return view('Alumnos.prestamos',compact('prestamos'));
+        return view('Alumnos.prestamos', compact('prestamos'));
         //return($prestamos);
-       
+
     }
 
     /**
@@ -272,7 +316,7 @@ class PrestamoController extends Controller
     public function edit($id)
     {
         //
-       
+
         $prestamo = prestamo::findOrFail($id); //Buscamos el id del prestamo que recibimos.
         $prestamo->status = 0; //Cambiamos el status del prestamo (recordar que cambiando a status 0 es igual a eliminar.)
         $prestamo->save(); //Guardamos los cambios
