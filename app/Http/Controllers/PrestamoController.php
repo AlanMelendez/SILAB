@@ -190,7 +190,7 @@ class PrestamoController extends Controller
         ])->exists()) {
 
             // var_dump('no agregare, ya existe registro con ese id, y status1');
-            // return (response(500)->header('Content-type', 'text/plain'));
+            return (response(500)->header('Content-type', 'text/plain'));
 
         } else {
 

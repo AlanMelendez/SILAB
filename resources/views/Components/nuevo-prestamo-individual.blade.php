@@ -193,6 +193,19 @@
                 url: '/numeroControlGet',
                 data: $('#numero_control_form').serialize(), //obtener formulario
                 success: function(res) {
+                    if(res==500){
+                        Swal.fire({
+                        position: "top",
+                        icon: "error",
+                        title: "¡Alumno con prestamo activo!",
+                        text: "El alumno necesita liberar sus prestamos activos",
+                        footer: '',
+                        showConfirmButton: false,
+                        timer: 2500,
+                        showCloseButton: true,
+                    });
+                    location.reload(); //Recargamos pagina 
+                    }
                     var arreglo = JSON.parse(res);
                     // console.log(res);
                     for (let x = 0; x < arreglo.length; x++) {
@@ -224,8 +237,8 @@
                     Swal.fire({
                         position: "top",
                         icon: "error",
-                        title: "¡Prestamo activo!",
-                        text: "No se permite mas prestamos.",
+                        title: "¡No se encontraron registros!",
+                        text: "Verifica que el numero de control este correcto.",
                         footer: '',
                         showConfirmButton: false,
                         timer: 2500,
