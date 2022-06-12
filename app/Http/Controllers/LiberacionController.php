@@ -21,11 +21,12 @@ class LiberacionController extends Controller
         ->join('oficios','oficios.id', '=', 'tramites.id_oficio')
         ->join('alumnos','alumnos.id', '=', 'tramites.id_alumno')
         ->select('tramites.fecha','tramites.status','tramites.id_alumno','tramites.id_oficio','oficios.nombre','oficios.folio_oficio')
-        ->where([['tramites.status',1] ])
+        // ->where([['tramites.status',1] ])
+        ->orderBy('tramites.id_oficio','DESC')
         ->paginate(7);
         
         return view ('Liberacion/liberados',compact('tramites'));
-
+        //return $tramites;
     }
 
     /**
@@ -45,6 +46,7 @@ class LiberacionController extends Controller
          ->join('oficios','oficios.id', '=' , 'tramites.id_oficio')
          ->select('tramites.id','tramites.fecha','tramites.status','tramites.id_oficio','tramites.id_alumno','alumnos.numero_control','oficios.folio_oficio')
          ->where('tramites.status',1)
+         ->orderBy('tramites.id','DESC')
          ->get();
          return view('liberacion.Comprobante', compact('tramite')); //Mandamos un array ala vista para capturar los datos y mostrarlos.
         

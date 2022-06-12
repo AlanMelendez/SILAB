@@ -46,9 +46,8 @@ return [
     */
 
     'logo' => '<b>SILAB</b>',
-    'logo_img' => 'vendor/adminlte/dist/img/logo-silab.png',
-    'logo_img_class' => 'brand-image',
-    'logo_img_xl' => null,
+    'logo_img' => 'vendor/adminlte/dist/img/logo_final_sin_fondo.png',
+    'logo_img_class' => 'imagen-sinfondo',
     'logo_img_xl_class' => 'brand-image-xl',
     'logo_img_alt' => 'SILAB',
 

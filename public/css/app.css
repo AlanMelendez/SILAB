@@ -10961,5 +10961,11 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+.card-login-style{
+  /* border-radius: 30% !important; */
+  background-color: white !important;
+
+}
+
 
 

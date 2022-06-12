@@ -3,11 +3,10 @@
 @section('title', 'SILAB')
 
 @section('content_header')
-    <h1>SILAB</h1>
 @stop
 
 @section('content')
-  <h2 class="saludo">PAGINA DE BIENVENIDA!!!!!</h2>
+  <img src="{{asset('img/Bienvenida-silab.jpg')}}" class="imagen-bienvenida-silab">
 @stop
 
 @section('css')
