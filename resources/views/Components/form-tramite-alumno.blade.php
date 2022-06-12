@@ -16,22 +16,26 @@
     </div>
     <div class="container ">
         <form class="form-tramite">
-            @foreach ($alumno as $alumno)
+            {{-- Si existe registro que muestre los datos del alumno --}}
+            @if ($bandera >= 1)
                 <div class="flex-item">
                     <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" value="{{ $alumno->id }}" readonly>
+                    <input type="text" class="form-control" id="nombre" value="{{ $prestamos[0]->name }}" readonly>
                 </div>
                 <div class="flex-item">
                     <label for="ncontrol" class="form-label">No. Control</label>
-                    <input type="number" class="form-control" id="ncontrol" value="{{ $alumno->numero_control }}" readonly>
+                    <input type="number" class="form-control" id="ncontrol"
+                        value="{{ $prestamos[0]->numero_control }}" readonly>
                 </div>
-                {{-- <div class="flex-item">
+                <div class="flex-item">
                     <label for="carrera" class="form-label">Carrera</label>
-                    <input type="text" class="form-control" id="carrera" value="Ing. Informatica" readonly>
-                </div> --}}
+                    <input type="text" class="form-control" id="carrera" value="{{ $prestamos[0]->carrera }}"
+                        readonly>
+                </div>
                 <div class="flex-item">
                     <label for="semestre" class="form-label">Semestre</label>
-                    <input type="text" class="form-control" id="semestre" value="{{ $alumno->semestre }}" readonly>
+                    <input type="text" class="form-control" id="semestre" value="{{ $prestamos[0]->semestre }}"
+                        readonly>
                 </div>
 
 
@@ -48,7 +52,21 @@
                             class="btn btn-primary btn-tramite toastrDefaultSuccess">Iniciar</button>
                     </div>
                 </div>
-            @endforeach
+            @else
+                <script>
+                    Swal.fire({
+                        position: "top",
+                        icon: "error",
+                        title: "¡No es posible iniciar un tramite!",
+                        text: "Resuelve tus prestamos pendientes, Haz click en el siguiente boton.",
+                        footer: '<a href="{{ url('Tramite')}}">Consulta(s)</a>',
+                        showConfirmButton: false,
+                        timer: 100000,
+                        showCloseButton: true,
+                    });
+                </script>
+            @endif
+
         </form>
     </div>
 </body>

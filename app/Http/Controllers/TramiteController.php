@@ -23,14 +23,14 @@ class TramiteController extends Controller
         $user_loged = auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
         $id_user_loged = $user_loged->id; //Obtenemos el id.
 
-        $prestamos= DB::table('prestamos')
-            ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno') 
-            ->join('users', 'users.id', '=', 'alumnos.id_usuario') 
-            ->join('laboratorios','laboratorios.id','=','prestamos.id_laboratorio')
-            ->select('prestamos.id','prestamos.fecha','prestamos.status','laboratorios.nombre_laboratorio','users.name','alumnos.semestre','alumnos.carrera','alumnos.numero_control') 
-            ->where([['users.id','=',$id_user_loged],['prestamos.status','=', 1]]) //Array con varias clausulas where
+        $prestamos = DB::table('prestamos')
+            ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno')
+            ->join('users', 'users.id', '=', 'alumnos.id_usuario')
+            ->join('laboratorios', 'laboratorios.id', '=', 'prestamos.id_laboratorio')
+            ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'laboratorios.nombre_laboratorio', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control')
+            ->where([['users.id', '=', $id_user_loged], ['prestamos.status', '=', 1]]) //Array con varias clausulas where
             ->get();
-        return view('Alumnos/adeudos-vista-alumnos',compact('prestamos')); //[{"id":1,"fecha":"2022-06-08","status":1,"name":"Alan","semestre":6,"carrera":"Informatica","numero_control":192310781}]
+        return view('Alumnos/adeudos-vista-alumnos', compact('prestamos')); //[{"id":1,"fecha":"2022-06-08","status":1,"name":"Alan","semestre":6,"carrera":"Informatica","numero_control":192310781}]
         //return($prestamos);
 
     }
@@ -42,11 +42,35 @@ class TramiteController extends Controller
      */
     public function create()
     {
-        //
-        $alumno= alumno::all();
+        //Para crear los tramites del alumno.
+        //Obtenemos las credenciales del ususario loggeado, De esta manera mostramos los articulos dependiendo del laboratorio que tenga asignado.
+        $user_loged = auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
+        $id_user_loged = $user_loged->id; //Obtenemos el id.
+        $usuarios = DB::table('alumnos')
+            ->join('users', 'users.id', '=', 'alumnos.id_usuario') //users es la tabla, no el modelo
+            ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name', 'alumnos.id')
+            ->where('users.id', $id_user_loged)
+            ->get();
+        $prestamos = DB::table('prestamos')
+            ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno')
+            ->join('users', 'users.id', '=', 'alumnos.id_usuario')
+            ->join('laboratorios', 'laboratorios.id', '=', 'prestamos.id_laboratorio')
+            ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'laboratorios.nombre_laboratorio', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control')
+            ->where([['users.id', '=', $id_user_loged], ['prestamos.status', '=', 0]]) //Array con varias clausulas where
+            ->get();
+        $bandera = 0;
+        if (DB::table('prestamos')->where([
+            ['prestamos.id_alumno', '=', $usuarios[0]->id],
+            ['prestamos.status', '=', '1'],
+        ])->exists()) {
+            
+            return view('Alumnos/tramite',compact('prestamos','bandera'));
+        } else {
 
-        return view('Alumnos/tramite' ,array('alumno'=> $alumno));
+            $bandera=1;
+            return view('Alumnos/tramite', compact('prestamos','bandera')); //[{"id":1,"fecha":"2022-06-08","status":1,"name":"Alan","semestre":6,"carrera":"Informatica","numero_control":192310781}]
 
+        }
     }
 
     /**
