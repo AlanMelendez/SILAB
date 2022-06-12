@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\alumno;
+use App\oficio;
+use App\tramite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,6 +32,8 @@ class TramiteController extends Controller
             ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'laboratorios.nombre_laboratorio', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control')
             ->where([['users.id', '=', $id_user_loged], ['prestamos.status', '=', 1]]) //Array con varias clausulas where
             ->get();
+
+            
         return view('Alumnos/adeudos-vista-alumnos', compact('prestamos')); //[{"id":1,"fecha":"2022-06-08","status":1,"name":"Alan","semestre":6,"carrera":"Informatica","numero_control":192310781}]
         //return($prestamos);
 
@@ -40,8 +44,10 @@ class TramiteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+        session_start();
+
         //Para crear los tramites del alumno.
         //Obtenemos las credenciales del ususario loggeado, De esta manera mostramos los articulos dependiendo del laboratorio que tenga asignado.
         $user_loged = auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
@@ -59,6 +65,8 @@ class TramiteController extends Controller
             ->where([['users.id', '=', $id_user_loged], ['prestamos.status', '=', 0]]) //Array con varias clausulas where
             ->get();
         $bandera = 0;
+        $_SESSION['numero_control_alumno']= $prestamos[0]->numero_control;
+        $_SESSION['articulo']= $request->get('seleccion_cartas');
         if (DB::table('prestamos')->where([
             ['prestamos.id_alumno', '=', $usuarios[0]->id],
             ['prestamos.status', '=', '1'],
@@ -81,7 +89,46 @@ class TramiteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        session_start();
+
+        $user_loged = auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
+        $id_user_loged = $user_loged->id; //Obtenemos el id.
+       
+        // $seleccionadoc = $_POST['select']; //Carta seleccionada
+        $seleccionadoc =str_replace('"', '',$_POST['select'] );
+         //Obtener numero de control
+        $usuarios = DB::table('alumnos')
+        ->join('users', 'users.id', '=', 'alumnos.id') //users es la tabla, no el modelo
+        ->select( 'alumnos.numero_control','alumnos.id')
+        ->where('alumnos.numero_control',$_SESSION['numero_control_alumno'])
+        ->get();
+        //Primero necesitamos crear una carta con un folio unico.
+
+        //Algoritmo del folio:
+        // $folio_unico=( $usuarios[0]->numero_control + date('Y-m-d') + rand(1000,100000) );
+        // $folio_unico=(  date('Y-m-d') + rand(1000,100000) );
+        $carta = new oficio();
+        $carta ->nombre =$seleccionadoc;
+        $carta ->folio_oficio = 12345;
+        $carta->save();
+
+        //Nos traemos el ultimo oficio creado
+        $id_oficio_ = oficio::select('id')->orderBy('id','DESC')->first();
+
+        //Creamos el tramite
+        $tramite = new tramite();
+        $tramite-> fecha= date('Y-m-d');
+        $tramite->status =1;
+        $tramite->id_oficio= $id_oficio_->id;
+        $tramite->id_alumno= $usuarios[0]->id;
+        $tramite->save();
+        // return$_SESSION['articulo'];
+        return (response(json_encode($seleccionadoc), 200)->header('Content-type', 'text/plain'));
+        
+    }
+    public function crearTramites(Request $request){
+        $_SESSION['articulo']= $request->get('seleccion_cartas');
+        return redirect()->route('/storeprueba2');
     }
 
     /**
@@ -90,9 +137,10 @@ class TramiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
         //
+        
     }
 
     /**

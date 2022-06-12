@@ -53,7 +53,7 @@
                 {{-- <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
                     {!! $prestamos->links() !!}
                 </div> --}}
-                {{!! $prestamos->links() !!}}
+                {!! $prestamos->links() !!}
             </div>
         </div>
     @stop

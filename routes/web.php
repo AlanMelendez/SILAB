@@ -19,6 +19,7 @@ use App\Http\Controllers\LiberacionesController;
 use App\Http\Controllers\prestamosController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\PrestamoController;
+use App\Http\Controllers\TramiteController;
 use Illuminate\Support\Facades\Route;
 Auth::routes();
 
@@ -70,6 +71,9 @@ Route::post('crearprestamo','PrestamoController@crearPrestamo')->name('crearpres
 Route::get('crearprestamo2','PrestamoController@crearPrestamo')->name('crearprestamo2');
 Route::get('PDFdescargar','PrestamoController@PDF')->name('PDFdescargar');
 Route::get('storeprueba',[PrestamoController::class, 'store'])->name('storeprueba');
+Route::post('storeprueba2',[TramiteController::class, 'store'])->name('storeprueba2');
+Route::get('storeprueba3',[TramiteController::class, 'store'])->name('storeprueba3');
+Route::get('crearTramite','TramiteController@crearTramites')->name('crearTramite');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

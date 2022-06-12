@@ -16,7 +16,7 @@ class CreateOficiosTable extends Migration
         Schema::create('oficios', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nombre');
-            $table->bigInteger('folio_oficio');
+            $table->string('folio_oficio');
         });
     }
 
