@@ -8,7 +8,7 @@
 @section('content')
     <div class="container-nav">
         <div class="">
-            <form class="form-inline form-buscar">
+            {{-- <form class="form-inline form-buscar">
                 <div class="btn-grouper">
 
                     <input class="form-controlq mr-sm-2" type="search" placeholder="Buscar registro" aria-label="Search">
@@ -20,10 +20,10 @@
                         </svg>
                     </button>
                 </div>
-            </form>
+            </form> --}}
         </div>
         <div class="btn-grouper1">
-            <div class="dt-buttons btn-group col-sm-6">
+           
                 <div class="btn-group ">
                     {{-- <button class="btn dropdown-toggle btn-agregar"  type="button" id="modal-articulo" class="dropdown-item" onclick="ventanaModalArticulos();" tabindex="0" aria-controls="example1"
                   data-toggle="modal" data-target="#modal-articulos"
@@ -54,7 +54,6 @@
                     </button>
                 </div> --}}
 
-            </div>
 
         </div>
 
