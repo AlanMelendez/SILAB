@@ -36,7 +36,8 @@ class LiberacionController extends Controller
          $tramite = DB::table('tramites')
          ->join('alumnos','alumnos.id', '=' , 'tramites.id_alumno')
          ->join('oficios','oficios.id', '=' , 'tramites.id_oficio')
-         ->select('tramites.id','tramites.fecha','tramites.status','tramites.id_oficio','tramites.id_alumno')
+         ->select('tramites.id','tramites.fecha','tramites.status','tramites.id_oficio','tramites.id_alumno','alumnos.numero_control','oficios.folio_oficio')
+         ->where('tramites.status',1)
          ->get();
          return view('liberacion.Comprobante', compact('tramite')); //Mandamos un array ala vista para capturar los datos y mostrarlos.
         
@@ -64,6 +65,10 @@ class LiberacionController extends Controller
     public function show($id)
     {
         //
+        $tramite = tramite::findOrFail($id); //Buscamos el id del prestamo que recibimos.
+        $tramite->status = 3; //Cambiamos el status del prestamo (recordar que cambiando a status 0 es igual a eliminar. 3= anular)
+        $tramite->save(); //Guardamos los cambios
+        return  redirect('Liberacion/create'); //redirigimos ala pagina.
     }
 
     /**
@@ -74,7 +79,22 @@ class LiberacionController extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        $prestamo = tramite::findOrFail($id); //Buscamos el id del prestamo que recibimos.
+        $prestamo->status = 0; //Cambiamos el status del prestamo (recordar que cambiando a status 0 es igual a eliminar.)
+        $prestamo->save(); //Guardamos los cambios
+        
+        return  redirect('Liberacion/create'); //redirigimos ala pagina.
+    }
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id2
+     * @return \Illuminate\Http\Response
+     */
+    public function anularTramite($id2){
+        
+        
     }
 
     /**

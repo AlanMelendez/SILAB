@@ -48,15 +48,17 @@
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                             aria-label="Engine version: activate to sort column ascending" style="">Oficio</th>
+                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                            aria-label="Engine version: activate to sort column ascending" style="">No. Folio</th>
                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                            aria-label="Engine version: activate to sort column ascending" style="">Alumno</th>
+                            aria-label="Engine version: activate to sort column ascending" style="">No. Control</th>
                         {{-- <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                         aria-label="CSS grade: activate to sort column ascending" style="">Fecha</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                    aria-label="CSS grade: activate to sort column ascending" style="">Carta</th>
+                    aria-label="CSS grade: activate to sort column ascending" style="">Carta</th>--}}
                    
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                    aria-label="CSS grade: activate to sort column ascending" style="">Accion</th> --}}
+                    aria-label="CSS grade: activate to sort column ascending" style="">Accion</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -65,11 +67,14 @@
                             <td class="dtr-control sorting_1" tabindex="0">{{ $liberacion->id }}</td>
                             <td style="">{{ $liberacion->fecha }}</td>
                             <td style="">{{ $liberacion->id_oficio }}</td>
-                            <td style="">{{ $liberacion->id_alumno }}</td>
-                            {{-- <td class="btn-acciones">
-                            <button class="btn btn-succes btn-accion1 ">Liberar</button>
-                            <button class="btn btn-succes btn-accion2">Anular</button>
-                    </td> --}}
+                            <td style="">{{ $liberacion->folio_oficio }}</td>
+                            <td style="">{{ $liberacion->numero_control }}</td>
+                            <td class="btn-acciones">
+                                <a href="{{ route('Liberacion.edit', $liberacion->id) }}"
+                                    class="btn btn-success btn-accion1 " style="margin-bottom: 30px;">Liberar</a>
+                                    <a href="{{ route('Liberacion.show', $liberacion->id) }}"
+                                        class="btn btn-danger btn-accion2 " style="margin-bottom: 30px;">Anular</a>
+                    </td>
                         </tr>
                     @endforeach
                 </tbody>

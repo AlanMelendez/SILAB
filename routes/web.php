@@ -74,6 +74,8 @@ Route::get('storeprueba',[PrestamoController::class, 'store'])->name('storeprueb
 Route::post('storeprueba2',[TramiteController::class, 'store'])->name('storeprueba2');
 Route::get('storeprueba3',[TramiteController::class, 'store'])->name('storeprueba3');
 Route::get('crearTramite','TramiteController@crearTramites')->name('crearTramite');
+Route::get('anularTramite','LiberacionController@anularTramite')->name('anularTramite');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 
