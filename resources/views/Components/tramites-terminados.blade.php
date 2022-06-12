@@ -17,81 +17,36 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th style="width: 10px">#</th>
+                        <th style="width: 10px">Id</th>
                         <th>Tramite</th>
                         <th>Fecha</th>
+                        <th>Folio</th>
+    
+    
                         <th>Progreso</th>
                         <th style="width: 20px">Porcentaje</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($tramites as $tramite )
                     <tr>
-                        <td>1.</td>
-                        <td>Carta no adeudo (Regular)</td>
-                        <td>01/05/2022</td>
+                        <th scope="row">#{{$tramite->id_oficio}}</th>
+                        <td>{{$tramite->nombre}}</td>
+                        <td>{{$tramite->fecha}}</td>
+                        <td>{{$tramite->folio_oficio}}</td>
                         <td>
                             <div class="progress progress-xs">
                                 <div class="progress-bar bg-success" style="width: 100%"></div>
                             </div>
                         </td>
                         <td><span class="badge bg-success">100%</span></td>
+                        {{-- <td>{{$tramite->numero_control}}</td>
+                        <td>{{$tramite->nombre_laboratorio}}</td>
+                        <td>{{$tramite->status}}</td>
+                        <td>{{$tramite->fecha}}</td> --}}
+                        
                     </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Carta no adeudo (Regular)</td>
-                        <td>22/04/2022</td>
-                        <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar bg-success" style="width: 100%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-success">100%</span></td>
-                    </tr>
-                    <tr>
-                        <td>2.</td>
-                        <td>Carta no adeudo (Regular)</td>
-                        <td>23/04/2022</td>
-                        <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar bg-success" style="width: 100%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-success">100%</span></td>
-                    </tr>
-                    <tr>
-                        <td>3.</td>
-                        <td>Carta no adeudo (Regular)</td>
-                        <td>23/04/2022</td>
-                        <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar bg-success" style="width: 100%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-success">100%</span></td>
-                    </tr>
-                    <tr>
-                        <td>4.</td>
-                        <td>Carta no adeudo (Regular)</td>
-                        <td>24/04/2022</td>
-                        <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar bg-success" style="width: 100%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-success">100%</span></td>
-                    </tr>
-                    <tr>
-                        <td>5.</td>
-                        <td>Carta no adeudo (Regular)</td>
-                        <td>25/04/2022</td>
-                        <td>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar bg-success" style="width: 100%"></div>
-                            </div>
-                        </td>
-                        <td><span class="badge bg-success">100%</span></td>
-                    </tr>
-                    
+                    @endforeach
                 </tbody>
             </table>
         </div>

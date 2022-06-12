@@ -34,7 +34,30 @@ class prestamosController extends Controller
         return view('Components.prestamos-terminados',compact('prestamos'));
     }
     public function tramitesTerminados(){
-        return view('Components.tramites-terminados');
+        $user_loged = auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
+        $id_user_loged = $user_loged->id; //Obtenemos el id.
+
+        $prestamos = DB::table('prestamos')
+            ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno')
+            ->join('users', 'users.id', '=', 'alumnos.id_usuario')
+            ->join('laboratorios', 'laboratorios.id', '=', 'prestamos.id_laboratorio')
+            ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'laboratorios.nombre_laboratorio', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control','id_usuario')
+            ->where([['users.id', '=', $id_user_loged], ['prestamos.status', '=', 1]]) //Array con varias clausulas where
+            ->get();
+        
+        $alumno= DB::table('alumnos')
+            ->join('users', 'users.id','=', 'alumnos.id_usuario')
+            ->select('alumnos.id')
+            ->where('users.id',$id_user_loged)
+            ->get();
+        
+        $tramites = DB::table('tramites')
+        ->join('oficios','oficios.id', '=', 'tramites.id_oficio')
+        ->join('alumnos','alumnos.id', '=', 'tramites.id_alumno')
+        ->select('tramites.fecha','tramites.status','tramites.id_alumno','tramites.id_oficio','oficios.nombre','oficios.folio_oficio')
+        ->where([['alumnos.id',$alumno[0]->id],['tramites.status',0] ])
+        ->get();
+        return view('Components.tramites-terminados',compact('tramites'));
     }
 
 }

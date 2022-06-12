@@ -7,6 +7,7 @@ use App\oficio;
 use App\tramite;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Stmt\Return_;
 
 class TramiteController extends Controller
 {
@@ -29,14 +30,28 @@ class TramiteController extends Controller
             ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno')
             ->join('users', 'users.id', '=', 'alumnos.id_usuario')
             ->join('laboratorios', 'laboratorios.id', '=', 'prestamos.id_laboratorio')
-            ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'laboratorios.nombre_laboratorio', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control')
+            ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'laboratorios.nombre_laboratorio', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control','id_usuario')
             ->where([['users.id', '=', $id_user_loged], ['prestamos.status', '=', 1]]) //Array con varias clausulas where
             ->get();
+        
+        $alumno= DB::table('alumnos')
+            ->join('users', 'users.id','=', 'alumnos.id_usuario')
+            ->select('alumnos.id')
+            ->where('users.id',$id_user_loged)
+            ->get();
+        
+        $tramites = DB::table('tramites')
+        ->join('oficios','oficios.id', '=', 'tramites.id_oficio')
+        ->join('alumnos','alumnos.id', '=', 'tramites.id_alumno')
+        ->select('tramites.fecha','tramites.status','tramites.id_alumno','tramites.id_oficio','oficios.nombre','oficios.folio_oficio')
+        ->where([['alumnos.id',$alumno[0]->id],['tramites.status',1] ])
+        ->get();
+
 
             
-        return view('Alumnos/adeudos-vista-alumnos', compact('prestamos')); //[{"id":1,"fecha":"2022-06-08","status":1,"name":"Alan","semestre":6,"carrera":"Informatica","numero_control":192310781}]
-        //return($prestamos);
-
+        return view('Alumnos/adeudos-vista-alumnos', compact('prestamos','tramites')); //[{"id":1,"fecha":"2022-06-08","status":1,"name":"Alan","semestre":6,"carrera":"Informatica","numero_control":192310781}]
+        
+        //return $tramites;
     }
 
     /**
@@ -109,7 +124,7 @@ class TramiteController extends Controller
         // $folio_unico=(  date('Y-m-d') + rand(1000,100000) );
         $carta = new oficio();
         $carta ->nombre =$seleccionadoc;
-        $carta ->folio_oficio = 12345;
+        $carta ->folio_oficio =rand(1000,100000);
         $carta->save();
 
         //Nos traemos el ultimo oficio creado
