@@ -136,8 +136,18 @@
 
                 },
                 success: function(res) {
-                  console.log(res)
-                    alert('enviado bro');
+                  // console.log(res)
+                  //   alert('enviado bro');
+                  Swal.fire({
+                            position: "top",
+                            icon: "success",
+                            title: "¡Tramite creado con exito!",
+                            text: "Verifica la consulta de tu tramite en el siguiente boton.",
+                            footer: '<a href="{{ url('Tramite') }}">Consulta(s)</a>',
+                            showConfirmButton: false,
+                            timer: 100000,
+                            showCloseButton: true,
+                        });
                 },error: function(jqXHR, textStatus, errorThrown){
 
                   alert('No se envio bro');
