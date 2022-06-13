@@ -19,6 +19,7 @@
 
           <th>Progreso</th>
           <th style="width: 20px">Porcentaje</th>
+          <th>Documento</th>
       </tr>
   </thead>
   <tbody>
@@ -38,6 +39,7 @@
           <td>{{$tramite->nombre_laboratorio}}</td>
           <td>{{$tramite->status}}</td>
           <td>{{$tramite->fecha}}</td> --}}
+          <td><a class="btn btn-danger btn-accion1 " style="margin-bottom: 30px;" href="{{ route('GenerarLiberacion.show', $tramite->id_oficio) }}">Descargar</a></td>
           
       </tr>
       @endforeach

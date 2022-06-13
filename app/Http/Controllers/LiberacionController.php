@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\tramite;
 use App\usuario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
 class LiberacionController extends Controller
@@ -24,9 +25,16 @@ class LiberacionController extends Controller
         // ->where([['tramites.status',1] ])
         ->orderBy('tramites.id_oficio','DESC')
         ->paginate(7);
+
+        //Codigo para generar pdf:
+       
         
         return view ('Liberacion/liberados',compact('tramites'));
         //return $tramites;
+    }
+    public function imprimirLiberacion(){
+
+        
     }
 
     /**
@@ -115,7 +123,7 @@ class LiberacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      
     }
 
     /**
@@ -126,6 +134,6 @@ class LiberacionController extends Controller
      */
     public function destroy($id)
     {
-        //
+       
     }
 }

@@ -88,6 +88,7 @@ Route::resource('Articulos_mayores','ArticulosMayoresController');
 Route::resource('Articulos_menores','ArticulosMenoresController');
 Route::resource('ArticulosMayoresLab','ArticuloMayorLabController');
 Route::resource('ArticulosMenoresLab','ArticuloMenorLabController');
+Route::resource('GenerarLiberacion','GenerarLiberacionController');
 
 
 Route::resource('PruebaRuta','PruebaController');
