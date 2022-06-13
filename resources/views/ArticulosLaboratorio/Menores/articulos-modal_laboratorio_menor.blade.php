@@ -41,7 +41,7 @@
                             <label for="inputAddress">Código articulo</label>
                             <input type="text" class="form-control" placeholder="Codigo " name="codigo_articulo">
                         </div>
-                        <div class="col">
+                        {{-- <div class="col">
                             <label for="select-laboratorio">Laboratorio</label>
                             <select id="select-laboratorio" name="select-laboratorio" class="form-control" aria-label="Default select example">
                                 <option selected>Elige una opcion</option>
@@ -50,7 +50,7 @@
                                 <option value="Quimica">Quimica</option>
                                 <option value="Electro Mecanica">Electro Mecanica</option>
                               </select>
-                        </div>
+                        </div> --}}
 
 
                         {{-- <form class="form-inline">

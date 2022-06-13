@@ -48,6 +48,19 @@ class ArticuloMenorLabController extends Controller
     public function store(Request $request)
     {
         //
+        session_start();
+
+        // ---------------------------- Saber que usuario/personal esta logeado ----------------------------------------------
+        //Obtenemos las credenciales del ususario loggeado, De esta manera mostramos los articulos dependiendo del laboratorio que tenga asignado.
+        $user_loged = auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
+        $id_user_loged = $user_loged->id; //Obtenemos el id.
+
+        $laboratorista = DB::table('laboratorios')
+            ->join('personals', 'personals.id', '=', 'laboratorios.id_personal') //Buscamos personal encargado de laboratorio
+            ->join('users', 'users.id', '=', 'personals.id_usuario') //Obteniendo el personal , buscamos el id de usuario que tiene.
+            ->select('users.name', 'personals.descripcion_puesto', 'personals.numero_checador', 'laboratorios.nombre_laboratorio', 'laboratorios.id')
+            ->where('users.id', $id_user_loged) //Si el id del usuario loggedado, Y existe registro en la BD de ese id, Que me muestre todo lo del select.
+            ->get();
         //
         // print_r($_POST);
         //en la variable almacenamos los datos del modelo, QUE VAMOS A INSERTAR.
@@ -87,7 +100,7 @@ class ArticuloMenorLabController extends Controller
             ->where('articulo_menors.clave_producto', $numserie) //Verificamos que exista un numero de serie, con el del input
             ->get(); //Nos guardara lo seleccionado (id) en la variable.
 
-        $articulolaboratorio->id_laboratorio = $laboratorio[0]->id; //$laboratorio es un conjunto de laboratorios. Entonces, si solo desea el campo "id" del PRIMER resultado, puede hacer $laboratorio[0]->id
+        $articulolaboratorio->id_laboratorio = $laboratorista[0]->id; //$laboratorio es un conjunto de laboratorios. Entonces, si solo desea el campo "id" del PRIMER resultado, puede hacer $laboratorio[0]->id
         $articulolaboratorio->id_articulo_menor = $idArticulo[0]->id; //Tomamos el id y lo guardamos
 
 

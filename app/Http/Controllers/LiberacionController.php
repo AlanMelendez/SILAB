@@ -24,7 +24,7 @@ class LiberacionController extends Controller
         ->select('tramites.fecha','tramites.status','tramites.id_alumno','tramites.id_oficio','oficios.nombre','oficios.folio_oficio')
         // ->where([['tramites.status',1] ])
         ->orderBy('tramites.id_oficio','DESC')
-        ->paginate(7);
+        ->paginate(5);
 
         //Codigo para generar pdf:
        
