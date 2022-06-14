@@ -89,6 +89,11 @@ Route::resource('Articulos_menores','ArticulosMenoresController');
 Route::resource('ArticulosMayoresLab','ArticuloMayorLabController');
 Route::resource('ArticulosMenoresLab','ArticuloMenorLabController');
 Route::resource('GenerarLiberacion','GenerarLiberacionController');
+Route::resource('ArticulosEnviados','ArticulosEnviadosController');
+Route::get('Enviados','ArticulosEnviadosController@store')->name('Enviados');
+Route::post('EnviadosPost','ArticulosEnviadosController@store')->name('EnviadosPost');
+Route::get('prueba','ArticulosEnviadosController@index')->name('prueba');
+
 
 
 Route::resource('PruebaRuta','PruebaController');

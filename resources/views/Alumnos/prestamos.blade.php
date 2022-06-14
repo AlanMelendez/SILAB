@@ -137,9 +137,11 @@
                                            
                                                 <a href="{{route('Articulos_mayores.update',$articulo->id)}}"class="btn btn-succes btn-accion2">Deshabilitar</a> --}}
                 
-                                         
+                                                <a href="{{ route('ArticulosEnviados.show', $prestamo->id) }}"
+                                                    class="btn btn-danger btn-accion1 " style="margin-bottom: 30px;">Articulos</a>
                                             <a href="{{ route('Prestamos.edit', $prestamo->id) }}"
                                                 class="btn btn-danger btn-accion2 " style="margin-bottom: 30px;">Eliminar</a>
+                                               
                                         </td>
                                     </tr>
                                 @endforeach

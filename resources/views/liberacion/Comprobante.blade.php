@@ -12,7 +12,7 @@
 
     <div class="row">
         <div class="barra-buscar barra-comprobante">
-            <form class="form-inline form-buscar">
+            {{-- <form class="form-inline form-buscar">
                 <div class="btn-gruoup btn-grouper">
 
                     <input class="form-controlq mr-sm-2" type="search" placeholder="Buscar registro" aria-label="Search">
@@ -34,7 +34,7 @@
                     </button>
 
                 </div>
-            </form>
+            </form> --}}
         </div>
         <div class="col-sm-12">
             <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"

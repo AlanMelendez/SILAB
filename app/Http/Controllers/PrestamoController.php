@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\articulo_mayor;
 use App\articulo_menor;
 use App\prestamo;
+use App\prestamo_articulo_mayor;
 use App\PrestamoLaboratior;
 use App\User;
 use App\usuario;
@@ -14,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\App;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class PrestamoController extends Controller
 {
@@ -25,9 +27,9 @@ class PrestamoController extends Controller
     public function index(Request $request)
     {
         //
-        
-       $numeroControljeje = trim($request->input('search_control2')); //Obtenemos el numero control del input.
-       //$numeroInt= intval($numeroControljeje);
+
+        $numeroControljeje = trim($request->input('search_control2')); //Obtenemos el numero control del input.
+        //$numeroInt= intval($numeroControljeje);
         // $usuarios = DB::table('alumnos')
         //     ->join('users', 'users.id', '=', 'alumnos.id') //users es la tabla, no el modelo
         //     ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name')
@@ -39,15 +41,15 @@ class PrestamoController extends Controller
             ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control') //Que nos seleccione todos los articulos menores
             //->where('alumnos.numero_control', 'LIKE', '%' . $numeroControl . '%') //nos traemos los datos solo si hay prestamos con status 1 (activos)
             ->where('alumnos.numero_control', 'LIKE', '%' . $numeroControljeje . '%')
-            ->orderBy('prestamos.fecha','DESC')
+            ->orderBy('prestamos.fecha', 'DESC')
             //->paginate(5);
-             ->get();
+            ->get();
         $prestamos = DB::table('prestamos')
             ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno') //Verificamos que el id de un articulo laboratorio, exista en la tabla articulos generales.
             ->join('users', 'users.id', '=', 'alumnos.id_usuario') //Buscamos que existan coincidencias de laboratorio
             ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control') //Que nos seleccione todos los articulos menores
             //->where('prestamos.status', 1) //nos traemos los datos solo si hay prestamos con status 1 (activos)
-            ->orderBy('prestamos.fecha','DESC')
+            ->orderBy('prestamos.fecha', 'DESC')
             ->paginate(5);
         // ->get();
         // if (DB::table('prestamos')->where([
@@ -65,7 +67,7 @@ class PrestamoController extends Controller
 
         // }
 
-        return view('Alumnos.registros', compact('prestamos', 'prestamos_numeroControl','numeroControljeje'));
+        return view('Alumnos.registros', compact('prestamos', 'prestamos_numeroControl', 'numeroControljeje'));
     }
 
     public function PDF()
@@ -191,7 +193,6 @@ class PrestamoController extends Controller
 
             // var_dump('no agregare, ya existe registro con ese id, y status1');
             return (response(500)->header('Content-type', 'text/plain'));
-
         } else {
 
 
@@ -207,13 +208,13 @@ class PrestamoController extends Controller
         // Ahora obtenemos el dato que esta buscando el input
         $articulo_search = $request->get('search_articles'); //Obtenemos el valor que se esta digitando en el input.
         $mayores =  DB::table('articulo_mayors')
-            ->select('articulo_mayors.clave_producto', 'articulo_mayors.nombre', 'articulo_mayors.descripcion_articulo', 'articulo_mayors.tipo') //Que nos seleccione todos los articulos mayores
+            ->select('articulo_mayors.clave_producto', 'articulo_mayors.nombre', 'articulo_mayors.descripcion_articulo', 'articulo_mayors.tipo', 'articulo_mayors.id') //Que nos seleccione todos los articulos mayores
             ->where('articulo_mayors.clave_producto', $articulo_search) //Pero solo los de el laboratorio que tiene el usuario loggeado.
             ->get();
 
 
         $menores = DB::table('articulo_menors')
-            ->select('articulo_menors.nombre', 'articulo_menors.descripcion_articulo', 'articulo_menors.clave_producto', 'articulo_menors.tipo') //Que nos seleccione todos los articulos mayores
+            ->select('articulo_menors.nombre', 'articulo_menors.descripcion_articulo', 'articulo_menors.clave_producto', 'articulo_menors.tipo', 'articulo_menors.id') //Que nos seleccione todos los articulos mayores
             ->where('articulo_menors.clave_producto', $articulo_search) //Pero solo los de el laboratorio que tiene el usuario loggeado.
             ->get();
 
@@ -226,16 +227,21 @@ class PrestamoController extends Controller
             return (response(json_encode($menores), 200)->header('Content-type', 'text/plain'));
         }
     }
-    public function crearPrestamo(Request $request)
+    public function crearPrestamo()
     {
         session_start();
-
-        //$data=json_decode($_POST['array']);
-
-
         $numero_control_desde_sesion = json_encode($_SESSION["numero_contro"]); //Nos traemos el numero de control que capturamos en la sesion
         $controlStr = json_decode($numero_control_desde_sesion);
         //return $controlStr[0]->id; //[{"semestre":5,"carrera":"Informatica","numero_control":192310781,"name":"Alan Cuevas"}]
+
+        // CODIGO PARA GUARDAR LOS ARTICULOS PRESTAODS  ALV
+        $_SESSION['variableje'] =  json_decode($_POST['datos']);
+        $variable_2 = $_SESSION['variableje']; // '12345'
+        $variable_contada = count($variable_2);
+
+
+
+
 
         $fecha = date('Y-m-d  H:i:s');
 
@@ -253,11 +259,25 @@ class PrestamoController extends Controller
             $prestamo_alumno->id_laboratorio = $_SESSION["laboratorista"];
             $prestamo_alumno->save(); //Guardamos los datos
 
+            //obtener el id del prestamo
+            $id_prestamo = DB::table('prestamos')
+                ->select('prestamos.id')
+                ->where([['prestamos.id_alumno', '=', $controlStr[0]->id], ['prestamos.status', '=', '1']])
+                ->get();
+
+            for ($i = 0; $i < $variable_contada; $i++) {
+                # code...
+                $prestamo_articulo = new prestamo_articulo_mayor();
+                $prestamo_articulo->id_articulo_mayor = $variable_2[$i]->clave_producto;
+                $prestamo_articulo->id_prestamo = $id_prestamo[0]->id;
+                $prestamo_articulo->save();
+            }
             // $prestamo_lab= new PrestamoLaboratior();
             // $prestamo_lab->id_laboratorio=$_SESSION["laboratorista"];
             // $prestamo_lab->id_laboratorio=;
         }
 
+        return ($id_prestamo);
 
         //return redirect()->route("Articulos_mayores.index")->with('success','Agregado con exito'); //Redirigimos ala pagina index, Y catcheamos cualquier errot con with.
 
@@ -344,5 +364,7 @@ class PrestamoController extends Controller
     public function destroy($id)
     {
         //
+
+
     }
 }

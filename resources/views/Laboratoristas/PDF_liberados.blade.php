@@ -46,7 +46,7 @@
     <div class="contendedor1">
         <div class="container container2">
 
-            <div class="container containerh2" style=" justify-content:center; aling-items:center;">
+            <div class="container containerh2" style=" display:flex; justify-content:center; aling-items:center;">
                 <h1>Carta Liberacion</h2>
             </div>
             <div class="container">

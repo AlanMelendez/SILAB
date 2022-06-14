@@ -89,6 +89,7 @@
                 <table class="tablaAgregados table articulos-style">
                     <thead class="thead-dark">
                         <tr>
+                            <th scope="col">Id</th>
 
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripcion</th>
@@ -98,6 +99,7 @@
                         </tr>
                     </thead>
                     <tbody id="tbodys">
+                        
 
                     </tbody>
                 </table>
@@ -105,9 +107,11 @@
 
             </div>
             <div class="input-agregar-cancelar">
-                <form action="" method="POST">
+                <form action="" method="POST" id="articulos-formulario">
                     @csrf
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
+                    <input type="hidden" name="datos_articulos" id="datos_articulos" value="">
 
                     <input type="button" class="btn btn-accion1" value="Agregar" onclick="mandarPhp();">
                 </form>
@@ -154,7 +158,8 @@
 
 
         });
-
+        // var ac = "";
+        // var ac = [];
         function obtenerDatos() {
             // var valor = $("#dato").val();
             $.ajax({
@@ -163,15 +168,23 @@
                 data: $('#buscar_articulos').serialize(),
                 success: function(res) {
                     console.log(res);
+                   
                     var arreglo = JSON.parse(res);
+                    // ac += arreglo; 
+                    // ac.push(arreglo);
+                    
+                    // console.log($('#datos_articulos').val(ac));
+                    // console.log(ac);
+
                     for (let x = 0; x < arreglo.length; x++) {
 
 
                         let template = `<tr>
+                            <td class="clave_producto_td">${arreglo[x].id}</td>
                             <td>${arreglo[x].nombre}</td>
                             <td>${arreglo[x].descripcion_articulo}</td>
                             
-                            <td class="clave_producto_td">${arreglo[x].clave_producto}</td>
+                            <td >${arreglo[x].clave_producto}</td>
                             <td>${arreglo[x].tipo}</td>
                             
                             </tr>`;
@@ -185,6 +198,27 @@
             });
             $('#busqueda-articulos').val(
                 ''); //Despues de llenar un dato, vaciamos el input para que el leector de barras leea uno nuevo.
+        }
+        function mandarArticulos(){
+            $.ajax({
+                type: 'POST',
+                url: '/EnviadosPost',
+                data: {
+                    
+                    "_token": $("meta[name='csrf-token']").attr("content"),
+                    // "datos": $('#articulos-formulario').serialize(),
+                    "datos": JSON.stringify(ac),
+
+                },
+                // data: $('#articulos-formulario').serialize(), //obtener formulario
+                success: function(res) {
+                    console.log(JSON.stringify(res));
+                },
+                error: function(res) {
+                    console.log('error jajaja');
+                }
+            });
+
         }
 
         function obtenerNumeroControl() {
@@ -274,15 +308,23 @@
             //         alert('No se enviaron datos.');
             //     }
             // })
+            obtenerDatosTabla();
             $.ajax({
                 type: 'POST',
                 url: "/crearprestamo",
                 data: {
-                    'array': JSON.stringify(numeros),
-                    "_token": $("meta[name='csrf-token']").attr("content")
+                    'datos': JSON.stringify(numeros),
+                    
+
+                    "_token": $("meta[name='csrf-token']").attr("content"),
+                    // "datos": ac,
+
                 }
             }).done(
-                function() {
+                function(data) {
+                    console.log('mande los articulos desde mandarphp() ')
+                    console.log(data)
+                   
                     Swal.fire({
                         position: "top",
                         icon: "success",
@@ -293,6 +335,8 @@
                         timer: 115000,
                         showCloseButton: true,
                     });
+                   
+
                     location.reload(); //Recargamos pagina al realizar prestamo.
                 }
                 ).fail(function(){

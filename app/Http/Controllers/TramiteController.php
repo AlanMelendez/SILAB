@@ -80,7 +80,7 @@ class TramiteController extends Controller
             ->where([['users.id', '=', $id_user_loged], ['prestamos.status', '=', 0]]) //Array con varias clausulas where
             ->get();
         $bandera = 0;
-        // $_SESSION['numero_control_alumno']= $prestamos[0]->numero_control;
+        $_SESSION['numero_control_alumno']= $prestamos[0]->numero_control;
         $_SESSION['articulo']= $request->get('seleccion_cartas');
         if (DB::table('prestamos')->where([
             ['prestamos.id_alumno', '=', $usuarios[0]->id],
