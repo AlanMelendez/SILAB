@@ -64,6 +64,8 @@
                         <th scope="col">Laboratorio</th>
                         <th scope="col">Status</th>
                         <th scope="col">Fecha</th>
+                        <th scope="col">Articulos</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -77,6 +79,11 @@
                             <td>{{$prestamo->nombre_laboratorio}}</td>
                             <td>{{$prestamo->status}}</td>
                             <td>{{$prestamo->fecha}}</td>
+                            
+                            <td>
+                                <a href="{{ route('ArticulosEnviados.show', $prestamo->id) }}"
+                                    class="btn btn-danger btn-accion1 " style="margin-bottom: 30px;">Mostrar</a>
+                            </td>
                             
                         </tr>
                         @endforeach

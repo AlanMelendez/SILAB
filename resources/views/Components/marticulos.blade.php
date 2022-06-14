@@ -6,31 +6,33 @@
 @stop
 
 @section('content')
-<table class="tablaAgregados table articulos-style">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Id</th>
-
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Clave Producto</th>
-
-        </tr>
-    </thead>
-    <tbody id="tbodys">
+    <table class="tablaAgregados table articulos-style">
+        <thead class="thead-dark">
             <tr>
-                <td>{{$prestamo[0]->id}}</td>
-                {{-- <td>{{$prestamo[0]->id_articulo_mayor}}</td> --}}
-                <td>{{$prestamo[0]->nombre}}</td>
-                <td>{{$prestamo[0]->descripcion_articulo}}</td>
-                
-                {{-- <td>{{$prestamo->}}</td> --}}
-                
-                <td>{{$prestamo[0]->id_prestamo}}</td>
-            </tr>
+                <th scope="col">Id</th>
 
-    </tbody>
-</table>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Clave Prestamo</th>
+
+            </tr>
+        </thead>
+        <tbody id="tbodys">
+            @foreach ($prestamo as $prestamos)
+                <tr>
+                    <td>{{ $prestamos->id }}</td>
+                    {{-- <td>{{$prestamos->id_articulo_mayor}}</td> --}}
+                    <td>{{ $prestamos->nombre }}</td>
+                    <td>{{ $prestamos->descripcion_articulo }}</td>
+
+                    {{-- <td>{{$prestamos}</td> --}}
+
+                    <td>{{ $prestamos->id_prestamo }}</td>
+                </tr>
+            @endforeach
+
+        </tbody>
+    </table>
 @stop
 @section('css')
     <link rel="stylesheet" href="/css/admin_custom.css">

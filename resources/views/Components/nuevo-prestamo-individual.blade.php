@@ -94,7 +94,8 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripcion</th>
                             <th scope="col">Clave Producto</th>
-                            <th scope="col">Tipo</th>
+                            {{-- <th scope="col">Tipo</th> --}}
+                            {{-- <td>${arreglo[x].tipo}</td> --}}
 
                         </tr>
                     </thead>
@@ -185,7 +186,7 @@
                             <td>${arreglo[x].descripcion_articulo}</td>
                             
                             <td >${arreglo[x].clave_producto}</td>
-                            <td>${arreglo[x].tipo}</td>
+                            
                             
                             </tr>`;
 
