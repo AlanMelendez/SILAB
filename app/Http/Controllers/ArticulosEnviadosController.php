@@ -68,13 +68,13 @@ class ArticulosEnviadosController extends Controller
         ->select('prestamo_articulo_mayors.id_articulo_mayor','prestamo_articulo_mayors.id_prestamo','articulo_mayors.nombre','articulo_mayors.descripcion_articulo','articulo_mayors.id')
         ->where('prestamo_articulo_mayors.id_prestamo',$id)
         ->get();
-        
-        $prestamo2= DB::table('prestamo_articulo_menors')
-        ->join('articulo_mayor_laboratorios','articulo_mayor_laboratorios.id','=','prestamo_articulo_menors.id_articulo_mayor')
-        ->join('articulo_mayors','articulo_mayors.id','=','articulo_mayor_laboratorios.id')
-        ->select('prestamo_articulo_menors.id_articulo_mayor','prestamo_articulo_menors.id_prestamo','articulo_mayors.nombre','articulo_mayors.descripcion_articulo','articulo_mayors.id')
-        ->where('prestamo_articulo_menors.id_prestamo',$id)
-        ->get();
+
+        // $prestamo2= DB::table('prestamo_articulo_menors')
+        // ->join('articulo_mayor_laboratorios','articulo_mayor_laboratorios.id','=','prestamo_articulo_menors.id_articulo_mayor')
+        // ->join('articulo_mayors','articulo_mayors.id','=','articulo_mayor_laboratorios.id')
+        // ->select('prestamo_articulo_menors.id_articulo_mayor','prestamo_articulo_menors.id_prestamo','articulo_mayors.nombre','articulo_mayors.descripcion_articulo','articulo_mayors.id')
+        // ->where('prestamo_articulo_menors.id_prestamo',$id)
+        // ->get();
 
         return view('Components.marticulos',compact('prestamo'));
     }
