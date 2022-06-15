@@ -49,7 +49,7 @@ class PrestamoController extends Controller
             ->join('users', 'users.id', '=', 'alumnos.id_usuario') //Buscamos que existan coincidencias de laboratorio
             ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control') //Que nos seleccione todos los articulos menores
             //->where('prestamos.status', 1) //nos traemos los datos solo si hay prestamos con status 1 (activos)
-            ->orderBy('prestamos.fecha', 'DESC')
+            ->orderBy('prestamos.id', 'DESC')
             ->paginate(5);
         // ->get();
         // if (DB::table('prestamos')->where([

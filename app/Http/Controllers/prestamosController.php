@@ -29,7 +29,7 @@ class prestamosController extends Controller
             ->join('laboratorios', 'laboratorios.id', '=', 'prestamos.id_laboratorio')
             ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'laboratorios.nombre_laboratorio', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control')
             ->where([['users.id', '=', $id_user_loged],['prestamos.status', '=' , 0]]) //Array con varias clausulas where
-            ->orderBy('prestamos.fecha','DESC')
+            ->orderBy('prestamos.id','DESC')
             ->paginate(7);
         return view('Components.prestamos-terminados',compact('prestamos'));
     }
@@ -56,6 +56,7 @@ class prestamosController extends Controller
         ->join('alumnos','alumnos.id', '=', 'tramites.id_alumno')
         ->select('tramites.fecha','tramites.status','tramites.id_alumno','tramites.id_oficio','oficios.nombre','oficios.folio_oficio')
         ->where([['alumnos.id',$alumno[0]->id],['tramites.status',0] ])
+        ->orderBy('tramites.id_oficio','DESC')
         ->get();
         return view('Components.tramites-terminados',compact('tramites'));
     }
