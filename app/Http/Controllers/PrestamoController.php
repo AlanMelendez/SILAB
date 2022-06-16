@@ -6,6 +6,7 @@ use App\articulo_mayor;
 use App\articulo_menor;
 use App\prestamo;
 use App\prestamo_articulo_mayor;
+use App\prestamo_articulo_menor;
 use App\PrestamoLaboratior;
 use App\User;
 use App\usuario;
@@ -252,6 +253,7 @@ class PrestamoController extends Controller
 
             var_dump('no agregare, ya existe registro con ese id, y status1');
         } else {
+            //Primero creamos el prestamo (adeudo, sin especificar el o los articulos)
             $prestamo_alumno = new prestamo();
             $prestamo_alumno->fecha = $fecha;
             $prestamo_alumno->status = 1;
@@ -265,16 +267,30 @@ class PrestamoController extends Controller
                 ->where([['prestamos.id_alumno', '=', $controlStr[0]->id], ['prestamos.status', '=', '1']])
                 ->get();
 
+
+
+            //Recorremos variable contada , Que es la que trae los articulos desde AJAX (el numero de elementos de la tabla )
             for ($i = 0; $i < $variable_contada; $i++) {
-                # code...
-                $prestamo_articulo = new prestamo_articulo_mayor();
-                $prestamo_articulo->id_articulo_mayor = $variable_2[$i]->clave_producto;
-                $prestamo_articulo->id_prestamo = $id_prestamo[0]->id;
-                $prestamo_articulo->save();
+                //Por cada vuelta, validamos que exista en la tabla de articulo correspondiente, si existe la clave, que agregue un prestamo segun el tipo
+                if (DB::table('articulo_mayors')->where([['articulo_mayors.id', $variable_2[$i]->clave_producto],['articulo_mayors.tipo',$variable_2[$i]->tipo]])->exists()) {
+                    //Creamos el prestamo de articulo segun su tipo (mayor)
+                    $prestamo_articulo = new prestamo_articulo_mayor();
+                    $prestamo_articulo->id_articulo_mayor = $variable_2[$i]->clave_producto;
+                    $prestamo_articulo->id_prestamo = $id_prestamo[0]->id;
+                    $prestamo_articulo->save();
+                }
+                if (DB::table('articulo_menors')->where([['articulo_menors.id', $variable_2[$i]->clave_producto],['articulo_menors.Tipo',$variable_2[$i]->tipo]])->exists()) {
+                    //Creamos el prestamo de articulo segun su tipo (mayor)
+                    $prestamo_articulo = new prestamo_articulo_menor();
+                    $prestamo_articulo->id_articulo_menor = $variable_2[$i]->clave_producto;
+                    $prestamo_articulo->id_prestamo = $id_prestamo[0]->id;
+                    $prestamo_articulo->save();
+                }
+               
             }
-            // $prestamo_lab= new PrestamoLaboratior();
-            // $prestamo_lab->id_laboratorio=$_SESSION["laboratorista"];
-            // $prestamo_lab->id_laboratorio=;
+            // for ($i = 0; $i < $variable_contada; $i++) {
+               
+            // }
         }
 
         return ($id_prestamo);

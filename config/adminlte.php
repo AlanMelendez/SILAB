@@ -356,21 +356,21 @@ return [
                 //     //
                 // ],
                 [
-                    'text' => 'Articulos Laboratorio',
+                    'text' => 'Mayores Laboratorio',
                     'url'  => 'ArticulosMayoresLab',
                 ],
-                // [
-                //     'text' => 'Menores Laboratorio',
-                //     'url'  => 'ArticulosMenoresLab',
-                // ],
                 [
-                    'text' => 'Articulos',
+                    'text' => 'Menores Laboratorio',
+                    'url'  => 'ArticulosMenoresLab',
+                ],
+                [
+                    'text' => 'Articulos Mayores',
                     'url'  => 'Articulos_mayores',
                 ],
-                // [
-                //     'text' => 'Articulos menores',
-                //     'url'  => 'Articulos_menores',
-                // ],
+                [
+                    'text' => 'Articulos Menores',
+                    'url'  => 'Articulos_menores',
+                ],
                 
                 
             ],

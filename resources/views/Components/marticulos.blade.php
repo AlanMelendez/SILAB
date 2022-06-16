@@ -18,7 +18,22 @@
             </tr>
         </thead>
         <tbody id="tbodys">
-            @foreach ($prestamo as $prestamos)
+            @if (count($prestamo) >= 1)
+                @foreach ($prestamo as $prestamos)
+                    <tr>
+                        <td>{{ $prestamos->id }}</td>
+                        {{-- <td>{{$prestamos->id_articulo_mayor}}</td> --}}
+                        <td>{{ $prestamos->nombre }}</td>
+                        <td>{{ $prestamos->descripcion_articulo }}</td>
+
+                        {{-- <td>{{$prestamos}</td> --}}
+
+                        <td>{{ $prestamos->id_prestamo }}</td>
+                    </tr>
+                @endforeach
+            @endif
+            @if (count($prestamo2) >= 1)
+            @foreach ($prestamo2 as $prestamos)
                 <tr>
                     <td>{{ $prestamos->id }}</td>
                     {{-- <td>{{$prestamos->id_articulo_mayor}}</td> --}}
@@ -30,6 +45,8 @@
                     <td>{{ $prestamos->id_prestamo }}</td>
                 </tr>
             @endforeach
+        @endif
+
 
         </tbody>
     </table>

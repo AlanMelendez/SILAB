@@ -94,8 +94,8 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Descripcion</th>
                             <th scope="col">Clave Producto</th>
-                            {{-- <th scope="col">Tipo</th> --}}
-                            {{-- <td>${arreglo[x].tipo}</td> --}}
+                            <th scope="col">Tipo</th>
+                           
 
                         </tr>
                     </thead>
@@ -186,6 +186,7 @@
                             <td>${arreglo[x].descripcion_articulo}</td>
                             
                             <td >${arreglo[x].clave_producto}</td>
+                            <td class="tipo_articulo">${arreglo[x].tipo}</td>
                             
                             
                             </tr>`;
@@ -291,7 +292,8 @@
             console.log('hola xddcd desde tablas');
             document.querySelectorAll('.tablaAgregados tbody tr').forEach(function(e) {
                 let fila = {
-                    clave_producto: e.querySelector('.clave_producto_td').innerText
+                    clave_producto: e.querySelector('.clave_producto_td').innerText,
+                    tipo: e.querySelector('.tipo_articulo').innerText
                 };
 
                 numeros.push(fila);
