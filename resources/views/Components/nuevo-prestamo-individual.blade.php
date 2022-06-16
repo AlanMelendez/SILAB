@@ -12,7 +12,7 @@
 
             <div class="input-control" id="control-numero">
                 <div class="label-control">
-                    <h4>No. Control</h4>
+                    <h4> <b>Numero Control</b> </h4>
                 </div>
                 <form class="form-inline form-buscar form-buscar-prestamo" action="numeroControlGet" method="POST"
                     id="numero_control_form" name="form_numero_control">
@@ -43,7 +43,7 @@
         <div id="tabla-articulos" class="tabla-articulos">
             <div class="nombre_alumno">
                 <table class="table table-bordered">
-                    <thead class="thead-dark">
+                    <thead class="thead-light">
                         <tr>
                             <th scope="col">Nombre</th>
                             <th scope="col">Numero Control</th>
@@ -62,7 +62,7 @@
             <div class="tabla-articulos-agregados tabla-articulos-style-2">
                 <div class="container header-div">
 
-                    <div class="form-articulos-prestamo">
+                    <div class="form-articulos-prestamo" style="margin-bottom: 10px;">
                         <form class="form-inline form-buscar form-buscar-prestamo" id="buscar_articulos"
                             action="/articulosMAME" method="post">
                             @csrf
@@ -87,7 +87,7 @@
                 </div>
 
                 <table class="tablaAgregados table articulos-style">
-                    <thead class="thead-dark">
+                    <thead class="thead-light">
                         <tr>
                             <th scope="col">Id</th>
 
@@ -116,7 +116,7 @@
 
                     <input type="button" class="btn btn-accion1" value="Agregar" onclick="mandarPhp();">
                 </form>
-                <input type="button" class="btn btn-accion2" value="Cancelar" onclick="cerrarTablas('');">
+                <input type="button" class="btn btn-accion2" value="Cancelar" onclick="recargarPagina();">
 
 
             </div>
@@ -161,6 +161,9 @@
         });
         // var ac = "";
         // var ac = [];
+        function recargarPagina(){
+            location.reload();
+        }
         function obtenerDatos() {
             // var valor = $("#dato").val();
             $.ajax({
