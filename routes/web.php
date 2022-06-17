@@ -22,6 +22,7 @@ use App\Http\Controllers\PrestamoController;
 use App\Http\Controllers\TramiteController;
 use Illuminate\Support\Facades\Route;
 Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', function () {
     // return view('panel-control');
@@ -78,7 +79,7 @@ Route::get('anularTramite','LiberacionController@anularTramite')->name('anularTr
 Route::get('mayoresStore','ArticuloMayorLabController@store')->name('mayoresStore');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 Route::resource('Personal', 'PersonalController');
 Route::resource('Prestamos', 'PrestamoController');
