@@ -26,11 +26,10 @@ class LiberacionController extends Controller
         ->orderBy('tramites.id_oficio','DESC')
         ->paginate(5);
 
-        //Codigo para generar pdf:
        
         
         return view ('Liberacion/liberados',compact('tramites'));
-        //return $tramites;
+       
     }
     public function imprimirLiberacion(){
 
@@ -45,10 +44,8 @@ class LiberacionController extends Controller
     public function create()
     {
         
-         //forma 1 de traer los datos
-         $liberacion= tramite::all(); //Leemos el modelo (La base de datos)
-
-         //forma 2 de traer los datos
+       
+         
          $tramite = DB::table('tramites')
          ->join('alumnos','alumnos.id', '=' , 'tramites.id_alumno')
          ->join('oficios','oficios.id', '=' , 'tramites.id_oficio')

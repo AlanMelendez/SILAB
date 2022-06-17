@@ -19,12 +19,14 @@ class ArticuloMayorLabController extends Controller
     public function index()
     {
         //
+        session_start();
+
         // $articulos_menores= articulo_mayor_laboratorio::all();
         $articulos_mayores= DB::table('articulo_mayor_laboratorios')
             -> join ('laboratorios', 'laboratorios.id', '=' , 'articulo_mayor_laboratorios.id_laboratorio')
             -> join ('articulo_mayors', 'articulo_mayor_laboratorios.id_articulo_mayor', '=' , 'articulo_mayors.id')
             ->select("articulo_mayor_laboratorios.id", 'articulo_mayors.nombre','articulo_mayors.descripcion_articulo', 'articulo_mayors.numero_serie', 'articulo_mayors.status', 'laboratorios.nombre_laboratorio' )
-            //->where('alumnos.numero_control','LIKE','%'.$numeroControl.'%' )
+            ->where('laboratorios.id', $_SESSION["laboratorista"] )
             ->get();
         return view('ArticulosLaboratorio.Mayores.articulos_mayores_laboratorio',compact('articulos_mayores'));
         //return($articulos_mayores);

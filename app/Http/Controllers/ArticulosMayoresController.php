@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\articulo_mayor;
 use App\articulo_mayor_laboratorio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticulosMayoresController extends Controller
 {
@@ -21,9 +22,16 @@ class ArticulosMayoresController extends Controller
      */
     public function index()
     {
-        //
-        $articulos_mayores = articulo_mayor::all(); //Sacamos los datos del modelo
-        return view('Laboratoristas.articulos', array('articulos'=> $articulos_mayores)); // Los pasamos por el controlador ala vista, para asi mostrarlos en la tabla.
+        $articulos_mayores= DB::table('articulo_mayor_laboratorios')
+            -> join ('laboratorios', 'laboratorios.id', '=' , 'articulo_mayor_laboratorios.id_laboratorio')
+            -> join ('articulo_mayors', 'articulo_mayor_laboratorios.id_articulo_mayor', '=' , 'articulo_mayors.id')
+            ->select("articulo_mayor_laboratorios.id", 'articulo_mayors.nombre','articulo_mayors.descripcion_articulo', 'articulo_mayors.numero_serie', 'articulo_mayors.clave_producto','articulo_mayors.status', 'laboratorios.nombre_laboratorio' )
+            // ->where('laboratorios.id', $_SESSION["laboratorista"] )
+            ->paginate(5);
+        return view('Laboratoristas.articulos',compact('articulos_mayores'));
+        // // codigo funcional jajaja
+        // $articulos_mayores = articulo_mayor::all(); //Sacamos los datos del modelo
+        // return view('Laboratoristas.articulos', array('articulos'=> $articulos_mayores)); // Los pasamos por el controlador ala vista, para asi mostrarlos en la tabla.
     }
 
     /**

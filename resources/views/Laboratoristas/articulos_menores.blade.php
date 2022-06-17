@@ -81,6 +81,8 @@
                         aria-label="Engine version: activate to sort column ascending" style="">Stock</th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                         aria-label="Engine version: activate to sort column ascending" style="">Clave Articulo</th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                        aria-label="Engine version: activate to sort column ascending" style="">Laboratorio</th>
 
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                         aria-label="CSS grade: activate to sort column ascending" style="">Accion</th>
@@ -88,7 +90,7 @@
 
             </thead>
             <tbody>
-                @foreach ($articulos as $articulo)
+                @foreach ($articulos_menores as $articulo)
                     <tr class="odd">
                         <td class="dtr-control sorting_1" tabindex="0">{{ $articulo->id }}</td>
                         <td style="">{{ $articulo->nombre }}</td>
@@ -96,6 +98,7 @@
                         <td style="">{{ $articulo->status }}</td>
                         <td style="">{{ $articulo->stock }}</td>
                         <td>{{ $articulo->clave_producto }}</td>
+                        <td>{{ $articulo->nombre_laboratorio }}</td>
                         <td class="btn-acciones">
                             {{-- leemos el dato, si es diferente a uno que cambie el boton y cambie los datos ala BD --}}
 {{--                            

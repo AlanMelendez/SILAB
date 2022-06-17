@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\articulo_menor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticulosMenoresController extends Controller
 {
@@ -20,9 +21,17 @@ class ArticulosMenoresController extends Controller
      */
     public function index()
     {
-        //
-        $articulos_menores= articulo_menor::all();
-        return view('Laboratoristas.articulos_menores', array('articulos'=> $articulos_menores));
+        $articulos_menores = DB::table('articulo_menor_laboratorios')
+        ->join('laboratorios', 'laboratorios.id', '=', 'articulo_menor_laboratorios.id_laboratorio')
+        ->join('articulo_menors', 'articulo_menor_laboratorios.id_articulo_menor', '=', 'articulo_menors.id')
+        ->select("articulo_menor_laboratorios.id", 'articulo_menors.nombre', 'articulo_menors.descripcion_articulo', 'articulo_menors.stock', 'articulo_menors.status', 'articulo_menors.clave_producto', 'laboratorios.nombre_laboratorio')
+        // ->where('laboratorios.id',$_SESSION["laboratorista"] )
+        // ->get();
+        ->paginate(5);
+    return view('Laboratoristas.articulos_menores', compact('articulos_menores'));
+        // //codigo funcional
+        // $articulos_menores= articulo_menor::all();
+        // return view('Laboratoristas.articulos_menores', array('articulos'=> $articulos_menores));
     }
 
     /**

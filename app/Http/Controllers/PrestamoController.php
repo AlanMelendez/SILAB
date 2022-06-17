@@ -317,7 +317,7 @@ class PrestamoController extends Controller
             ->get();
 
         //return view('Alumnos.registros',compact('numeroControl'));
-        return redirect()->route("Prestamos.index");
+        return redirect()->route('Prestamos.index');
     }
 
 
@@ -329,12 +329,13 @@ class PrestamoController extends Controller
      */
     public function show()
     {
+        session_start();
 
         $prestamos = DB::table('prestamos')
             ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno') //Verificamos que el id de un articulo laboratorio, exista en la tabla articulos generales.
             ->join('users', 'users.id', '=', 'alumnos.id_usuario') //Buscamos que existan coincidencias de laboratorio
             ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control') //Que nos seleccione todos los articulos menores
-            ->where('prestamos.status', 1) //nos traemos los datos solo si hay prestamos con status 1 (activos)
+            ->where([['prestamos.status', 1],['prestamos.id_laboratorio',$_SESSION["laboratorista"]]]) //nos traemos los datos solo si hay prestamos con status 1 (activos)
             ->get();
 
         //Aqui leemos el id , que el id podria ser el de un alumno, y leer todos los registros de un alumno

@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-
-
+use Spatie\Permission\Models\Role;
 
 class RoleSeeder extends Seeder
 
@@ -17,10 +15,11 @@ class RoleSeeder extends Seeder
     public function run()
     {
         //
+
         $role1 = Role::create(['name'=> 'Admin']);
         $role2 = Role::create(['name'=> 'Alumno']);
         $role3 = Role::create(['name'=> 'Personal']);
-        $role3 = Role::create(['name'=> 'Invitado']);
+        $role4 = Role::create(['name'=> 'Invitado']);
 
         //Para tener coherencia, al NOMBRE del permiso le podemos llamar igual que la ruta que va proteger.
         Permission::create(['name'=> 'Prestamos'])->syncRoles($role1,$role3); //Permiso para acceder al panel prestamo

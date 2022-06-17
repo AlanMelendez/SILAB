@@ -12,10 +12,10 @@
             <form class="form-inline form-buscar" id="fomrulario_numero_control" method="POST"
                 action="{{ route('Prestamos.index') }}">
                 @csrf
-                <div class="btn-grouper">
+                <div class="btn-grouper" style="display: none;">
 
                     <input class="form-controlq mr-sm-2" type="text" placeholder="Buscar registro" name="search_control2"
-                        value="{{ $numeroControljeje }}">
+                        value="{{ $numeroControljeje }}" >
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search"
                         viewBox="0 0 16 16">

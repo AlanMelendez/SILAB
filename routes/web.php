@@ -29,9 +29,7 @@ Route::get('/', function () {
     return view('auth.login'); //Al iniciar el servidor, dirigir al login.
 });
 
-//Liberacion Alumnos
-// Route::get('/iniciarliberacion', [alumnosController::class, 'show']);
-// Route::get('/consultarAdeudo', [alumnosController::class, 'consultaAdeudo']);
+
 
 Route::get('/generarReporte', 'FinancierosController@show');
 
@@ -61,8 +59,6 @@ Route::get('/consultarArticulosMenores', [laboratoristasController::class, 'most
 
 
 
-//Todos registros de prestamos
-// Route::get('/todosRegistros',  [prestamosController::class,'showRegistros']);
 
 
 
@@ -94,6 +90,8 @@ Route::resource('ArticulosEnviados','ArticulosEnviadosController');
 Route::get('Enviados','ArticulosEnviadosController@store')->name('Enviados');
 Route::post('EnviadosPost','ArticulosEnviadosController@store')->name('EnviadosPost');
 Route::get('prueba','ArticulosEnviadosController@index')->name('prueba');
+
+Route::resource('PruebaLupita','PruebaController');
 
 
 

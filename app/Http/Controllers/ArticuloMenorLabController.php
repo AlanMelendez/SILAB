@@ -16,12 +16,13 @@ class ArticuloMenorLabController extends Controller
      */
     public function index()
     {
+        session_start();
         // $articulos_menores= articulo_mayor_laboratorio::all();
         $articulos_menores = DB::table('articulo_menor_laboratorios')
             ->join('laboratorios', 'laboratorios.id', '=', 'articulo_menor_laboratorios.id_laboratorio')
             ->join('articulo_menors', 'articulo_menor_laboratorios.id_articulo_menor', '=', 'articulo_menors.id')
             ->select("articulo_menor_laboratorios.id", 'articulo_menors.nombre', 'articulo_menors.descripcion_articulo', 'articulo_menors.stock', 'articulo_menors.status', 'articulo_menors.clave_producto', 'laboratorios.nombre_laboratorio')
-            //->where('alumnos.numero_control','LIKE','%'.$numeroControl.'%' )
+            ->where('laboratorios.id',$_SESSION["laboratorista"] )
             ->get();
         return view('ArticulosLaboratorio.Menores.articulos_menores_laboratorio', compact('articulos_menores'));
         //return($articulos_menores);
