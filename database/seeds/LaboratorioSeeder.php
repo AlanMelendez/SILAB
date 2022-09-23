@@ -13,9 +13,10 @@ class LaboratorioSeeder extends Seeder
     public function run()
     {
         //
-        $laboratorio1 = laboratorio::create(['nombre_laboratorio'=> 'Computo', 'id_personal' => 1]);
-        $laboratorio2 = laboratorio::create(['nombre_laboratorio'=> 'Industrial', 'id_personal' => 1]);
-        $laboratorio3 = laboratorio::create(['nombre_laboratorio'=> 'Electronica', 'id_personal' => 1]);
-        $laboratorio4 = laboratorio::create(['nombre_laboratorio'=> 'Electromecanica', 'id_personal' => 1]);
+        factory(laboratorio::class, 15)->create();
+        //$laboratorio1 = laboratorio::create(['nombre_laboratorio'=> 'Computo', 'id_personal' => 1]);
+        //$laboratorio2 = laboratorio::create(['nombre_laboratorio'=> 'Industrial', 'id_personal' => 1]);
+        //$laboratorio3 = laboratorio::create(['nombre_laboratorio'=> 'Electronica', 'id_personal' => 1]);
+        //$laboratorio4 = laboratorio::create(['nombre_laboratorio'=> 'Electromecanica', 'id_personal' => 1]);rio4 = laboratorio::create(['nombre_laboratorio'=> 'Electromecanica', 'id_personal' => 1]);
     }
 }
