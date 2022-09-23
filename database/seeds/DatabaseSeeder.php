@@ -21,8 +21,9 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class); //Para crear los permisos y roles
         $this->call(UsuarioSeeder::class);
         $this->call(PersonalSeeder::class);
-        $this->call(LaboratorioSeeder::class); //Creamos los laboratorios
-
-
+        $this->call(AlumnoSeeder::class);
+        $this->call(LaboratorioSeeder::class);//Creamos los laboratorios
+        $this->call(ArticuloMayorSeeder::class); 
+        $this->call(ArticuloMenorSeeder::class);  
     }
 }
