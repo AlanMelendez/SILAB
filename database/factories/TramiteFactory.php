@@ -7,7 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(tramite::class, function (Faker $faker) {
     return [
-        
+       
         
 
     ];

@@ -8,6 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(oficio::class, function (Faker $faker) {
     return [
         
+        
 
         
 
