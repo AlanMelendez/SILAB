@@ -14,7 +14,7 @@ class UsuarioSeeder extends Seeder
     public function run()
     {
         //
-        $laboratorio1 = User::create(['name'=> 'Admin', 'email' => 'admin@admin.com', 'password'=> '12345test']);
-
+        // $laboratorio1 = User::create(['name'=> 'Admin', 'email' => 'admin@admin.com', 'password'=> '12345test']);
+        factory(User::class,100)->create();
     }
 }

@@ -1,14 +1,14 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-
-use App\Model;
+use App\laboratorio;
+use App\personal;
 use Faker\Generator as Faker;
 
-$factory->define(Model::class, function (Faker $faker) {
+$factory->define(laboratorio::class, function (Faker $faker) {
     return [
         //
-        'nombre_laboratorio'=> 'Computo',
-        'id_personal'=> 1
+        'nombre_laboratorio'=> $faker -> name(),
+        'id_personal'=> personal::all()->unique()->random()->id 
     ];
 });
