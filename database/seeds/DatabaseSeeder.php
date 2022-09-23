@@ -22,8 +22,14 @@ class DatabaseSeeder extends Seeder
         $this->call(UsuarioSeeder::class);
         $this->call(PersonalSeeder::class);
         $this->call(AlumnoSeeder::class);
+<<<<<<< HEAD
         $this->call(LaboratorioSeeder::class);//Creamos los laboratorios
         $this->call(ArticuloMayorSeeder::class); 
         $this->call(ArticuloMenorSeeder::class);  
+=======
+        $this->call(LaboratorioSeeder::class); //Creamos los laboratorios
+
+
+>>>>>>> 158f6f94faac246cb84af2a2d83a8986ddf2df34
     }
 }

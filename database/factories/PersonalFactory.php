@@ -3,7 +3,7 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
 use App\personal;
-use App\usuario;
+use App\User;
 
 use Faker\Generator as Faker;
 
@@ -12,6 +12,7 @@ $factory->define(personal::class, function (Faker $faker) {
         //
         'numero_checador'=>$faker->numberBetween(192000000,193000000),
         'descripcion_puesto'=> $faker->name(),
-        'id_usuario'=> usuario::all()->unique()->random()->id  //Aqui buscamos un id de usuario al azar, Y obtenemos el id.
+        'id_usuario'=> User::all()->unique()->random()->id  //Aqui buscamos un id de usuario al azar, Y obtenemos el id.
+        // usuario::all()->random()->id
     ];
 });

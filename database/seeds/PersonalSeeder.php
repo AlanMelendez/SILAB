@@ -13,8 +13,8 @@ class PersonalSeeder extends Seeder
     public function run()
     {
         //
-        //factory(App\personal::class,10)->create();
-        $personal = personal::create(['numero_checador'=> '00000000', 'descripcion_puesto' => 'Admin', 'id_usuario'=> '1']);
+        factory(App\personal::class,50)->create();
+        // $personal = personal::create(['numero_checador'=> '00000000', 'descripcion_puesto' => 'Admin', 'id_usuario'=> '1']);
 
     }
 }
