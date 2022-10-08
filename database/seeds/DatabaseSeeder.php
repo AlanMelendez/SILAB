@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ArticuloMayorSeeder::class);
         $this->call(ArticuloMenorSeeder::class);
         // $this->call(ArticulosMayores::class);
+        $this->call(PrestamoArticuloMenorSeeder::class);
+        $this->call(PrestamoArticuloMayorSeeder::class);
     }
 }
