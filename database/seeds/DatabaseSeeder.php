@@ -27,7 +27,11 @@ class DatabaseSeeder extends Seeder
         $this->call(ArticuloMenorSeeder::class);
         $this->call(PrestamosSeeder::class);
         // $this->call(ArticulosMayores::class);
-        $this->call(PrestamoArticuloMenorSeeder::class);
-        $this->call(PrestamoArticuloMayorSeeder::class);
+        $this->call(articulo_mayor_laboratorios::class);
+        $this->call(articulo_menor_laboratorios::class);
+        $this->call(prestamoArticuloMenores::class);
+        $this->call(prestamoArticuloMayores::class);
+
+        // $this->call(PrestamoArticuloMayorSeeder::class);
     }
 }
