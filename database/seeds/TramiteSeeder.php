@@ -12,7 +12,7 @@ class TramiteSeeder extends Seeder
     public function run()
     {
       
-
+        factory(App\tramite::class,100)->create();
 
     }
 }

@@ -11,7 +11,8 @@ class OficioSeeder extends Seeder
      */
     public function run()
     {
-        
+        factory(App\oficios::class,100)->create();
+
 
     }
 }
