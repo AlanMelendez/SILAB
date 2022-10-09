@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\oficio;
 class OficioSeeder extends Seeder
 {
     /**
@@ -11,8 +11,6 @@ class OficioSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\oficios::class,100)->create();
-
-
+        factory(oficio::class,100)->create();
     }
 }

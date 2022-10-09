@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\tramite;
 
 class TramiteSeeder extends Seeder
 {
@@ -11,8 +12,8 @@ class TramiteSeeder extends Seeder
      */
     public function run()
     {
-      
-        factory(App\tramite::class,100)->create();
+
+        factory(tramite::class,100)->create();
 
     }
 }

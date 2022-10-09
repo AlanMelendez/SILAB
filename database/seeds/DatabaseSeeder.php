@@ -31,7 +31,8 @@ class DatabaseSeeder extends Seeder
         $this->call(articulo_menor_laboratorios::class);
         $this->call(prestamoArticuloMenores::class);
         $this->call(prestamoArticuloMayores::class);
-
+        $this->call(OficioSeeder::class);
+        $this->call(TramiteSeeder::class);
         // $this->call(PrestamoArticuloMayorSeeder::class);
     }
 }
