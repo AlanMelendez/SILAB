@@ -130,7 +130,8 @@ class PrestamoController extends Controller
 
 
         //Guardamos el numero de control en session para que no se borre al recargar.
-        $numero_control_sesion = $_SESSION["numero_contro"] = $usuarios;
+        $_SESSION["numero_contro"] = $usuarios;
+        $numero_control_sesion = $_SESSION["numero_contro"];
 
 
         /*--------------------------Mostrar articulos de laboratorio segun el docente-----------------------------*/
@@ -187,7 +188,8 @@ class PrestamoController extends Controller
             ->select('alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control', 'users.name', 'alumnos.id')
             ->where('alumnos.numero_control', $numeroControl)
             ->get();
-        $numero_control_sesion = $_SESSION["numero_contro"] = $usuarios;
+        $_SESSION["numero_contro"] = $usuarios;
+        $numero_control_sesion = $_SESSION["numero_contro"];
         $numero_control_desde_sesion = json_encode($_SESSION["numero_contro"]); //Nos traemos el numero de control que capturamos en la sesion
         $controlStr = json_decode($numero_control_desde_sesion);
 
@@ -290,10 +292,10 @@ class PrestamoController extends Controller
                     $prestamo_articulo->id_prestamo = $id_prestamo[0]->id;
                     $prestamo_articulo->save();
                 }
-               
+
             }
             // for ($i = 0; $i < $variable_contada; $i++) {
-               
+
             // }
         }
 

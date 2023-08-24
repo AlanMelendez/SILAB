@@ -3,18 +3,19 @@ https://fontawesome.com/v4/icons/
 https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Installation
 
 
-Comandos:
+2. Comandos:
     Instalar apliacion:
         1-composer install
         2-copy .env.example .env (Si no viene el .env.example hay que crear el archivo manualmente)
         3-php artisan key:generate
         4-npm install
         5- composer update (opcional)
+
     Crear controlador:
         php artisan make:controller recursosHumanosController
 
     Verificar version Laravel:
-        php artisan --version 
+        php artisan --version
     Instalar apliacion:
         0- Verificar el archivo php.ini y borrar las comillas del 'fileinfo'
         1-composer install
@@ -40,7 +41,7 @@ Si tenemos error al no actualizar datos de AdminLTE
 
 Documentacion para componentes:
     https://www.larashout.com/using-laravel-blade-components-and-slots
-    
+
 AUTENTICACION DE USUARIOS:
     Para poder hacer uso de la AUTENTICACION de usuarios es necesario instalar el paquete
     "ui" que nos permitira tener vistas y otras cosas para la autenticacion de usuarios.
@@ -60,12 +61,12 @@ AUTENTICACION DE USUARIOS:
     *Ejecutamos php artisan migrate
 
 
-PERMISOS EN Laravel 
+PERMISOS EN Laravel
     vamos a instalar el siguiente paquete que nos ayudara a crear permisos y roles:
     composer requiere spatie/laravel-permission
         en caso de error : composer require spatie/laravel-permission:*
         https://spatie.be/docs/laravel-permission/v5/installation-laravel
-    
+
 AGREGAR DATOS CON FAKER:
 
     *Hay que crear los factorys y seeders
@@ -89,6 +90,15 @@ hay que crear nuevas migraciones pero con el nombre:
 Crear controlado con opciones CRUD:
     php artisan make:controller LiberacionController --resource
 
+
+
+
+    128.0.0/register
+
+    1-Alumno
+    2- Docente
+    3-Liberacion
+        php artisan migrate:refresh --seed
 
 
 

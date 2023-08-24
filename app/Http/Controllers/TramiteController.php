@@ -29,7 +29,7 @@ class TramiteController extends Controller
         //Obtenemos las credenciales del ususario loggeado, De esta manera mostramos los articulos dependiendo del laboratorio que tenga asignado.
         $user_loged = auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
         $id_user_loged = $user_loged->id; //Obtenemos el id.
-
+        // print_r($user_loged);
         $prestamos = DB::table('prestamos')
             ->join('alumnos', 'alumnos.id', '=', 'prestamos.id_alumno')
             ->join('users', 'users.id', '=', 'alumnos.id_usuario')
@@ -37,13 +37,13 @@ class TramiteController extends Controller
             ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'laboratorios.nombre_laboratorio', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control','id_usuario')
             ->where([['users.id', '=', $id_user_loged], ['prestamos.status', '=', 1]]) //Array con varias clausulas where
             ->get();
-        
+
         $alumno= DB::table('alumnos')
             ->join('users', 'users.id','=', 'alumnos.id_usuario')
             ->select('alumnos.id')
             ->where('users.id',$id_user_loged)
             ->get();
-        
+
         $tramites = DB::table('tramites')
         ->join('oficios','oficios.id', '=', 'tramites.id_oficio')
         ->join('alumnos','alumnos.id', '=', 'tramites.id_alumno')
@@ -52,9 +52,9 @@ class TramiteController extends Controller
         ->get();
 
 
-            
+
         return view('Alumnos/adeudos-vista-alumnos', compact('prestamos','tramites')); //[{"id":1,"fecha":"2022-06-08","status":1,"name":"Alan","semestre":6,"carrera":"Informatica","numero_control":192310781}]
-        
+
         //return $tramites;
     }
 
@@ -83,14 +83,18 @@ class TramiteController extends Controller
             ->select('prestamos.id', 'prestamos.fecha', 'prestamos.status', 'laboratorios.nombre_laboratorio', 'users.name', 'alumnos.semestre', 'alumnos.carrera', 'alumnos.numero_control')
             ->where([['users.id', '=', $id_user_loged], ['prestamos.status', '=', 0]]) //Array con varias clausulas where
             ->get();
+
+        //  print_r($user_loged);
+        // print_r($usuarios);
+          print_r($prestamos);
         $bandera = 0;
-        $_SESSION['numero_control_alumno']= $prestamos[0]->numero_control;
+        $_SESSION['numero_control_alumno']= $usuarios[0]->numero_control;
         $_SESSION['articulo']= $request->get('seleccion_cartas');
         if (DB::table('prestamos')->where([
             ['prestamos.id_alumno', '=', $usuarios[0]->id],
             ['prestamos.status', '=', '1'],
         ])->exists()) {
-            
+
             return view('Alumnos/tramite',compact('prestamos','bandera'));
         } else {
 
@@ -112,7 +116,7 @@ class TramiteController extends Controller
 
         $user_loged = auth()->user(); //{"id":1,"name":"Alan","email":"test@test.com","email_verified_at":null,"created_at":null,"updated_at":null}
         $id_user_loged = $user_loged->id; //Obtenemos el id.
-       
+
         // $seleccionadoc = $_POST['select']; //Carta seleccionada
         $seleccionadoc =str_replace('"', '',$_POST['select'] );
          //Obtener numero de control
@@ -143,7 +147,7 @@ class TramiteController extends Controller
         $tramite->save();
         // return$_SESSION['articulo'];
         return (response(json_encode($seleccionadoc), 200)->header('Content-type', 'text/plain'));
-        
+
     }
     public function crearTramites(Request $request){
         $_SESSION['articulo']= $request->get('seleccion_cartas');
@@ -159,7 +163,7 @@ class TramiteController extends Controller
     public function show(Request $request,$id)
     {
         //
-        
+
     }
 
     /**
