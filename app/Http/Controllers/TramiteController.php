@@ -86,7 +86,7 @@ class TramiteController extends Controller
 
         //  print_r($user_loged);
         // print_r($usuarios);
-          print_r($prestamos);
+        //   print_r($prestamos);
         $bandera = 0;
         $_SESSION['numero_control_alumno']= $usuarios[0]->numero_control;
         $_SESSION['articulo']= $request->get('seleccion_cartas');
